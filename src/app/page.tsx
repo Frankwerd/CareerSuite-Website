@@ -1,220 +1,185 @@
+// src/app/page.tsx
 'use client';
 
-import FluidCursor from '@/components/FluidCursor';
-import AllProjects from '@/components/projects/AllProjects';
 import { Button } from '@/components/ui/button';
-import WelcomeModal from '@/components/welcome-modal';
-import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  Laugh,
-  Layers,
-  PartyPopper,
-  UserRoundSearch,
-} from 'lucide-react';
-import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useRef, useState } from 'react';
-import GitHubButton from 'react-github-btn';
+import { ArrowRight, BarChart, CheckCircle, DownloadCloud, Zap } from 'lucide-react';
+// import Image from 'next/image'; // Uncomment if you add a hero image or in sections below
 
-/* ---------- quick-question data ---------- */
-const questions = {
-  Me: 'Who are you? I want to know more about you.',
-  Projects: 'What are your projects? What are you working on right now?', // This will trigger the carousel
-  Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: 'What’s the craziest thing you’ve ever done? What are your hobbies?', // Kept for now, can be removed if Frank prefers
-  Contact: 'How can I contact you?',
-} as const;
-
-const questionConfig = [
-  { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
-  { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
-] as const;
-
-/* ---------- component ---------- */
-function PageContent() {
-  const [input, setInput] = useState('');
-  const router = useRouter();
-  const searchParams = useSearchParams(); 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const showProjects = searchParams.get('viewProjects') === 'true'; 
-
-  const goToChat = (query: string) =>
-    router.push(`/chat?query=${encodeURIComponent(query)}`);
-
-  const topElementVariants = {
-    hidden: { opacity: 0, y: -60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'ease', duration: 0.8 },
-    },
-  };
-  const bottomElementVariants = {
-    hidden: { opacity: 0, y: 80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'ease', duration: 0.8, delay: 0.2 },
-    },
-  };
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = '/landing-logo.png'; // Preload original image
-
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; 
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_logo.webm'; // Preload original video
-    document.head.appendChild(linkWebm);
-
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_logo'; // Preload original video
-    document.head.appendChild(linkMp4);
-  }, []);
-
-  return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
-      {!showProjects && (
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
-        <div
-          className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
-          style={{ marginBottom: '-2.5rem' }}
-        >
-          LiButti
-        </div>
+const HeroSection = () => (
+  <section className="py-20 md:py-32 bg-background text-foreground">
+    <div className="container mx-auto px-4 text-center">
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+        The Future of <span className="text-primary">YourSaaS</span> Is Here
+      </h1>
+      <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+        Streamline your workflow, boost productivity, and achieve more with our innovative SaaS solution. Get started today and experience the difference.
+      </p>
+      <div className="space-x-4">
+        <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+          Get Started Free <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+        <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10">
+          Learn More
+        </Button>
       </div>
-      )}
-
-      <div className="absolute top-6 right-8 z-20">
-        <GitHubButton
-          href="https://github.com/Frankwerd/Frankwerd-Portfolio"
-          data-color-scheme="no-preference: light; light: light; dark: light_high_contrast;"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star Frankwerd's portfolio on GitHub"
-        >
-          Star
-        </GitHubButton>
-      </div>
-
-      <div className="absolute top-6 left-6 z-20">
-        <button
-          onClick={() => goToChat('Are you looking for a job?')} // This query can be refined
-          className="cursor-pointer relative flex items-center gap-2 rounded-full border bg-white/30 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-          </span>
-          Looking for talent?
-        </button>
-      </div>
-
-      {!showProjects && (
-        <>
-          <motion.div
-            className="z-1 mb-8 flex flex-col items-center text-center md:mb-12 mt-24 md:mt-4"
-            variants={topElementVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="z-100">
-              <WelcomeModal />
-            </div>
-
-            <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-              Hey, I'm Frank 👋
-            </h2>
-            <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-              Problem Solver & AI Architect
-            </h1>
-          </motion.div>
-
-          <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72">
-            <Image
-              src="/landing-logo.png" // Original template image
-              alt="Hero memoji"
-              width={2000}
-              height={2000}
-              priority
-              className="translate-y-14 scale-[2] object-cover"
-            />
-          </div>
-        </>
-      )}
-
-      {showProjects && (
-        <div className="w-full max-w-7xl mx-auto my-12 md:my-16 pt-16"> {/* Added pt-16 for spacing when header is hidden */}
-          <AllProjects />
-        </div>
-      )}
-
-      <motion.div
-        variants={bottomElementVariants}
-        initial="hidden"
-        animate="visible"
-        className="z-10 mt-4 flex w-full flex-col items-center justify-center md:px-0"
-      >
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (input.trim()) goToChat(input.trim());
-          }}
-          className="relative w-full max-w-lg"
-        >
-          <div className="mx-auto flex items-center rounded-full border border-neutral-200 bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition-all hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-neutral-600">
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything…"
-              className="w-full border-none bg-transparent text-base text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-500"
-            />
-            <button
-              type="submit"
-              disabled={!input.trim()}
-              aria-label="Submit question"
-              className="flex items-center justify-center rounded-full bg-[#0171E3] p-2.5 text-white transition-colors hover:bg-blue-600 disabled:opacity-70 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >
-              <ArrowRight className="h-5 w-5" />
-            </button>
-          </div>
-        </form>
-
-        <div className="mt-4 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5">
-          {questionConfig.map(({ key, color, icon: Icon }) => (
-            <Button
-              key={key}
-              onClick={() => goToChat(questions[key])}
-              variant="outline"
-              className="shadow-none border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 backdrop-blur-lg active:scale-95 md:p-10"
-            >
-              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700">
-                <Icon size={22} strokeWidth={2} color={color} />
-                <span className="text-xs font-medium sm:text-sm">{key}</span>
-              </div>
-            </Button>
-          ))}
-        </div>
-      </motion.div>
-      <FluidCursor />
+      {/* Optional: Placeholder for a product image or illustration below CTA */}
+      {/* <div className="mt-12">
+        <Image src="/path-to-your-product-showcase.png" alt="Product Showcase" width={800} height={500} className="mx-auto rounded-lg shadow-xl"/>
+      </div> */}
     </div>
-  );
-}
+  </section>
+);
 
-export default function Home() {
+const FeaturesSection = () => (
+  <section id="features" className="py-16 md:py-24 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Why Choose <span className="text-primary">YourSaaS</span>?</h2>
+        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Discover the powerful features that make our platform the best choice for your needs.</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-8">
+        <div className="bg-background p-6 rounded-lg shadow-md text-center">
+          <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Lightning Fast</h3>
+          <p className="text-muted-foreground text-sm">Experience unparalleled speed and efficiency with our optimized platform.</p>
+        </div>
+        <div className="bg-background p-6 rounded-lg shadow-md text-center">
+          <CheckCircle className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Easy to Use</h3>
+          <p className="text-muted-foreground text-sm">Intuitive design and simple navigation make it easy for anyone to get started.</p>
+        </div>
+        <div className="bg-background p-6 rounded-lg shadow-md text-center">
+          <BarChart className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Powerful Analytics</h3>
+          <p className="text-muted-foreground text-sm">Gain valuable insights with our comprehensive analytics and reporting tools.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const PricingSection = () => (
+  <section id="pricing" className="py-16 md:py-24 bg-background">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Flexible <span className="text-primary">Pricing</span> Plans</h2>
+        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Choose the plan that’s right for you. No hidden fees, cancel anytime.</p>
+      </div>
+      <div className="grid md:grid-cols-3 gap-8 items-stretch">
+        {/* Basic Plan */}
+        <div className="border border-border rounded-lg p-8 flex flex-col">
+          <h3 className="text-2xl font-semibold text-foreground mb-1">Basic</h3>
+          <p className="text-muted-foreground mb-4">For individuals & small teams</p>
+          <p className="text-4xl font-bold text-foreground mb-1">$10<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature A</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature B</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 5 GB Storage</li>
+          </ul>
+          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">Choose Plan</Button>
+        </div>
+        {/* Pro Plan (Most Popular) */}
+        <div className="border-2 border-primary rounded-lg p-8 relative flex flex-col shadow-xl">
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-3 py-1 text-xs font-semibold rounded-full">MOST POPULAR</div>
+          <h3 className="text-2xl font-semibold text-foreground mb-1">Pro</h3>
+          <p className="text-muted-foreground mb-4">For growing businesses</p>
+          <p className="text-4xl font-bold text-foreground mb-1">$25<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> All Basic Features</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature C & D</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 20 GB Storage</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Priority Support</li>
+          </ul>
+          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Choose Plan</Button>
+        </div>
+        {/* Enterprise Plan */}
+        <div className="border border-border rounded-lg p-8 flex flex-col">
+          <h3 className="text-2xl font-semibold text-foreground mb-1">Enterprise</h3>
+          <p className="text-muted-foreground mb-4">For large organizations</p>
+          <p className="text-4xl font-bold text-foreground mb-1">$50<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
+          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> All Pro Features</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature E, F, G</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 100 GB Storage</li>
+            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Dedicated Support</li>
+          </ul>
+          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">Choose Plan</Button>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const TestimonialsSection = () => (
+  <section id="reviews" className="py-16 md:py-24 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Loved by <span className="text-primary">Teams</span> Worldwide</h2>
+        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Hear what our amazing customers have to say about YourSaaS.</p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonial 1 */}
+        <div className="bg-background p-6 rounded-lg shadow-md">
+          <p className="text-muted-foreground mb-4">"YourSaaS has completely transformed how we manage our projects. It's intuitive, powerful, and the support is top-notch!"</p>
+          <div className="flex items-center">
+            {/* <Image src="/path-to-avatar1.jpg" alt="User Avatar" width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">Jane Doe</p>
+              <p className="text-xs text-muted-foreground">CEO, Innovatech</p>
+            </div>
+          </div>
+        </div>
+        {/* Testimonial 2 */}
+        <div className="bg-background p-6 rounded-lg shadow-md">
+          <p className="text-muted-foreground mb-4">"The efficiency gains we've seen since adopting YourSaaS are incredible. Highly recommended for any team looking to optimize."</p>
+          <div className="flex items-center">
+            {/* <Image src="/path-to-avatar2.jpg" alt="User Avatar" width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">John Smith</p>
+              <p className="text-xs text-muted-foreground">Project Manager, Solutions Co.</p>
+            </div>
+          </div>
+        </div>
+        {/* Testimonial 3 */}
+        <div className="bg-background p-6 rounded-lg shadow-md">
+          <p className="text-muted-foreground mb-4">"A fantastic product with an even better team behind it. YourSaaS is a game-changer for our industry."</p>
+          <div className="flex items-center">
+            {/* <Image src="/path-to-avatar3.jpg" alt="User Avatar" width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">Alice Brown</p>
+              <p className="text-xs text-muted-foreground">Lead Developer, TechForward</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const CallToActionSection = () => (
+  <section className="py-20 md:py-32 bg-primary text-primary-foreground">
+    <div className="container mx-auto px-4 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Business?</h2>
+      <p className="text-lg md:text-xl opacity-90 mb-10 max-w-xl mx-auto">
+        Join thousands of satisfied customers and take your productivity to the next level with YourSaaS.
+      </p>
+      <Button size="lg" variant="outline" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-primary-foreground hover:border-primary-foreground/90">
+        Sign Up For Free
+        <DownloadCloud className="ml-2 h-5 w-5" />
+      </Button>
+    </div>
+  </section>
+);
+
+
+export default function HomePage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PageContent />
-    </Suspense>
+    <>
+      <HeroSection />
+      <FeaturesSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <CallToActionSection />
+    </>
   );
 }
