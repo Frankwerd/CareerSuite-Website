@@ -27,12 +27,7 @@ const Navbar = () => {
           <Link href="/download" className="text-foreground hover:text-primary transition-colors">
             Download
           </Link>
-          <Link href="/login" className="text-foreground hover:text-primary transition-colors">
-            Login
-          </Link>
-          <Link href="/signup" className="bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md text-sm font-medium transition-colors">
-            Sign Up
-          </Link>
+          {/* Login and Sign Up links removed as requested */}
         </div>
       </div>
     </nav>

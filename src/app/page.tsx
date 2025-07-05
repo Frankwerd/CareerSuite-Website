@@ -62,50 +62,48 @@ const PricingSection = () => (
   <section id="pricing" className="py-16 md:py-24 bg-background">
     <div className="container mx-auto px-4">
       <div className="text-center mb-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Flexible <span className="text-primary">Pricing</span> Plans</h2>
-        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Choose the plan that’s right for you. No hidden fees, cancel anytime.</p>
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          It's <span className="text-primary">Completely FREE!</span>
+        </h2>
+        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-lg">
+          That's right! Get full access to all the amazing features of YourSaaS without any cost.
+          We believe in providing value and making our tools accessible to everyone.
+        </p>
       </div>
-      <div className="grid md:grid-cols-3 gap-8 items-stretch">
-        {/* Basic Plan */}
-        <div className="border border-border rounded-lg p-8 flex flex-col">
-          <h3 className="text-2xl font-semibold text-foreground mb-1">Basic</h3>
-          <p className="text-muted-foreground mb-4">For individuals & small teams</p>
-          <p className="text-4xl font-bold text-foreground mb-1">$10<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
-          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature A</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature B</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 5 GB Storage</li>
+      <div className="flex justify-center">
+        <div className="border-2 border-primary rounded-lg p-8 md:p-12 flex flex-col items-center shadow-xl max-w-md text-center">
+          <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-3">YourSaaS - Free Forever</h3>
+          <p className="text-5xl md:text-6xl font-bold text-primary mb-6">FREE</p>
+          <p className="text-muted-foreground mb-6 text-md">
+            No credit card required. No hidden fees. Just pure productivity.
+          </p>
+          <ul className="space-y-3 text-muted-foreground my-6 text-md text-left list-none">
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Access to all core features</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Unlimited basic projects (example)</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Community support</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Regular updates</li>
           </ul>
-          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">Choose Plan</Button>
-        </div>
-        {/* Pro Plan (Most Popular) */}
-        <div className="border-2 border-primary rounded-lg p-8 relative flex flex-col shadow-xl">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-3 py-1 text-xs font-semibold rounded-full">MOST POPULAR</div>
-          <h3 className="text-2xl font-semibold text-foreground mb-1">Pro</h3>
-          <p className="text-muted-foreground mb-4">For growing businesses</p>
-          <p className="text-4xl font-bold text-foreground mb-1">$25<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
-          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> All Basic Features</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature C & D</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 20 GB Storage</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Priority Support</li>
-          </ul>
-          <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">Choose Plan</Button>
-        </div>
-        {/* Enterprise Plan */}
-        <div className="border border-border rounded-lg p-8 flex flex-col">
-          <h3 className="text-2xl font-semibold text-foreground mb-1">Enterprise</h3>
-          <p className="text-muted-foreground mb-4">For large organizations</p>
-          <p className="text-4xl font-bold text-foreground mb-1">$50<span className="text-sm font-normal text-muted-foreground">/mo</span></p>
-          <ul className="space-y-2 text-muted-foreground my-6 text-sm flex-grow">
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> All Pro Features</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Feature E, F, G</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> 100 GB Storage</li>
-            <li className="flex items-center"><CheckCircle className="h-5 w-5 text-green-500 mr-2" /> Dedicated Support</li>
-          </ul>
-          <Button variant="outline" className="w-full border-primary text-primary hover:bg-primary/10">Choose Plan</Button>
+          <Button
+            size="lg"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4 text-lg py-3 px-6"
+            onClick={() => {
+              const downloadPage = document.getElementById('download-page-link'); // Assuming you'll add an ID to your download link in Navbar or create a direct link here
+              if (downloadPage) {
+                // Smooth scroll if it's a section, or navigate if it's a page.
+                // For now, direct to /download page as an example
+                window.location.href = '/download';
+              } else {
+                window.location.href = '/download'; // Fallback
+              }
+            }}
+          >
+            Get YourSaaS FREE <DownloadCloud className="ml-2 h-5 w-5" />
+          </Button>
         </div>
       </div>
+      <p className="text-center mt-10 text-muted-foreground">
+        Ready to get started? It only takes a few seconds to download and install.
+      </p>
     </div>
   </section>
 );
@@ -159,12 +157,17 @@ const TestimonialsSection = () => (
 const CallToActionSection = () => (
   <section className="py-20 md:py-32 bg-primary text-primary-foreground">
     <div className="container mx-auto px-4 text-center">
-      <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Elevate Your Business?</h2>
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">Get Started with YourSaaS Today!</h2>
       <p className="text-lg md:text-xl opacity-90 mb-10 max-w-xl mx-auto">
-        Join thousands of satisfied customers and take your productivity to the next level with YourSaaS.
+        It's completely free. Download the extension now and unlock a new level of productivity.
       </p>
-      <Button size="lg" variant="outline" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-primary-foreground hover:border-primary-foreground/90">
-        Sign Up For Free
+      <Button
+        size="lg"
+        variant="outline"
+        className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-primary-foreground hover:border-primary-foreground/90 text-lg py-3 px-6"
+        onClick={() => window.location.href = '/download'}
+      >
+        Download YourSaaS FREE
         <DownloadCloud className="ml-2 h-5 w-5" />
       </Button>
     </div>
