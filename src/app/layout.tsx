@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
+import Navbar from "@/components/layout/Navbar"; // Added Navbar import
+import Footer from "@/components/layout/Footer"; // Added Footer import
 import "./globals.css";
 
 // Load Inter font for non-Apple devices
@@ -13,52 +15,40 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Frank's Portfolio",
-  description: "Interactive portfolio with an AI-powered Memoji that answers questions about me, my skills, and my experience",
+  title: "YourSaaS - Revolutionizing Your Workflow", // Updated title
+  description: "YourSaaS is the ultimate solution for X, Y, and Z. Sign up today for a free trial!", // Updated description
   keywords: [
-    "Francis John LiButti",
-    "Francis LiButti",
-    "Francis J LiButti",
-    "Frankie Libutti",
-    "Frank LiButti",
-    "LiButti",
-    "CareerSuite",
-    "CareerSuiteai",
-    "CareerSuite.Ai",
-    "Portfolio", 
-    "Developer", 
-    "AI", 
-    "Interactive", 
-    "Memoji", 
-    "Web Development",
-    "Full Stack",
-    "Next.js",
-    "React"
+    "SaaS",
+    "Productivity",
+    "Workflow",
+    "Automation",
+    // Add relevant keywords for your SaaS product
   ],
   authors: [
     {
-      name: "Frank",
-      url: "",
+      name: "YourSaaS Team", // Updated author
+      url: "https://your-saas-website.com", // Link to your website
     },
   ],
-  creator: "Toukoum",
+  creator: "YourSaaS Team", // Updated creator
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "",
-    title: "Frank's Portfolio",
-    description: "Interactive portfolio with an AI-powered Memoji that answers questions about me",
-    siteName: "Frank's Portfolio",
+    url: "https://your-saas-website.com", // Your website URL
+    title: "YourSaaS - Revolutionizing Your Workflow", // Updated OG title
+    description: "YourSaaS is the ultimate solution for X, Y, and Z. Sign up today!", // Updated OG description
+    siteName: "YourSaaS", // Updated OG site name
+    // Add an openGraph image later, e.g., images: [{ url: '/og-image.png' }],
   },
-  icons: {
+  icons: { // Update icons to your brand's favicon
     icon: [
       {
-        url: "/fjl.png",
+        url: "/favicon.ico", // Example, replace with your favicon
         sizes: "any",
       }
     ],
-    shortcut: "/fjl.svg?v=2",
-    apple: "/apple-touch-icon.svg?v=2",
+    shortcut: "/favicon.ico", // Example
+    apple: "/apple-touch-icon.png", // Example
   },
 };
 
@@ -71,7 +61,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <link rel="icon" href="/favicon.svg" sizes="any" />
+        {/* Favicon link from metadata.icons should be sufficient, explicit link below can be removed if not needed */}
+        {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
       </head>
       <body
         className={cn(
@@ -82,11 +73,15 @@ export default function RootLayout({
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
-          enableSystem={false}
+          enableSystem={false} // Explicitly disabling system theme preference as per original
         >
-          <main className="flex min-h-screen flex-col">
-            {children}
-          </main>
+          <div className="flex flex-col min-h-screen">
+            <Navbar />
+            <main className="flex-grow"> {/* Removed flex-col and min-h-screen from main, as body and outer div handle it */}
+              {children}
+            </main>
+            <Footer />
+          </div>
           <Toaster />
         </ThemeProvider>
         <Analytics />

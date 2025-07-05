@@ -44,30 +44,43 @@
 }
 
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.141 0.005 285.823);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.141 0.005 285.823);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(0.21 0.006 285.885);
-  --primary-foreground: oklch(0.985 0 0);
-  --secondary: oklch(0.967 0.001 286.375);
-  --secondary-foreground: oklch(0.21 0.006 285.885);
-  --muted: oklch(0.967 0.001 286.375);
-  --muted-foreground: oklch(0.552 0.016 285.938);
-  --accent: oklch(0.967 0.001 286.375);
-  --accent-foreground: oklch(0.21 0.006 285.885);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.92 0.004 286.32);
-  --input: oklch(0.92 0.004 286.32);
-  --ring: oklch(0.705 0.015 286.067);
+  --radius: 0.625rem; /* Kept original radius */
+
+  /* Brand Colors - Light Mode */
+  --background: oklch(100% 0 0); /* White #FFFFFF */
+  --foreground: oklch(34.61% 0.028 253.37); /* Charcoal #2F4858 - Primary Text */
+
+  --primary: oklch(65.77% 0.195 39.94); /* Vibrant Orange #F26419 - Primary Action */
+  --primary-foreground: oklch(100% 0 0); /* White #FFFFFF - Text on Primary Action */
+
+  --secondary: oklch(77.99% 0.168 75.31); /* Hunyadi Yellow #F6AE2D - Secondary Accent */
+  --secondary-foreground: oklch(34.61% 0.028 253.37); /* Charcoal #2F4858 - Text on Secondary Accent */
+
+  --accent: oklch(47.57% 0.069 257.76); /* Lapis Lazuli #33658A - Informational/Trust Element */
+  --accent-foreground: oklch(100% 0 0); /* White #FFFFFF - Text on Informational/Trust Element */
+
+  /* Original values kept for elements not directly mapped to the core brand palette yet */
+  --card: oklch(1 0 0); /* Original: White */
+  --card-foreground: oklch(0.141 0.005 285.823); /* Original: Dark text */
+  --popover: oklch(1 0 0); /* Original: White */
+  --popover-foreground: oklch(0.141 0.005 285.823); /* Original: Dark text */
+
+  --muted: oklch(0.967 0.001 286.375); /* Original */
+  --muted-foreground: oklch(0.552 0.016 285.938); /* Original */
+
+  --destructive: oklch(0.577 0.245 27.325); /* Original */
+  --border: oklch(0.92 0.004 286.32); /* Original */
+  --input: oklch(0.92 0.004 286.32); /* Original */
+  --ring: oklch(0.705 0.015 286.067); /* Original - Consider adjusting to an accent like Lapis Lazuli or Orange for focus */
+
+  /* Chart colors - kept original for now */
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
+
+  /* Sidebar colors - kept original for now, may not be used in new design */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.141 0.005 285.823);
   --sidebar-primary: oklch(0.21 0.006 285.885);
