@@ -7,9 +7,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-semibold text-foreground mb-2">YourSaaS</h3>
+            <h3 className="text-xl font-semibold text-foreground mb-2">CareerSuite.ai</h3>
             <p className="text-sm">
-              Making your life easier, one click at a time.
+              Launch your career with an AI-powered resume.
             </p>
           </div>
           <div>
@@ -31,7 +31,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-4 text-center text-sm">
-          <p>&copy; {new Date().getFullYear()} YourSaaS. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} CareerSuite.ai. All rights reserved.</p>
         </div>
       </div>
     </footer>

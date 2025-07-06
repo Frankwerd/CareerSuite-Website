@@ -131,7 +131,23 @@
   }
   body {
     @apply bg-background text-foreground;
+    /* TODO: BRANDING - Current font is Inter (via --font-inter in layout.tsx and Tailwind's font-sans).
+       Brand guide specifies Nunito for body text. This would require:
+       1. Loading Nunito font (e.g., via next/font/google in layout.tsx, creating --font-nunito).
+       2. Updating Tailwind config's `fontFamily.sans` to use `['var(--font-nunito)', ...fallbacks]`.
+       3. Or, applying `font-family: var(--font-nunito);` directly to the body here if not using Tailwind for this.
+    */
   }
+  /* TODO: BRANDING - Brand guide specifies Montserrat (Bold) for headings.
+     This would require:
+     1. Loading Montserrat font (e.g., via next/font/google in layout.tsx, creating --font-montserrat).
+     2. Applying it to h1-h6 elements:
+        h1, h2, h3, h4, h5, h6 {
+          font-family: var(--font-montserrat), sans-serif;
+          font-weight: 700; // Or appropriate bold weight
+        }
+     3. This might also involve creating a `font-heading` utility in Tailwind.
+  */
 }
 
 .custom-scrollbar {

@@ -2,75 +2,83 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - YourSaaS',
-  description: 'Privacy Policy for YourSaaS.',
+  title: 'Privacy Policy - CareerSuite.ai',
+  description: 'Understand how CareerSuite.ai handles your data. Our commitment to your privacy as a free, AI-powered resume analyzer.',
 };
 
 export default function PrivacyPolicyPage() {
   return (
     <div className="container mx-auto px-4 py-12 min-h-[calc(100vh-10rem)]"> {/* Adjust min-h as needed */}
-      <h1 className="text-3xl font-bold text-foreground mb-6">Privacy Policy</h1>
+      <h1 className="text-3xl font-bold text-foreground mb-6">Privacy Policy for CareerSuite.ai</h1>
       <div className="prose dark:prose-invert max-w-none">
         <p><em>Last Updated: {new Date().toLocaleDateString()}</em></p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">1. Introduction</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">1. Our Commitment to Your Privacy</h2>
         <p>
-          Welcome to YourSaaS ("we," "our," or "us"). We are committed to protecting your privacy.
-          This Privacy Policy explains how we collect, use, disclose, and safeguard your information
-          when you use our software and services (collectively, "Services").
+          Welcome to CareerSuite.ai ("we," "our," or "us"). CareerSuite.ai is a free, AI-powered tool that analyzes a user's resume against a specific job description and provides actionable feedback for improvement.
+          A core principle of our service is being **Privacy-First & Requiring No Account.**
         </p>
-        <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the services.</p>
-
-        <h2 className="text-2xl font-semibold mt-6 mb-3">2. Information We Collect</h2>
         <p>
-          We may collect personal information that you voluntarily provide to us when you register for an account,
-          use our Services, or contact us. This information may include:
+          This Privacy Policy explains our position on data. Given our architecture, it's quite simple:
+          <strong>we do not collect, store, or upload your personal data, resumes, or job descriptions.</strong>
         </p>
-        <ul>
-          <li>Your name</li>
-          <li>Email address</li>
-          <li>Payment information (processed by third-party payment processors)</li>
-          <li>Usage data related to your interaction with our Services</li>
-          <li>Device information (e.g., IP address, browser type)</li>
-        </ul>
+        <p>Please read this privacy policy carefully.</p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">3. How We Use Your Information</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">2. Information We Do Not Collect</h2>
         <p>
-          We use the information we collect in various ways, including to:
+          Since all processing happens in your browser via local storage, CareerSuite.ai **DOES NOT** collect, transmit, or store on its servers any of the following:
         </p>
         <ul>
-          <li>Provide, operate, and maintain our Services</li>
-          <li>Improve, personalize, and expand our Services</li>
-          <li>Understand and analyze how you use our Services</li>
-          <li>Develop new products, services, features, and functionality</li>
-          <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the Service, and for marketing and promotional purposes</li>
-          <li>Process your transactions</li>
-          <li>Find and prevent fraud</li>
+          <li>Your resume content (text, formatting, or the file itself).</li>
+          <li>Job description content you paste or use.</li>
+          <li>Personal information such as your name, email address, or any other contact details (as no account is needed).</li>
+          <li>IP addresses or specific device information linked to your usage of the core analysis feature.</li>
         </ul>
-
-        <h2 className="text-2xl font-semibold mt-6 mb-3">4. Sharing Your Information</h2>
         <p>
-          We do not sell your personal information. We may share information with third-party vendors and service providers that perform services for us or on our behalf, such as payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.
+          The analysis and feedback generation occur entirely on your local machine. Your data never leaves your computer to be processed by our servers for the core resume analysis function.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">5. Data Security</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">3. Information We May Collect (Non-Personal & Optional)</h2>
         <p>
-        We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse.
+          For the purpose of improving our website and general user experience, we may collect anonymous, aggregated usage statistics through standard web analytics tools (like Vercel Analytics, which is mentioned in the project's `layout.tsx`). This may include:
+        </p>
+        <ul>
+          <li>Page views (e.g., which pages like "About Us" or "Download" are visited).</li>
+          <li>General interaction events (e.g., clicks on non-data-submitting buttons, like a "Learn More" button).</li>
+          <li>Browser type and version, operating system, and screen resolution for ensuring compatibility.</li>
+        </ul>
+        <p>This data is anonymized and cannot be used to identify you or link back to any specific resume or job description you analyze. This data helps us understand how users interact with the informational parts of our website so we can improve them.</p>
+        <p>If you voluntarily contact us via email (e.g., for support), we will naturally have your email address and any information you provide in that communication. This is standard for any email correspondence.</p>
+
+
+        <h2 className="text-2xl font-semibold mt-6 mb-3">4. How We Use Information (The Limited Data We Have)</h2>
+        <p>
+          The limited anonymous data we collect is used to:
+        </p>
+        <ul>
+          <li>Understand how our website is used and improve its performance and content.</li>
+          <li>Troubleshoot and improve website functionality.</li>
+        </ul>
+        <p>Information from direct contact (e.g., support emails) is used solely to communicate with you and address your queries.</p>
+
+        <h2 className="text-2xl font-semibold mt-6 mb-3">5. Data Security (For Data Handled by You)</h2>
+        <p>
+        While we don't store your resume or job description data, it's important to note that the data processing occurs in your browser. The security of your local machine and browser environment is your responsibility. Ensure your system is secure to protect any data you work with locally.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">6. Your Data Protection Rights</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">6. Third-Party Links & Services</h2>
         <p>
-          Depending on your location, you may have certain rights regarding your personal information, such as the right to access, correct, or delete your data. Please contact us to exercise these rights.
+          Our website may contain links to other websites (e.g., a link to the Chrome Web Store for downloading the extension). This Privacy Policy applies only to CareerSuite.ai. We are not responsible for the privacy practices of other sites.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">7. Changes to This Privacy Policy</h2>
         <p>
-          We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.
+          We may update this Privacy Policy from time to time to reflect any changes in our practices or for other operational, legal, or regulatory reasons. Any changes will be posted on this page.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">8. Contact Us</h2>
         <p>
-          If you have any questions about this Privacy Policy, please contact us at: [Your Contact Email or Link to Contact Page]
+          If you have any questions about this Privacy Policy, please contact us via the information provided on our <a href="/contact" className="text-primary hover:underline">Contact Page</a>.
         </p>
       </div>
     </div>

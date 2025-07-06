@@ -9,46 +9,64 @@ import Footer from "@/components/layout/Footer"; // Added Footer import
 import "./globals.css";
 
 // Load Inter font for non-Apple devices
+// TODO: BRANDING - Implement Montserrat for headings and Nunito for body text as per brand guide.
+// This would involve:
+// 1. Importing Montserrat and Nunito from 'next/font/google'.
+//    e.g.:
+//    const montserrat = Montserrat({ subsets: ['latin'], variable: '--font-montserrat', weight: '700' });
+//    const nunito = Nunito({ subsets: ['latin'], variable: '--font-nunito', weight: ['400', '700'] });
+// 2. Adding their variables to the body className: `montserrat.variable, nunito.variable`.
+// 3. Updating tailwind.config.js (if used for fonts) or globals.css to apply these fonts.
+//    - `font-sans` in Tailwind should default to `var(--font-nunito)`.
+//    - Headings (h1-h6) should use `var(--font-montserrat)`.
 const inter = Inter({ 
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-inter", // Current setup uses Inter.
 });
 
+// Updated metadata for CareerSuite.ai
 export const metadata: Metadata = {
-  title: "YourSaaS - Revolutionizing Your Workflow", // Updated title
-  description: "YourSaaS is the ultimate solution for X, Y, and Z. Sign up today for a free trial!", // Updated description
+  title: "CareerSuite.ai - AI-Powered Resume Analyzer for Job Seekers",
+  description: "Get instant, expert feedback on your resume against any job description. CareerSuite.ai helps you beat ATS and land more interviews—for free, with complete privacy. No account needed.",
   keywords: [
-    "SaaS",
-    "Productivity",
-    "Workflow",
-    "Automation",
-    // Add relevant keywords for your SaaS product
+    "AI resume analyzer",
+    "resume checker",
+    "ATS resume",
+    "job description matching",
+    "resume feedback",
+    "free resume tool",
+    "career tools",
+    "job seeker",
+    "resume optimization",
+    "privacy-first resume tool",
+    "CareerSuite.ai"
   ],
   authors: [
     {
-      name: "YourSaaS Team", // Updated author
-      url: "https://your-saas-website.com", // Link to your website
+      name: "CareerSuite.ai Team",
+      url: "https://careersuite.ai", // Replace with actual domain when available
     },
   ],
-  creator: "YourSaaS Team", // Updated creator
+  creator: "CareerSuite.ai Team",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://your-saas-website.com", // Your website URL
-    title: "YourSaaS - Revolutionizing Your Workflow", // Updated OG title
-    description: "YourSaaS is the ultimate solution for X, Y, and Z. Sign up today!", // Updated OG description
-    siteName: "YourSaaS", // Updated OG site name
-    // Add an openGraph image later, e.g., images: [{ url: '/og-image.png' }],
+    url: "https://careersuite.ai", // Replace with actual domain
+    title: "CareerSuite.ai - AI-Powered Resume Analyzer",
+    description: "Instantly analyze your resume against job descriptions, get actionable feedback, and improve your chances of landing an interview. Free & private.",
+    siteName: "CareerSuite.ai",
+    // Consider adding a specific Open Graph image for CareerSuite.ai (e.g., featuring the "Pencil Rocket")
+    // images: [{ url: '/og-careersuite.png' }],
   },
-  icons: { // Update icons to your brand's favicon
+  icons: { // Reminder: Replace these with actual CareerSuite.ai favicons
     icon: [
       {
-        url: "/favicon.ico", // Example, replace with your favicon
-        sizes: "any",
+        url: "/pencil-rocket-favicon.png", // Example: replace with actual favicon
+        sizes: "any", // Or specify sizes like "32x32"
       }
     ],
-    shortcut: "/favicon.ico", // Example
-    apple: "/apple-touch-icon.png", // Example
+    shortcut: "/pencil-rocket-favicon.svg", // Example
+    apple: "/apple-touch-icon-pencil-rocket.png", // Example
   },
 };
 
@@ -66,7 +84,9 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased", // `font-sans` currently defaults to Inter via `inter.variable`
+          // TODO: BRANDING - Add nunito.variable here if Nunito is loaded for body text.
+          // e.g., className={cn("... font-body", montserrat.variable, nunito.variable)}
           inter.variable,
         )}
       >

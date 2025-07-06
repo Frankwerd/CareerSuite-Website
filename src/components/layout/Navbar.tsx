@@ -6,7 +6,7 @@ const Navbar = () => {
     <nav className="bg-background border-b border-border shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
         <Link href="/" className="text-2xl font-bold text-primary">
-          YourSaaS
+          CareerSuite.ai
         </Link>
         <div className="space-x-4 flex items-center">
           <Link href="/#features" className="text-foreground hover:text-primary transition-colors">
