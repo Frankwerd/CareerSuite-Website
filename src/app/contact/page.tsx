@@ -60,40 +60,42 @@ export default function ContactPage() {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
           <div className="relative bg-background shadow-lg rounded-lg p-8 overflow-hidden">
-            <BorderBeam size={250} duration={5} delay={1} colorFrom="gold" colorTo="silver" />
-            <div className="relative z-10"> {/* Add a wrapper with z-index for content */}
+            <BorderBeam duration={10} delay={0} /> {/* Simplified props */}
+            {/* Content should be naturally on top or managed by its own z-index if necessary */}
+            {/* Ensure child elements of the card also have a higher z-index if they are being overlapped */}
+            <div className="relative z-[1]"> {/* Add z-index to the form container as well */}
               <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h2>
               {isSubmitted ? (
-                <div className="text-center p-6 bg-green-100 text-green-700 rounded-md">
-                  <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500" />
-                  <h3 className="text-xl font-semibold">Thank You!</h3>
-                  <p>Your message has been sent successfully. We'll get back to you soon.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">Full Name</label>
-                    <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required className="bg-muted/50 border-border" />
+                  <div className="text-center p-6 bg-green-100 text-green-700 rounded-md">
+                    <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500" />
+                    <h3 className="text-xl font-semibold">Thank You!</h3>
+                    <p>Your message has been sent successfully. We'll get back to you soon.</p>
                   </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">Email Address</label>
-                    <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required className="bg-muted/50 border-border" />
-                  </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-1">Subject</label>
-                    <Input type="text" name="subject" id="subject" value={formData.subject} onChange={handleChange} required className="bg-muted/50 border-border" />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">Message</label>
-                    <Textarea name="message" id="message" rows={5} value={formData.message} onChange={handleChange} required className="bg-muted/50 border-border" />
-                  </div>
-                  <div>
-                    <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                      Send Message
-                    </Button>
-                  </div>
-                </form>
-              )}
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-muted-foreground mb-1">Full Name</label>
+                      <Input type="text" name="name" id="name" value={formData.name} onChange={handleChange} required className="bg-muted/50 border-border" />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-muted-foreground mb-1">Email Address</label>
+                      <Input type="email" name="email" id="email" value={formData.email} onChange={handleChange} required className="bg-muted/50 border-border" />
+                    </div>
+                    <div>
+                      <label htmlFor="subject" className="block text-sm font-medium text-muted-foreground mb-1">Subject</label>
+                      <Input type="text" name="subject" id="subject" value={formData.subject} onChange={handleChange} required className="bg-muted/50 border-border" />
+                    </div>
+                    <div>
+                      <label htmlFor="message" className="block text-sm font-medium text-muted-foreground mb-1">Message</label>
+                      <Textarea name="message" id="message" rows={5} value={formData.message} onChange={handleChange} required className="bg-muted/50 border-border" />
+                    </div>
+                    <div>
+                      <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+                        Send Message
+                      </Button>
+                    </div>
+                  </form>
+                )}
             </div>
           </div>
 

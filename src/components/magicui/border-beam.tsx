@@ -1,11 +1,11 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { motion, type Transition } from "framer-motion";
+import { motion } from "framer-motion";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
 
-interface BorderBeamProps extends React.HTMLAttributes<HTMLDivElement> {
+interface BorderBeamProps {
   className?: string;
   size?: number;
   duration?: number;
@@ -13,117 +13,83 @@ interface BorderBeamProps extends React.HTMLAttributes<HTMLDivElement> {
   colorFrom?: string;
   colorTo?: string;
   delay?: number;
-  reverse?: boolean;
-  initialOffset?: number; // Allow initial offset to be passed as a prop
+  // Removed reverse and initialOffset as they are not standard in the basic BorderBeam
   style?: React.CSSProperties;
-  transition?: Transition;
 }
 
 export const BorderBeam: React.FC<BorderBeamProps> = ({
   className,
-  size = 200,
-  duration = 15,
+  size = 100, // Adjusted default size
+  duration = 10, // Adjusted default duration
   borderWidth = 1.5,
   colorFrom = "#ffaa40",
   colorTo = "#9c40ff",
   delay = 0,
-  reverse = false,
-  initialOffset = 0, // Default initial offset to 0
   style,
-  transition, // Allow custom transition
   ...props
 }) => {
   const [path, setPath] = useState("");
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Effect to calculate and set the path for the SVG
   useEffect(() => {
-    const PADDING = 0; // Padding around the border
     const container = containerRef.current;
-    if (!container) return;
-
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
-
-    const newPath = `M${PADDING},${PADDING} H${width - PADDING} V${height - PADDING} H${PADDING} Z`;
-    setPath(newPath);
-  }, [size, borderWidth]); // Re-calculate path when size or borderWidth changes
-
-  // Calculate initial dash offset based on the prop
-  const initialDashOffset = (initialOffset / 100) * 1000; // Assuming 1000 is the total path length for dash array
+    if (container) {
+      const width = container.offsetWidth;
+      const height = container.offsetHeight;
+      // Simple rectangular path
+      setPath(`M0,0 H${width} V${height} H0 Z`);
+    }
+  }, []); // Recalculate on mount and if width/height changes (implicitly via parent)
 
   return (
     <div
       ref={containerRef}
-      style={
-        {
-          "--border-width": `${borderWidth}px`,
-          "--radius": "0.75rem", // Default border radius if not provided by parent
-          "--border-radius": "calc(var(--radius) - var(--border-width))",
-          "--border-bg": `conic-gradient(from 180deg at 50% 50%, ${colorFrom} 0deg, ${colorTo} 360deg)`,
-          "--beam-bg": `conic-gradient(from 180deg at 50% 50%, transparent 0%, ${colorFrom} 25%, ${colorTo} 75%, transparent 100%)`,
-          "--beam-size": `${size}px`,
-          ...style, // Allow custom styles
-        } as React.CSSProperties
-      }
       className={cn(
         "absolute inset-0 rounded-[var(--radius)] [border:calc(var(--border-width)*1px)_solid_transparent]",
-        // Use calculated values for border and background
-        "before:absolute before:-inset-[var(--border-width)] before:h-[calc(100%+var(--border-width)*2)] before:w-[calc(100%+var(--border-width)*2)] before:rounded-[var(--radius)] before:bg-[var(--border-bg)] before:[animation-play-state:paused] before:content-['']",
-        // Beam animation styles
-        "after:absolute after:-inset-[var(--border-width)] after:h-[calc(100%+var(--border-width)*2)] after:w-[calc(100%+var(--border-width)*2)] after:rounded-[var(--radius)] after:bg-[linear-gradient(transparent,transparent),var(--beam-bg)] after:bg-size-[length:100%_var(--beam-size),cover] after:bg-repeat-y after:content-['']",
-        // Masking to create the border effect
-        "before:bg-[linear-gradient(transparent,transparent),var(--border-bg)] before:bg-clip-border before:bg-origin-border before:bg-size-[length:100%_calc(var(--beam-size)*1),cover] before:bg-repeat-y",
-        // Animation
-        "before:animate-border-beam after:animate-border-beam",
-        reverse && "before:[animation-direction:reverse] after:[animation-direction:reverse]",
+        // Ensure --radius is defined by the parent or defaults appropriately in global styles
+        // The BorderBeam itself does not define --radius; it expects it from the parent context.
         className,
       )}
+      style={
+        {
+          ...style,
+          "--border-width": `${borderWidth}px`,
+          // The conic gradient for the border background
+          "--border-bg": `conic-gradient(from 180deg at 50% 50%, ${colorTo} 0deg, ${colorFrom} 50%, ${colorTo} 100%)`,
+          // Animation will play on this pseudo-element
+          "&::before": {
+            content: '""',
+            display: "block",
+            position: "absolute",
+            width: "100%",
+            height: "100%",
+            borderRadius: "inherit", // Inherit border-radius from parent
+            padding: "var(--border-width)", // Create space for the border
+            background: "var(--border-bg)",
+            WebkitMask:
+              "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            WebkitMaskComposite: "xor",
+            maskComposite: "exclude",
+            animation: `border-beam-spin ${duration}s linear infinite`,
+            zIndex: 0, // Ensure it's behind content
+          },
+        } as React.CSSProperties
+      }
       {...props}
     >
-      {/* SVG for the animated gradient */}
-      <svg
-        fill="none"
-        width="100%"
-        height="100%"
-        className="absolute left-0 top-0 h-full w-full"
-        style={{ borderRadius: "inherit" }} // Ensure SVG inherits border radius
-      >
-        <motion.path
-          d={path}
-          stroke={`url(#gradient-${colorFrom.replace("#", "")}-${colorTo.replace("#", "")})`}
-          strokeWidth={borderWidth * 2} // Stroke width should be double the border width for visibility
-          strokeDasharray={1000} // A large number to ensure the path is fully covered
-          strokeDashoffset={initialDashOffset} // Apply the initial offset
-          strokeLinecap="round"
-          initial={{ strokeDashoffset: initialDashOffset }}
-          animate={{
-            strokeDashoffset: [initialDashOffset, initialDashOffset - 1000], // Animate from initial to fully drawn
-          }}
-          transition={
-            transition ?? {
-              duration,
-              ease: "linear",
-              repeat: Infinity,
-              delay,
-              repeatDelay: 0, // No delay between repeats
-            }
+      {/* Content of the bordered element will be children passed to BorderBeam's wrapper */}
+      {/* Keyframes for the animation should be in your global CSS or a style tag */}
+      <style jsx global>{`
+        @keyframes border-beam-spin {
+          from {
+            transform: rotate(0deg);
           }
-        />
-        {/* Gradient definition */}
-        <defs>
-          <linearGradient
-            id={`gradient-${colorFrom.replace("#", "")}-${colorTo.replace("#", "")}`}
-            x1="0%"
-            y1="0%"
-            x2="100%"
-            y2="0%"
-          >
-            <stop stopColor={colorFrom} offset="0%" />
-            <stop stopColor={colorTo} offset="100%" />
-          </linearGradient>
-        </defs>
-      </svg>
+          to {
+            transform: rotate(360deg);
+          }
+        }
+      `}</style>
     </div>
   );
 };
