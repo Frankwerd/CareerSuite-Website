@@ -183,3 +183,31 @@ pre {
   word-wrap: normal;
   overflow-x: auto;
 }
+
+/* Scroll Fade-in Animation */
+.scroll-fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Animation for AnimatedShinyEffect pseudo-element */
+@keyframes shiny-pseudo {
+  0% { background-position: calc(-100% - var(--shiny-width)) 0; }
+  60%, 100% { background-position: calc(100% + var(--shiny-width)) 0; } /* Adjusted to make the shine pass and then pause */
+}
+
+.animate-shiny-pseudo-element {
+  animation: shiny-pseudo var(--shiny-duration, 3s) var(--shiny-delay, 0s) infinite linear;
+}
+
+/* Optional: Different animation or behavior on hover */
+/* For example, make it shine faster or more frequently on hover */
+.group-hover\:animate-shiny-pseudo-element-hover:hover .animate-shiny-pseudo-element {
+   animation-duration: 1.5s; /* Example: faster shine on hover */
+}
