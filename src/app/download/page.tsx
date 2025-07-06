@@ -1,14 +1,8 @@
 // src/app/download/page.tsx
 'use client'; // Add this directive
 
-import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud, ChromeIcon, CheckCircle, ShieldCheck } from 'lucide-react'; // Added ShieldCheck for privacy
-
-export const metadata: Metadata = {
-  title: 'Download CareerSuite.ai - Free AI Resume Analyzer',
-  description: 'Download the CareerSuite.ai browser extension for free. Get instant AI-powered feedback to tailor your resume and beat ATS. Private and no account needed.',
-};
 
 export default function DownloadPage() {
   // IMPORTANT: Replace with your actual Chrome Web Store extension link
