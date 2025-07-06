@@ -3,14 +3,14 @@
 
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input'; // Assuming you have an Input component
-import { Textarea } from '@/components/ui/textarea'; // Assuming you have a Textarea component
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Input } from '@/components/ui/input-landing'; // Corrected import path
+import { Textarea } from '@/components/ui/textarea';
+import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react'; // Added CheckCircle
 import { useState } from 'react';
 
 // export const metadata: Metadata = { // Metadata cannot be exported from client components directly
-//   title: 'Contact Us - YourSaaS',
-//   description: 'Get in touch with the YourSaaS team.',
+//   title: 'Contact Us - CareerSuite.ai', // Updated title
+//   description: 'Get in touch with the CareerSuite.ai team for support or inquiries.', // Updated description
 // };
 // We'll need to handle metadata differently for client components if needed, or make this a server component if form is simple.
 // For now, title will be handled by a <title> tag or in layout if this was a server component.
@@ -51,11 +51,11 @@ export default function ContactPage() {
     <>
       {/* Fallback title for client component */}
       <head>
-        <title>Contact Us - YourSaaS</title>
-        <meta name="description" content="Get in touch with the YourSaaS team." />
+        <title>Contact Us - CareerSuite.ai</title>
+        <meta name="description" content="Get in touch with the CareerSuite.ai team for support or inquiries." />
       </head>
       <div className="container mx-auto px-4 py-12 min-h-[calc(100vh-10rem)]">
-        <h1 className="text-4xl font-bold text-center text-foreground mb-10">Contact <span className="text-primary">Us</span></h1>
+        <h1 className="text-4xl font-bold text-center text-foreground mb-10">Contact <span className="text-primary">CareerSuite.ai</span></h1>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
@@ -63,7 +63,7 @@ export default function ContactPage() {
             <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h2>
             {isSubmitted ? (
               <div className="text-center p-6 bg-green-100 text-green-700 rounded-md">
-                <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500" /> {/* You'll need to import CheckCircle from lucide-react if you use this part */}
+                <CheckCircle className="h-12 w-12 mx-auto mb-3 text-green-500" />
                 <h3 className="text-xl font-semibold">Thank You!</h3>
                 <p>Your message has been sent successfully. We'll get back to you soon.</p>
               </div>
@@ -102,30 +102,32 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <a href="mailto:support@yoursaas.com" className="hover:text-primary">support@yoursaas.com</a><br />
-                  <a href="mailto:sales@yoursaas.com" className="hover:text-primary">sales@yoursaas.com</a>
+                  <a href="mailto:support@careersuite.ai" className="hover:text-primary">support@careersuite.ai</a><br />
+                  {/* <a href="mailto:sales@careersuite.ai" className="hover:text-primary">sales@careersuite.ai</a> */}
                 </div>
               </div>
               <div className="flex items-start">
                 <Phone className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Phone</h3>
-                  <p>(123) 456-7890 (Support)</p>
-                  <p>(123) 456-7891 (Sales)</p>
+                  <p><em>(Phone support coming soon)</em></p>
+                  {/* <p>(123) 456-7890 (Support)</p> */}
                 </div>
               </div>
               <div className="flex items-start">
                 <MapPin className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Office Address</h3>
-                  <p>123 SaaS Street, Tech City, TX 75001, USA</p>
+                  <p>Proudly built by a remote team.</p>
+                  {/* <p>123 SaaS Street, Tech City, TX 75001, USA</p> */}
                 </div>
               </div>
             </div>
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-foreground mb-3">Business Hours</h3>
-              <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 6:00 PM (CST)</p>
-              <p className="text-muted-foreground">Saturday - Sunday: Closed</p>
+              <p className="text-muted-foreground">We primarily offer support via email and aim to respond within 24-48 hours on business days.</p>
+              {/* <p className="text-muted-foreground">Monday - Friday: 9:00 AM - 6:00 PM (CST)</p>
+              <p className="text-muted-foreground">Saturday - Sunday: Closed</p> */}
             </div>
           </div>
         </div>
