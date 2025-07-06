@@ -10,31 +10,17 @@ import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimat
 const HeroSection = () => (
   <section className="relative py-20 md:py-32 bg-background text-foreground overflow-hidden"> {/* Added relative and overflow-hidden */}
     {/* Container for the animation, ensuring it sizes correctly */}
-    <div
-      id="hero-animation-container"
+    <div 
+      id="hero-animation-container" 
       className="absolute inset-0 z-0" // Full coverage, behind content
     >
-      {/* <ConnectingLinesAnimation /> */} {/* Temporarily commented out for direct container test */}
-      <div style={{
-        backgroundColor: 'lime',
-        border: '3px solid red',
-        color: 'black',
-        width: '100%',
-        height: '100px', // Explicit height for testing
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontSize: '16px',
-        fontWeight: 'bold',
-        zIndex: 1000 // High z-index to ensure visibility
-      }}>
-        TEST CONTENT FOR hero-animation-container - IS THIS VISIBLE?
-      </div>
+      <ConnectingLinesAnimation /> {/* Restored component usage */}
     </div>
     {/* Original content container, now needs a higher z-index to be on top */}
     <div className="relative z-10 container mx-auto px-4 text-center"> {/* Added relative and z-10 */}
       <div className="mb-12"> {/* Adjusted margin for banner */}
         <Image
+          id="hero-banner-image" // Added ID for banner collision detection
           src="/banner_light.png" // Path to your banner in the public folder - UPDATED
           alt="CareerSuite.ai Banner - Enhance Your Resume with AI" // More descriptive alt text
           width={1000} // Example width, adjust to your banner's aspect ratio or desired display
