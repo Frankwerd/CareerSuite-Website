@@ -8,9 +8,9 @@ interface ScrollFadeInOptions {
 
 function useScrollFadeIn<T extends HTMLElement>(
   options?: ScrollFadeInOptions
-): [RefObject<T>, boolean] {
+): [RefObject<T | null>, boolean] {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<T>(null);
+  const elementRef = useRef<T | null>(null);
 
   const defaultOptions: ScrollFadeInOptions = {
     threshold: 0.1,
