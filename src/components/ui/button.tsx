@@ -43,6 +43,7 @@ export interface ButtonProps
   asChild?: boolean;
   applyShinyEffect?: boolean;
   shinyEffectClassName?: string; // To allow custom styling for the shiny effect wrapper if needed
+  children?: React.ReactNode; // Explicitly define children for React 19+
 }
 
 function Button({
@@ -52,53 +53,50 @@ function Button({
   asChild = false,
   applyShinyEffect = false,
   shinyEffectClassName,
-  children, // Ensure children is destructured
-  ...props
-}: ButtonProps) { // Use ButtonProps for better type inference
+  children, // children is correctly destructured here
+  ...props // props here will not contain 'children'
+}: ButtonProps) {
   const Comp = asChild ? Slot : "button";
 
+  // This buttonContent variable seems unused. If it's for a future feature,
+  // it's fine, but if not, it could be removed. For now, leaving as is.
   const buttonContent = (
     <Comp
       data-slot="button"
       className={cn(buttonVariants({ variant, size, className }))}
-      {...props}
+      {...props} // props (without children) are spread here
     >
-      {children}
+      {children} {/* children from function params used here */}
     </Comp>
   );
 
   if (applyShinyEffect) {
     // Determine background color based on variant for the shiny effect
-    // This is a simplified example; you might need a more robust way to get the exact background
-    // Determine background color based on variant for the shiny effect
-    // Using oklch values from globals.css (light mode defaults)
-    // These should ideally be dynamically fetched or passed if themes can change them easily at runtime
-    let backgroundColorHex = "oklch(65.77% 0.195 39.94)"; // --primary (Vibrant Orange #F26419)
+    let backgroundColorHex = "oklch(65.77% 0.195 39.94)"; // --primary
     switch (variant) {
       case "secondary":
-        backgroundColorHex = "oklch(77.99% 0.168 75.31)"; // --secondary (Hunyadi Yellow #F6AE2D)
+        backgroundColorHex = "oklch(77.99% 0.168 75.31)"; // --secondary
         break;
       case "destructive":
-        backgroundColorHex = "oklch(0.577 0.245 27.325)"; // --destructive (Original red)
+        backgroundColorHex = "oklch(0.577 0.245 27.325)"; // --destructive
         break;
       case "outline":
       case "ghost":
-      case "link": // Link is transparent, shiny effect might be odd, but we can use page bg
-        backgroundColorHex = "oklch(100% 0 0)"; // --background (White #FFFFFF)
+      case "link":
+        backgroundColorHex = "oklch(100% 0 0)"; // --background
         break;
       default:
-        // Default is primary, already set
         break;
     }
 
-    // The Button component itself will be the direct child of AnimatedShinyEffect.
-    // AnimatedShinyEffect creates a span wrapper. The actual button (Comp) needs to be inside it.
-    // The props for Comp should not be spread on AnimatedShinyEffect's span.
-    const { children: btnChildren, ...compProps } = props; // Separate children for Comp
+    // 'props' (from function signature) already has 'children', 'className', etc. excluded.
+    // So, 'compProps' is simply 'props'.
+    // The 'children' to be passed to the inner Comp is the 'children' from the function signature.
+    const compProps = props;
 
     return (
       <AnimatedShinyEffect
-        className={cn(buttonVariants({ variant, size, className }), shinyEffectClassName)} // Apply button styles to the shiny wrapper
+        className={cn(buttonVariants({ variant, size, className }), shinyEffectClassName)}
         shimmerColor="rgba(255,255,255,0.6)" // Slightly more opaque shimmer
         shimmerWidth={120} // Wider shimmer
         shimmerDuration="2.5s"
