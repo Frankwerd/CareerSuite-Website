@@ -9,6 +9,16 @@ import Image from 'next/image'; // Import Next.js Image component
 const HeroSection = () => (
   <section className="py-20 md:py-32 bg-background text-foreground">
     <div className="container mx-auto px-4 text-center">
+      <div className="mb-12"> {/* Adjusted margin for banner */}
+        <Image
+          src="/banner_light1.png" // Path to your banner in the public folder
+          alt="CareerSuite.ai Banner - Enhance Your Resume with AI" // More descriptive alt text
+          width={1000} // Example width, adjust to your banner's aspect ratio or desired display
+          height={300} // Example height, adjust
+          className="mx-auto rounded-lg shadow-xl max-w-4xl w-full h-auto" // Adjusted max-width and ensured full width up to max
+          priority
+        />
+      </div>
       {/* Optional: Consider adding the Pencil Rocket logo here if available as an SVG component or Image */}
       {/* <div className="mb-8"> <PencilRocketLogo className="h-24 w-24 mx-auto text-primary" /> </div> */}
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -38,16 +48,6 @@ const HeroSection = () => (
         >
           Learn How It Works
         </Button>
-      </div>
-      <div className="mt-16"> {/* Container for the banner image */}
-        <Image
-          src="/banner_light1.png" // Path to your banner in the public folder
-          alt="CareerSuite.ai Banner"
-          width={1000} // Example width, adjust to your banner's aspect ratio or desired display
-          height={300} // Example height, adjust
-          className="mx-auto rounded-lg shadow-xl max-w-full h-auto" // Responsive styling
-          priority // Consider if this is above the fold and critical for LCP
-        />
       </div>
     </div>
   </section>
