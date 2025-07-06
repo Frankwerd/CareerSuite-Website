@@ -2,9 +2,9 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { ArrowRight, BarChart, CheckCircle, DownloadCloud, Zap } from 'lucide-react';
+// Consolidated lucide-react imports
+import { ArrowRight, BarChart, CheckCircle, DownloadCloud, Zap, ShieldCheck, Edit3, Target } from 'lucide-react';
 // import Image from 'next/image'; // Uncomment if you add a hero image or the Pencil Rocket illustration
-import { ShieldCheck, Zap, Edit3, Target } from 'lucide-react'; // Added more relevant icons
 
 const HeroSection = () => (
   <section className="py-20 md:py-32 bg-background text-foreground">
@@ -146,7 +146,6 @@ const TestimonialsSection = () => (
             <div>
               <p className="font-semibold text-foreground">Jessica R.</p>
               <p className="text-xs text-muted-foreground">Marketing Specialist</p>
-
             </div>
           </div>
         </div>
