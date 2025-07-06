@@ -24,7 +24,8 @@ export default function DownloadPage() {
 
       <Button
         size="lg"
-        className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6"
+        variant="download" // Apply download variant
+        className="text-lg px-8 py-6" // Removed redundant bg/text/hover classes
         onClick={() => window.open(extensionLink, '_blank')}
         disabled={extensionLink === "https://chrome.google.com/webstore/your-extension-id"} // Disable if link is placeholder
       >
