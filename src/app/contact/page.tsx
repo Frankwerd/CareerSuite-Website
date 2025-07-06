@@ -59,7 +59,7 @@ export default function ContactPage() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <div className="relative bg-background shadow-lg rounded-lg p-8">
+          <div className="relative bg-background shadow-lg rounded-lg p-8 overflow-hidden">
             <BorderBeam size={250} duration={12} delay={9} />
             <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h2>
             {isSubmitted ? (

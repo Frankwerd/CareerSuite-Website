@@ -58,6 +58,7 @@ export const BorderBeam: React.FC<BorderBeamProps> = ({
       style={
         {
           "--border-width": `${borderWidth}px`,
+          "--radius": "0.75rem", // Default border radius if not provided by parent
           "--border-radius": "calc(var(--radius) - var(--border-width))",
           "--border-bg": `conic-gradient(from 180deg at 50% 50%, ${colorFrom} 0deg, ${colorTo} 360deg)`,
           "--beam-bg": `conic-gradient(from 180deg at 50% 50%, transparent 0%, ${colorFrom} 25%, ${colorTo} 75%, transparent 100%)`,
