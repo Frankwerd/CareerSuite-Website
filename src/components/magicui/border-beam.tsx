@@ -47,7 +47,7 @@ export const BorderBeam: React.FC<BorderBeamProps> = ({
 
     const newPath = `M${PADDING},${PADDING} H${width - PADDING} V${height - PADDING} H${PADDING} Z`;
     setPath(newPath);
-  }, []); // Re-calculate path on resize or when component mounts
+  }, [size, borderWidth]); // Re-calculate path when size or borderWidth changes
 
   // Calculate initial dash offset based on the prop
   const initialDashOffset = (initialOffset / 100) * 1000; // Assuming 1000 is the total path length for dash array
@@ -77,6 +77,7 @@ export const BorderBeam: React.FC<BorderBeamProps> = ({
         // Animation
         "before:animate-border-beam after:animate-border-beam",
         reverse && "before:[animation-direction:reverse] after:[animation-direction:reverse]",
+        "z-[-1]", // Ensure BorderBeam is behind its children
         className,
       )}
       {...props}
