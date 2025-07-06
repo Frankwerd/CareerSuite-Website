@@ -58,6 +58,15 @@ export default function AboutPage() {
             Today, CareerSuite.ai offers a completely free way for anyone to get AI-powered insights, helping them write more impactful
             resumes and feel more confident and in control of their job search. We're committed to continuously improving our AI and
             supporting job seekers in launching their careers.
+          <p>
+            Since our humble beginnings, we've grown [mention any milestones, e.g., 'into a dedicated team of X people']
+            and have helped thousands of users worldwide to [mention key benefits, e.g., 'streamline their workflows and
+            boost their productivity']. We are constantly listening to our users and evolving our product to meet
+            their ever-changing needs.
+          </p>
+          <p>
+            Our commitment to innovation, user-centric design, and exceptional customer support is at the heart
+            of everything we do. We're excited about the future and the new ways we can help you succeed.
           </p>
         </div>
       </div>

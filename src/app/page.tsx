@@ -146,6 +146,7 @@ const TestimonialsSection = () => (
             <div>
               <p className="font-semibold text-foreground">Jessica R.</p>
               <p className="text-xs text-muted-foreground">Marketing Specialist</p>
+
             </div>
           </div>
         </div>
@@ -195,7 +196,6 @@ const CallToActionSection = () => (
     </div>
   </section>
 );
-
 
 export default function HomePage() {
   return (
