@@ -1,220 +1,216 @@
+// src/app/page.tsx
 'use client';
 
-import FluidCursor from '@/components/FluidCursor';
-import AllProjects from '@/components/projects/AllProjects';
 import { Button } from '@/components/ui/button';
-import WelcomeModal from '@/components/welcome-modal';
-import { motion } from 'framer-motion';
-import {
-  ArrowRight,
-  BriefcaseBusiness,
-  Laugh,
-  Layers,
-  PartyPopper,
-  UserRoundSearch,
-} from 'lucide-react';
-import Image from 'next/image';
-import { useRouter, useSearchParams } from 'next/navigation';
-import { Suspense, useEffect, useRef, useState } from 'react';
-import GitHubButton from 'react-github-btn';
+// Consolidated lucide-react imports
+import { ArrowRight, BarChart, CheckCircle, DownloadCloud, Zap, ShieldCheck, Edit3, Target } from 'lucide-react';
+import Image from 'next/image'; // Import Next.js Image component
 
-/* ---------- quick-question data ---------- */
-const questions = {
-  Me: 'Who are you? I want to know more about you.',
-  Projects: 'What are your projects? What are you working on right now?', // This will trigger the carousel
-  Skills: 'What are your skills? Give me a list of your soft and hard skills.',
-  Fun: 'What’s the craziest thing you’ve ever done? What are your hobbies?', // Kept for now, can be removed if Frank prefers
-  Contact: 'How can I contact you?',
-} as const;
-
-const questionConfig = [
-  { key: 'Me', color: '#329696', icon: Laugh },
-  { key: 'Projects', color: '#3E9858', icon: BriefcaseBusiness },
-  { key: 'Skills', color: '#856ED9', icon: Layers },
-  { key: 'Fun', color: '#B95F9D', icon: PartyPopper },
-  { key: 'Contact', color: '#C19433', icon: UserRoundSearch },
-] as const;
-
-/* ---------- component ---------- */
-function PageContent() {
-  const [input, setInput] = useState('');
-  const router = useRouter();
-  const searchParams = useSearchParams(); 
-  const inputRef = useRef<HTMLInputElement>(null);
-  const showProjects = searchParams.get('viewProjects') === 'true'; 
-
-  const goToChat = (query: string) =>
-    router.push(`/chat?query=${encodeURIComponent(query)}`);
-
-  const topElementVariants = {
-    hidden: { opacity: 0, y: -60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'ease', duration: 0.8 },
-    },
-  };
-  const bottomElementVariants = {
-    hidden: { opacity: 0, y: 80 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { type: 'ease', duration: 0.8, delay: 0.2 },
-    },
-  };
-
-  useEffect(() => {
-    const img = new window.Image();
-    img.src = '/landing-logo.png'; // Preload original image
-
-    const linkWebm = document.createElement('link');
-    linkWebm.rel = 'preload'; 
-    linkWebm.as = 'video';
-    linkWebm.href = '/final_logo.webm'; // Preload original video
-    document.head.appendChild(linkWebm);
-
-    const linkMp4 = document.createElement('link');
-    linkMp4.rel = 'prefetch';
-    linkMp4.as = 'video';
-    linkMp4.href = '/final_logo'; // Preload original video
-    document.head.appendChild(linkMp4);
-  }, []);
-
-  return (
-    <div className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden px-4 pb-10 md:pb-20">
-      {!showProjects && (
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 flex justify-center overflow-hidden">
-        <div
-          className="hidden bg-gradient-to-b from-neutral-500/10 to-neutral-500/0 bg-clip-text text-[10rem] leading-none font-black text-transparent select-none sm:block lg:text-[16rem]"
-          style={{ marginBottom: '-2.5rem' }}
+const HeroSection = () => (
+  <section className="py-20 md:py-32 bg-background text-foreground">
+    <div className="container mx-auto px-4 text-center">
+      {/* Optional: Consider adding the Pencil Rocket logo here if available as an SVG component or Image */}
+      {/* <div className="mb-8"> <PencilRocketLogo className="h-24 w-24 mx-auto text-primary" /> </div> */}
+      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+        Launch Your Career with an <br className="hidden md:inline" /><span className="text-primary">AI-Powered Resume</span>
+      </h1>
+      <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
+        Instantly analyze your resume against any job description. Get expert feedback to beat the ATS,
+        land more interviews, and secure your dream job. <br />
+        <strong className="text-foreground">Free, private, and no account needed.</strong>
+      </p>
+      <div className="space-x-4">
+        <Button
+          size="lg"
+          className="bg-primary text-primary-foreground hover:bg-primary/90"
+          onClick={() => window.location.href = '/download'} // Or trigger analysis if possible directly
         >
-          LiButti
-        </div>
-      </div>
-      )}
-
-      <div className="absolute top-6 right-8 z-20">
-        <GitHubButton
-          href="https://github.com/Frankwerd/Frankwerd-Portfolio"
-          data-color-scheme="no-preference: light; light: light; dark: light_high_contrast;"
-          data-size="large"
-          data-show-count="true"
-          aria-label="Star Frankwerd's portfolio on GitHub"
-        >
-          Star
-        </GitHubButton>
-      </div>
-
-      <div className="absolute top-6 left-6 z-20">
-        <button
-          onClick={() => goToChat('Are you looking for a job?')} // This query can be refined
-          className="cursor-pointer relative flex items-center gap-2 rounded-full border bg-white/30 px-4 py-1.5 text-sm font-medium text-black shadow-md backdrop-blur-lg transition hover:bg-white/60 dark:border-white dark:text-white dark:hover:bg-neutral-800"
-        >
-          <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-green-500"></span>
-          </span>
-          Looking for talent?
-        </button>
-      </div>
-
-      {!showProjects && (
-        <>
-          <motion.div
-            className="z-1 mb-8 flex flex-col items-center text-center md:mb-12 mt-24 md:mt-4"
-            variants={topElementVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            <div className="z-100">
-              <WelcomeModal />
-            </div>
-
-            <h2 className="text-secondary-foreground mt-1 text-xl font-semibold md:text-2xl">
-              Hey, I'm Frank 👋
-            </h2>
-            <h1 className="text-4xl font-bold sm:text-5xl md:text-6xl lg:text-7xl">
-              Problem Solver & AI Architect
-            </h1>
-          </motion.div>
-
-          <div className="relative z-10 h-52 w-48 overflow-hidden sm:h-72 sm:w-72">
-            <Image
-              src="/landing-logo.png" // Original template image
-              alt="Hero memoji"
-              width={2000}
-              height={2000}
-              priority
-              className="translate-y-14 scale-[2] object-cover"
-            />
-          </div>
-        </>
-      )}
-
-      {showProjects && (
-        <div className="w-full max-w-7xl mx-auto my-12 md:my-16 pt-16"> {/* Added pt-16 for spacing when header is hidden */}
-          <AllProjects />
-        </div>
-      )}
-
-      <motion.div
-        variants={bottomElementVariants}
-        initial="hidden"
-        animate="visible"
-        className="z-10 mt-4 flex w-full flex-col items-center justify-center md:px-0"
-      >
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (input.trim()) goToChat(input.trim());
+          Analyze Your Resume FREE <ArrowRight className="ml-2 h-5 w-5" />
+        </Button>
+        <Button
+          size="lg"
+          variant="outline"
+          className="border-accent text-accent hover:bg-accent/10" // Using Lapis Lazuli for "Learn More"
+          onClick={() => {
+            const featuresSection = document.getElementById('features');
+            if (featuresSection) featuresSection.scrollIntoView({ behavior: 'smooth' });
           }}
-          className="relative w-full max-w-lg"
         >
-          <div className="mx-auto flex items-center rounded-full border border-neutral-200 bg-white/30 py-2.5 pr-2 pl-6 backdrop-blur-lg transition-all hover:border-neutral-300 dark:border-neutral-700 dark:bg-neutral-800 dark:hover:border-neutral-600">
-            <input
-              ref={inputRef}
-              type="text"
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask me anything…"
-              className="w-full border-none bg-transparent text-base text-neutral-800 placeholder:text-neutral-500 focus:outline-none dark:text-neutral-200 dark:placeholder:text-neutral-500"
-            />
-            <button
-              type="submit"
-              disabled={!input.trim()}
-              aria-label="Submit question"
-              className="flex items-center justify-center rounded-full bg-[#0171E3] p-2.5 text-white transition-colors hover:bg-blue-600 disabled:opacity-70 dark:bg-blue-600 dark:hover:bg-blue-700"
-            >
-              <ArrowRight className="h-5 w-5" />
-            </button>
-          </div>
-        </form>
-
-        <div className="mt-4 grid w-full max-w-2xl grid-cols-1 gap-3 sm:grid-cols-3 md:grid-cols-5">
-          {questionConfig.map(({ key, color, icon: Icon }) => (
-            <Button
-              key={key}
-              onClick={() => goToChat(questions[key])}
-              variant="outline"
-              className="shadow-none border-border hover:bg-border/30 aspect-square w-full cursor-pointer rounded-2xl border bg-white/30 py-8 backdrop-blur-lg active:scale-95 md:p-10"
-            >
-              <div className="flex h-full flex-col items-center justify-center gap-1 text-gray-700">
-                <Icon size={22} strokeWidth={2} color={color} />
-                <span className="text-xs font-medium sm:text-sm">{key}</span>
-              </div>
-            </Button>
-          ))}
-        </div>
-      </motion.div>
-      <FluidCursor />
+          Learn How It Works
+        </Button>
+      </div>
+      <div className="mt-16"> {/* Container for the banner image */}
+        <Image
+          src="/banner_light1.png" // Path to your banner in the public folder
+          alt="CareerSuite.ai Banner"
+          width={1000} // Example width, adjust to your banner's aspect ratio or desired display
+          height={300} // Example height, adjust
+          className="mx-auto rounded-lg shadow-xl max-w-full h-auto" // Responsive styling
+          priority // Consider if this is above the fold and critical for LCP
+        />
+      </div>
     </div>
-  );
-}
+  </section>
+);
 
-export default function Home() {
+const FeaturesSection = () => (
+  <section id="features" className="py-16 md:py-24 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">How <span className="text-primary">CareerSuite.ai</span> Empowers You</h2>
+        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Our AI-powered tool gives you the edge you need in your job search, focusing on what truly matters.</p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          <Target className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Targeted Resume Analysis</h3>
+          <p className="text-muted-foreground text-sm">Compare your resume against specific job descriptions to identify key areas for improvement and ATS alignment.</p>
+        </div>
+        <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          <Edit3 className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Actionable Feedback</h3>
+          <p className="text-muted-foreground text-sm">Receive clear, expert-level suggestions on how to enhance your resume's content, keywords, and structure.</p>
+        </div>
+        <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          <ShieldCheck className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Privacy First & Secure</h3>
+          <p className="text-muted-foreground text-sm">Your resume and personal data are never uploaded or stored. All analysis happens directly in your browser.</p>
+        </div>
+        <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
+          <h3 className="text-xl font-semibold text-foreground mb-2">Instant & Frictionless</h3>
+          <p className="text-muted-foreground text-sm">Get immediate insights without the need to create an account or go through lengthy sign-up processes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const PricingSection = () => (
+  <section id="pricing" className="py-16 md:py-24 bg-background">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+          It's <span className="text-primary">Completely FREE!</span>
+        </h2>
+        <p className="text-muted-foreground mt-4 max-w-xl mx-auto text-lg">
+          That's right! Get full access to all the amazing features of CareerSuite.ai without any cost.
+          We believe in providing value and making our tools accessible to everyone.
+        </p>
+      </div>
+      <div className="flex justify-center">
+        <div className="border-2 border-primary rounded-lg p-8 md:p-12 flex flex-col items-center shadow-xl max-w-md text-center">
+          <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-3">CareerSuite.ai - Free Forever</h3>
+          <p className="text-5xl md:text-6xl font-bold text-primary mb-6">FREE</p>
+          <p className="text-muted-foreground mb-6 text-md">
+            No credit card required. No hidden fees. Just expert resume feedback.
+          </p>
+          <ul className="space-y-3 text-muted-foreground my-6 text-md text-left list-none">
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> AI-Powered Resume vs. Job Description Analysis</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Actionable Improvement Suggestions</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> In-Browser Processing (Total Privacy)</li>
+            <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> No Account or Sign-Up Needed</li>
+          </ul>
+          <Button
+            size="lg"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 mt-4 text-lg py-3 px-6"
+            onClick={() => {
+              const downloadPage = document.getElementById('download-page-link'); // Assuming you'll add an ID to your download link in Navbar or create a direct link here
+              if (downloadPage) {
+                // Smooth scroll if it's a section, or navigate if it's a page.
+                // For now, direct to /download page as an example
+                window.location.href = '/download';
+              } else {
+                window.location.href = '/download'; // Fallback
+              }
+            }}
+          >
+            Get CareerSuite.ai FREE <DownloadCloud className="ml-2 h-5 w-5" />
+          </Button>
+        </div>
+      </div>
+      <p className="text-center mt-10 text-muted-foreground">
+        Ready to get started? It only takes a few seconds to download and install.
+      </p>
+    </div>
+  </section>
+);
+
+const TestimonialsSection = () => (
+  <section id="reviews" className="py-16 md:py-24 bg-muted/50">
+    <div className="container mx-auto px-4">
+      <div className="text-center mb-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">Job Seekers <span className="text-primary">Love</span> CareerSuite.ai</h2>
+        <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Hear what tech-savvy job seekers like "Jessica" are saying about CareerSuite.ai.</p>
+      </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Testimonial 1 */}
+        <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
+          <p className="text-muted-foreground mb-4 flex-grow">"CareerSuite.ai was a game-changer! I finally understood why my applications weren't getting noticed. The AI feedback helped me tailor my resume perfectly, and I started getting calls almost immediately. Plus, knowing it's private is a huge relief."</p>
+          <div className="flex items-center mt-auto">
+            {/* <Image src="/path-to-avatar-jessica.jpg" alt="Jessica R." width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">Jessica R.</p>
+              <p className="text-xs text-muted-foreground">Marketing Specialist</p>
+            </div>
+          </div>
+        </div>
+        {/* Testimonial 2 */}
+        <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
+          <p className="text-muted-foreground mb-4 flex-grow">"I was skeptical about AI resume tools, but CareerSuite.ai is different. It's instant, free, and I don't need an account. The suggestions were spot-on for beating the ATS. Highly recommend it to anyone feeling stuck in their job search!"</p>
+          <div className="flex items-center mt-auto">
+            {/* <Image src="/path-to-avatar-david.jpg" alt="David L." width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">David L.</p>
+              <p className="text-xs text-muted-foreground">Software Engineer</p>
+            </div>
+          </div>
+        </div>
+        {/* Testimonial 3 */}
+        <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
+          <p className="text-muted-foreground mb-4 flex-grow">"As someone switching careers, tailoring my resume felt overwhelming. CareerSuite.ai made it so much easier by showing me exactly what to focus on for each job. And it's FREE! This tool gave me the confidence boost I needed."</p>
+          <div className="flex items-center mt-auto">
+            {/* <Image src="/path-to-avatar-sarah.jpg" alt="Sarah K." width={40} height={40} className="rounded-full mr-3" /> */}
+            <div>
+              <p className="font-semibold text-foreground">Sarah K.</p>
+              <p className="text-xs text-muted-foreground">Aspiring Product Manager</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+);
+
+const CallToActionSection = () => (
+  <section className="py-20 md:py-32 bg-primary text-primary-foreground">
+    <div className="container mx-auto px-4 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Launch Your Career?</h2>
+      <p className="text-lg md:text-xl opacity-90 mb-10 max-w-xl mx-auto">
+        Stop guessing and start getting interviews. CareerSuite.ai gives you the AI-powered edge, for free and with total privacy.
+      </p>
+      <Button
+        size="lg"
+        variant="outline"
+        className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-primary-foreground hover:border-primary-foreground/90 text-lg py-3 px-6"
+        onClick={() => window.location.href = '/download'}
+      >
+        Download CareerSuite.ai FREE
+        <DownloadCloud className="ml-2 h-5 w-5" />
+      </Button>
+    </div>
+  </section>
+);
+
+
+export default function HomePage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <PageContent />
-    </Suspense>
+    <>
+      <HeroSection />
+      <FeaturesSection />
+      <PricingSection />
+      <TestimonialsSection />
+      <CallToActionSection />
+    </>
   );
 }
