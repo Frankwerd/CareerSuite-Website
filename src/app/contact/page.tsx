@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input-landing'; // Corrected import path
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, MapPin, CheckCircle } from 'lucide-react'; // Added CheckCircle
+import { BorderBeam } from '@/components/magicui/border-beam';
 import { useState } from 'react';
 
 // export const metadata: Metadata = { // Metadata cannot be exported from client components directly
@@ -58,7 +59,8 @@ export default function ContactPage() {
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
-          <div className="bg-background shadow-lg rounded-lg p-8">
+          <div className="relative bg-background shadow-lg rounded-lg p-8">
+            <BorderBeam size={250} duration={12} delay={9} />
             <h2 className="text-2xl font-semibold text-foreground mb-6">Send us a message</h2>
             {isSubmitted ? (
               <div className="text-center p-6 bg-green-100 text-green-700 rounded-md">

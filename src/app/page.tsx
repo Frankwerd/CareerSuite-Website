@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 // Consolidated lucide-react imports
 import { ArrowRight, CheckCircle, DownloadCloud, Zap, ShieldCheck, Edit3, Target } from 'lucide-react';
 import Image from 'next/image'; // Import Next.js Image component
+import { MagicCard } from '@/components/magicui/magic-card';
 import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimation'; // Import the animation
 import useScrollFadeIn from '@/hooks/useScrollFadeIn'; // Import the custom hook
 import { cn } from '@/lib/utils'; // Import cn utility
@@ -86,26 +87,26 @@ const FeaturesSection = () => {
           <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Our AI-powered tool gives you the edge you need in your job search, focusing on what truly matters.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          <MagicCard className="cursor-pointer">
             <Target className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Targeted Resume Analysis</h3>
             <p className="text-muted-foreground text-sm">Compare your resume against specific job descriptions to identify key areas for improvement and ATS alignment.</p>
-          </div>
-          <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          </MagicCard>
+          <MagicCard className="cursor-pointer">
             <Edit3 className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Actionable Feedback</h3>
             <p className="text-muted-foreground text-sm">Receive clear, expert-level suggestions on how to enhance your resume's content, keywords, and structure.</p>
-          </div>
-          <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          </MagicCard>
+          <MagicCard className="cursor-pointer">
             <ShieldCheck className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Privacy First & Secure</h3>
             <p className="text-muted-foreground text-sm">Your resume and personal data are never uploaded or stored. All analysis happens directly in your browser.</p>
-          </div>
-          <div className="bg-background p-6 rounded-lg shadow-md text-center flex flex-col items-center">
+          </MagicCard>
+          <MagicCard className="cursor-pointer">
             <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Instant & Frictionless</h3>
             <p className="text-muted-foreground text-sm">Get immediate insights without the need to create an account or go through lengthy sign-up processes.</p>
-          </div>
+          </MagicCard>
         </div>
       </div>
     </section>
