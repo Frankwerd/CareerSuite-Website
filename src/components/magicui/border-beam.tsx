@@ -77,7 +77,6 @@ export const BorderBeam: React.FC<BorderBeamProps> = ({
         // Animation
         "before:animate-border-beam after:animate-border-beam",
         reverse && "before:[animation-direction:reverse] after:[animation-direction:reverse]",
-        "z-[-1]", // Ensure BorderBeam is behind its children
         className,
       )}
       {...props}
