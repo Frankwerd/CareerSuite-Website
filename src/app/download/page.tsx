@@ -1,4 +1,6 @@
 // src/app/download/page.tsx
+'use client'; // Add this directive
+        
 import type { Metadata } from 'next';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud, ChromeIcon, CheckCircle, ShieldCheck } from 'lucide-react'; // Added ShieldCheck for privacy

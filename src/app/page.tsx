@@ -4,7 +4,7 @@
 import { Button } from '@/components/ui/button';
 // Consolidated lucide-react imports
 import { ArrowRight, BarChart, CheckCircle, DownloadCloud, Zap, ShieldCheck, Edit3, Target } from 'lucide-react';
-// import Image from 'next/image'; // Uncomment if you add a hero image or the Pencil Rocket illustration
+import Image from 'next/image'; // Import Next.js Image component
 
 const HeroSection = () => (
   <section className="py-20 md:py-32 bg-background text-foreground">
@@ -39,10 +39,16 @@ const HeroSection = () => (
           Learn How It Works
         </Button>
       </div>
-      {/* Optional: Placeholder for a product image or illustration below CTA, e.g., a subtle nod to the "Pencil Rocket" */}
-      {/* <div className="mt-16">
-        <Image src="/path-to-your-product-showcase.png" alt="Product Showcase" width={800} height={500} className="mx-auto rounded-lg shadow-xl"/>
-      </div> */}
+      <div className="mt-16"> {/* Container for the banner image */}
+        <Image
+          src="/banner_light1.png" // Path to your banner in the public folder
+          alt="CareerSuite.ai Banner"
+          width={1000} // Example width, adjust to your banner's aspect ratio or desired display
+          height={300} // Example height, adjust
+          className="mx-auto rounded-lg shadow-xl max-w-full h-auto" // Responsive styling
+          priority // Consider if this is above the fold and critical for LCP
+        />
+      </div>
     </div>
   </section>
 );
@@ -195,6 +201,7 @@ const CallToActionSection = () => (
     </div>
   </section>
 );
+
 
 export default function HomePage() {
   return (

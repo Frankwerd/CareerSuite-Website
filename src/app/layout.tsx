@@ -58,15 +58,23 @@ export const metadata: Metadata = {
     // Consider adding a specific Open Graph image for CareerSuite.ai (e.g., featuring the "Pencil Rocket")
     // images: [{ url: '/og-careersuite.png' }],
   },
-  icons: { // Reminder: Replace these with actual CareerSuite.ai favicons
+
+  icons: {
+    // Using fab_logo_neutral.png as a placeholder.
+    // For best results, create dedicated favicon files (e.g., 16x16, 32x32 favicon.ico, apple-touch-icon.png, svg maskable icon etc.)
+    // and update these paths accordingly.
     icon: [
-      {
-        url: "/pencil-rocket-favicon.png", // Example: replace with actual favicon
-        sizes: "any", // Or specify sizes like "32x32"
-      }
+      { url: "/fab_logo_neutral.png", sizes: "any", type: "image/png" },
+      // You might want to add more specific sizes if you have them:
+      // { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      // { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
     ],
-    shortcut: "/pencil-rocket-favicon.svg", // Example
-    apple: "/apple-touch-icon-pencil-rocket.png", // Example
+    shortcut: "/fab_logo_neutral.png", // Fallback, ideally an .ico or .svg
+    apple: "/fab_logo_neutral.png", // For apple-touch-icon, ideally a 180x180 png
+    // other: [ // For more advanced scenarios like Android Chrome icons, manifest.json, etc.
+    //   { rel: 'android-chrome-192x192', url: '/android-chrome-192x192.png' },
+    //   { rel: 'android-chrome-512x512', url: '/android-chrome-512x512.png' },
+    // ],
   },
 };
 
