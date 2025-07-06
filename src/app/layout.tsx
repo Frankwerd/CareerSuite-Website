@@ -58,6 +58,7 @@ export const metadata: Metadata = {
     // Consider adding a specific Open Graph image for CareerSuite.ai (e.g., featuring the "Pencil Rocket")
     // images: [{ url: '/og-careersuite.png' }],
   },
+
   icons: {
     // Using fab_logo_neutral.png as a placeholder.
     // For best results, create dedicated favicon files (e.g., 16x16, 32x32 favicon.ico, apple-touch-icon.png, svg maskable icon etc.)
