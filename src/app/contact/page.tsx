@@ -49,11 +49,10 @@ export default function ContactPage() {
 
   return (
     <>
-      {/* Fallback title for client component */}
-      <head>
-        <title>Contact Us - CareerSuite.ai</title>
-        <meta name="description" content="Get in touch with the CareerSuite.ai team for support or inquiries." />
-      </head>
+      {/* The <head> block was removed from here to fix hydration errors.
+          Metadata for this page will be handled by the RootLayout or a specific parent server component.
+          If this page needs unique metadata and must remain a client component,
+          consider using `next/head` or wrapping it with a server component. */}
       <div className="container mx-auto px-4 py-12 min-h-[calc(100vh-10rem)]">
         <h1 className="text-4xl font-bold text-center text-foreground mb-10">Contact <span className="text-primary">CareerSuite.ai</span></h1>
 
