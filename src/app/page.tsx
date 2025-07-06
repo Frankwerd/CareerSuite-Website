@@ -196,7 +196,6 @@ const CallToActionSection = () => (
   </section>
 );
 
-
 export default function HomePage() {
   return (
     <>
