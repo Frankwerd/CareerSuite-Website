@@ -76,6 +76,13 @@ export const metadata: Metadata = {
     //   { rel: 'android-chrome-512x512', url: '/android-chrome-512x512.png' },
     // ],
   },
+  // Added viewport settings here, removed manual <head> tag below
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({
@@ -85,11 +92,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        {/* Favicon link from metadata.icons should be sufficient, explicit link below can be removed if not needed */}
-        {/* <link rel="icon" href="/favicon.ico" sizes="any" /> */}
-      </head>
+      {/* The manual <head> tag was removed. Viewport and other metadata are handled by the 'metadata' export. */}
       <body
         className={cn(
           "min-h-screen bg-background font-sans antialiased", // `font-sans` currently defaults to Inter via `inter.variable`
