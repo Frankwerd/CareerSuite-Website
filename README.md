@@ -1,4 +1,4 @@
-![image](assets/readme-photo.png)
+![image](assets/readme-photo2.png)
 
 # Francis J. LiButti's Dynamic AI Portfolio 🤖✨
 
