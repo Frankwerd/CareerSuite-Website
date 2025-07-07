@@ -30,3 +30,73 @@ This interactive experience is built upon the ingenious AI portfolio template or
 #### 🔖 Tags
 
 `#AIPortfolio` `#DataAnalytics` `#StrategicProjectManagement` `#AIInnovation` `#TechLeadership` `#ScalableSolutions` `#DigitalTransformation`
+
+---
+
+## Project Structure
+
+The project follows a standard Next.js application structure:
+
+*   `src/app/`: Contains the main pages of the application.
+    *   `src/app/about/`: About page.
+    *   `src/app/contact/`: Contact page.
+    *   `src/app/download/`: Page for resume download.
+    *   `src/app/how-it-works/`: Explains the AI interaction.
+*   `src/components/`: Reusable UI components.
+    *   `src/components/layout/`: Components like Navbar and Footer.
+    *   `src/components/magicui/`: Specialized UI components for visual effects.
+    *   `src/components/ui/`: General UI elements like buttons, cards, etc.
+*   `src/hooks/`: Custom React hooks for shared logic.
+*   `src/lib/`: Utility functions and helper scripts.
+*   `public/`: Static assets like images and resume PDF.
+*   `assets/`: Contains images specifically used in the README.
+
+## Getting Started
+
+To get a local copy up and running, follow these simple steps:
+
+1.  **Clone the repository:**
+    Replace `your-username/your-repository-name` with the actual repository path.
+    ```bash
+    git clone https://github.com/your-username/your-repository-name.git
+    cd your-repository-name
+    ```
+2.  **Install dependencies:**
+    This project uses `pnpm` as the package manager.
+    ```bash
+    pnpm install
+    ```
+3.  **Run the development server:**
+    ```bash
+    pnpm dev
+    ```
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Key Features
+
+This AI-powered portfolio offers a unique and interactive way to explore Francis J. LiButti's skills and experience:
+
+*   **Conversational AI Interface:** Engage in a dynamic dialogue with an AI persona that provides tailored information based on your questions.
+*   **Dynamic Content Delivery:** The AI adapts its responses to highlight relevant projects and expertise.
+*   **Responsive Design:** Fully responsive and accessible across various devices and screen sizes.
+*   **Interactive UI Elements:** Utilizes modern UI components and animations for an engaging user experience.
+*   **Detailed Project Showcase:** Offers insights into key projects, methodologies, and outcomes.
+*   **Easy Navigation:** Clear and intuitive navigation to different sections of the portfolio including About, Contact, and Resume Download.
+
+## Technologies Used
+
+This project is built with a modern tech stack:
+
+*   **Framework:** Next.js (v15)
+*   **Language:** TypeScript
+*   **UI Library:** React (v19)
+*   **Styling:** Tailwind CSS (v4)
+*   **AI SDK:** Vercel AI SDK, OpenAI
+*   **UI Components:** Shadcn/UI, MagicUI
+*   **Animations:** Framer Motion
+*   **Linting & Formatting:** ESLint, Prettier
+*   **Package Manager:** pnpm
+
+## Deployment
+
+This portfolio is continuously deployed on [Vercel]([https://vercel.com/](https://careersuiteai.vercel.app/)). You can access the live version here: https://francisjbutti.vercel.app/
