@@ -1,6 +1,8 @@
 "use client";
 
 import React from 'react';
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
+import { cn } from "@/lib/utils";
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
@@ -14,7 +16,29 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 
 const HowItWorksPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="container mx-auto px-4 py-12 relative"> {/* Added relative positioning */}
+        <AnimatedGridPattern
+            numSquares={50}
+            maxOpacity={0.1}
+            duration={1.5}
+            repeatDelay={0.25}
+            className={cn(
+              "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]",
+              "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
+              "z-[-1]",
+            )}
+          />
+          <AnimatedGridPattern
+            numSquares={50}
+            maxOpacity={0.1}
+            duration={1.5}
+            repeatDelay={0.25}
+            className={cn(
+              "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]",
+              "inset-x-0 inset-y-[70%] h-[200%] skew-y-[-12deg]",
+              "z-[-1]",
+            )}
+          />
         {/* Header Section */}
         <header className="text-center py-12 md:py-16">
           <div className="inline-block mb-6">
