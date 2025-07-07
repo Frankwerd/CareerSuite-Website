@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/theme-provider";
+import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
 import { Toaster } from "@/components/ui/sonner";
 import Navbar from "@/components/layout/Navbar"; // Added Navbar import
 import Footer from "@/components/layout/Footer"; // Added Footer import
@@ -106,9 +107,20 @@ export default function RootLayout({
           defaultTheme="light"
           enableSystem={false} // Explicitly disabling system theme preference as per original
         >
-          <div className="flex flex-col min-h-screen">
+          <AnimatedGridPattern
+            numSquares={50} // Increased for full page coverage
+            maxOpacity={0.1} // Reduced opacity for subtlety
+            duration={1.5} // Faster animation
+            repeatDelay={0.25} // Faster repeat
+            className={cn(
+              "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]", // Adjusted mask
+              "inset-0 h-full w-full skew-y-0", // Simpler positioning for full page
+              "z-[-1]", // Ensure it's in the background
+            )}
+          />
+          <div className="relative z-0 flex flex-col min-h-screen"> {/* Added relative z-0 here */}
             <Navbar />
-            <main className="flex-grow"> {/* Removed flex-col and min-h-screen from main, as body and outer div handle it */}
+            <main className="flex-grow">
               {children}
             </main>
             <Footer />

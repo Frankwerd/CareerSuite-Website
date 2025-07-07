@@ -4,8 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
-import { AnimatedGridPattern } from "@/components/magicui/animated-grid-pattern";
-import { cn } from "@/lib/utils";
+// Removed AnimatedGridPattern and cn imports as they are no longer used here
 
 // Helper component for SVG icons
 const Icon = ({ path, className }: { path: string, className?: string }) => (
@@ -16,17 +15,7 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 
 const HowItWorksPage = () => {
   return (
-    <div className="relative container mx-auto px-4 py-12">
-        <AnimatedGridPattern
-          numSquares={30}
-          maxOpacity={0.3}
-          duration={3}
-          repeatDelay={1}
-          className={cn(
-            "[mask-image:radial-gradient(300px_circle_at_center,white,transparent)]",
-            "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12",
-          )}
-        />
+    <div className="container mx-auto px-4 py-12"> {/* Removed relative class, it's handled by layout now */}
         {/* Header Section */}
         <header className="text-center py-12 md:py-16">
           <div className="inline-block mb-6">
