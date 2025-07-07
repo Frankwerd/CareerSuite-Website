@@ -2,10 +2,10 @@
 
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image'; // Import Next.js Image component
-import { Button } from "@/components/ui/button"; // Assuming a Button component exists
+import Image from 'next/image';
+import { Button } from "@/components/ui/button";
 
-// Helper component for SVG icons - can be kept or replaced with an icon library
+// Helper component for SVG icons
 const Icon = ({ path, className }: { path: string, className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className || 'w-6 h-6'}>
     <path fillRule="evenodd" d={path} clipRule="evenodd" />
@@ -18,13 +18,12 @@ const HowItWorksPage = () => {
         {/* Header Section */}
         <header className="text-center py-12 md:py-16">
           <div className="inline-block mb-6">
-            {/* Replace SVG with Image component */}
             <Image
-              src="/fab_logo_neutral.png" // Path to your logo in the public folder
+              src="/fab_logo_neutral.png"
               alt="CareerSuite.ai Logo"
               width={64} 
               height={64}
-              className="h-16 w-16" // Adjust size as needed
+              className="h-16 w-16"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Supercharge Your Job Application Workflow</h1>
@@ -33,8 +32,8 @@ const HowItWorksPage = () => {
             CareerSuite.AI is your personal career co-pilot.
           </p>
           <div className="inline-block">
-            {/* Use Button component if available, or style a normal button */}
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
+            {/* CHANGED: Added hover animation classes for consistency */}
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
               <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
               Download for Chrome (Free)
             </Button>
@@ -44,42 +43,43 @@ const HowItWorksPage = () => {
 
         {/* Workflow Diagram Section */}
         <section className="text-center py-12 md:py-16 my-8 md:my-12 bg-card text-card-foreground rounded-lg shadow-lg">
-          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">The 4-Step Workflow to Your Next Job</h2>
-          <div className="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-8 flex-wrap">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-12">The 4-Step Workflow to Your Next Job</h2>
+          {/* CHANGED: Made flex-nowrap to force single row on desktop, reduced gaps, and aligned items to the start */}
+          <div className="flex flex-col md:flex-row justify-center items-center md:items-start gap-4 md:gap-2 flex-nowrap overflow-x-auto md:overflow-x-visible pb-4">
             {/* Step 1 */}
-            <div className="flex flex-col items-center p-4 md:p-6 max-w-xs">
+            <div className="flex flex-col items-center p-4 max-w-[220px] shrink-0">
               <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mb-4">
                 <Icon path="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">1. Build Your Profile</h3>
-              <p className="text-sm text-muted-foreground">Create your Master Resume Profile by uploading a PDF or filling it out manually. This becomes your single source of truth.</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">1. Build Your Profile</h3>
+              <p className="text-sm text-muted-foreground">Create your Master Resume Profile by uploading a PDF or filling it out manually.</p>
             </div>
-            <div className="text-2xl md:text-4xl text-accent font-bold hidden md:block">→</div>
+            <div className="text-4xl text-accent font-bold hidden md:flex items-center pt-6">→</div>
             {/* Step 2 */}
-            <div className="flex flex-col items-center p-4 md:p-6 max-w-xs">
+            <div className="flex flex-col items-center p-4 max-w-[220px] shrink-0">
               <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mb-4">
                 <Icon path="M15.75 15.75l-2.489-2.489m0 0a3.375 3.375 0 10-4.773-4.773 3.375 3.375 0 004.773 4.773zM21 12a9 9 0 11-18 0 9 9 0 0118 0z" className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">2. Analyze Any Job</h3>
-              <p className="text-sm text-muted-foreground">On any job board, open the CareerSuite panel and instantly get an AI-powered analysis, extracting key skills and qualifications.</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">2. Analyze Any Job</h3>
+              <p className="text-sm text-muted-foreground">On any job board, open the panel and instantly get an AI-powered analysis.</p>
             </div>
-            <div className="text-2xl md:text-4xl text-accent font-bold hidden md:block">→</div>
+            <div className="text-4xl text-accent font-bold hidden md:flex items-center pt-6">→</div>
             {/* Step 3 */}
-            <div className="flex flex-col items-center p-4 md:p-6 max-w-xs">
+            <div className="flex flex-col items-center p-4 max-w-[220px] shrink-0">
               <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mb-4">
                 <Icon path="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM18 13.5a3.375 3.375 0 00-3.375 3.375V18a3.375 3.375 0 003.375 3.375h1.5a1.125 1.125 0 011.125 1.125v1.5a3.375 3.375 0 003.375-3.375V18a3.375 3.375 0 00-3.375-3.375h-1.5z" className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">3. Tailor with AI</h3>
-              <p className="text-sm text-muted-foreground">Our AI compares your profile to the job, suggesting optimized bullet points and skills to beat the ATS and impress recruiters.</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">3. Tailor with AI</h3>
+              <p className="text-sm text-muted-foreground">Our AI compares your profile to the job, suggesting optimized bullet points and skills.</p>
             </div>
-            <div className="text-2xl md:text-4xl text-accent font-bold hidden md:block">→</div>
+            <div className="text-4xl text-accent font-bold hidden md:flex items-center pt-6">→</div>
             {/* Step 4 */}
-            <div className="flex flex-col items-center p-4 md:p-6 max-w-xs">
+            <div className="flex flex-col items-center p-4 max-w-[220px] shrink-0">
               <div className="bg-accent text-accent-foreground w-16 h-16 rounded-full flex items-center justify-center mb-4">
                 <Icon path="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10" className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-semibold text-foreground mb-2">4. Autofill & Apply</h3>
-              <p className="text-sm text-muted-foreground">Use your newly tailored content to intelligently fill out the entire application form in seconds. No more copy-pasting.</p>
+              <h3 className="text-lg font-semibold text-foreground mb-2">4. Autofill & Apply</h3>
+              <p className="text-sm text-muted-foreground">Use your newly tailored content to intelligently fill out application forms in seconds.</p>
             </div>
           </div>
         </section>
@@ -168,11 +168,12 @@ const HowItWorksPage = () => {
             Install CareerSuite.AI and transform your job application process today.
           </p>
           <div className="inline-block">
-            <Link href="/download" passHref>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-6 rounded-lg shadow-lg inline-flex items-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
+            {/* CHANGED: Replaced Button with a styled Link (<a> tag) to remove underline and ensure proper navigation */}
+            <Link href="/download" legacyBehavior>
+              <a className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-lg font-bold text-primary-foreground shadow-lg transition-transform duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-primary/90">
                 <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
                 Get CareerSuite.AI Now
-              </Button>
+              </a>
             </Link>
           </div>
         </footer>
