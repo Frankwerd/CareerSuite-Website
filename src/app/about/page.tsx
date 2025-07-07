@@ -41,24 +41,43 @@ export default function AboutPage() {
       */}
 
       <div className="bg-muted/50 rounded-lg p-8 md:p-12">
-        <h2 className="text-3xl font-semibold text-foreground mb-6 text-center">Our Story</h2>
-        <div className="prose dark:prose-invert max-w-3xl mx-auto text-muted-foreground">
-          <p>
-            CareerSuite.ai was born from a simple observation: job searching is incredibly tough, and many talented individuals
-            get overlooked because their resumes aren't perfectly tailored to automated screening systems (ATS) and specific job roles.
-            We saw job seekers sending applications into a "black hole," unsure why they weren't getting responses.
-          </p>
-          <p>
-            Frustrated by the lack of accessible, private, and instant feedback tools, we decided to build CareerSuite.ai.
-            Our goal was to create a "pencil rocket" for careers – a tool that combines the meticulous craft of resume writing
-            with the ambitious launch towards success. We focused on a privacy-first approach, ensuring all analysis happens
-            directly in the user's browser, because your career data is yours alone.
-          </p>
-          <p>
-            Today, CareerSuite.ai offers a completely free way for anyone to get AI-powered insights, helping them write more impactful
-            resumes and feel more confident and in control of their job search. We're committed to continuously improving our AI and
-            supporting job seekers in launching their careers.
-          </p>
+        <h2 className="text-3xl font-semibold text-foreground mb-8 text-center">Our Story</h2>
+        <div className="max-w-3xl mx-auto text-muted-foreground space-y-6">
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-3">The Problem We Couldn't Ignore</h3>
+            <p className="text-lg leading-relaxed mb-4">
+              Job searching is broken. We saw brilliant, qualified people sending dozens of applications into the void, left wondering why they never heard back. The reality is that today, your resume's first reader is often a machine—an Applicant Tracking System (ATS) programmed to filter, not to find talent. This "black hole" was failing job seekers everywhere.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-3">The Spark of an Idea</h3>
+            <p className="text-lg leading-relaxed mb-4">
+              Frustrated by the lack of tools that were instant, intelligent, and—most importantly—private, we decided to build the solution ourselves. We envisioned a tool that could give anyone the feedback of a seasoned recruiter, instantly. We called it the "pencil rocket" concept: combining the meticulous craft (the pencil) of resume writing with the ambitious launch (the rocket) toward a better career.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-3">Our Guiding Principles</h3>
+            <p className="text-lg leading-relaxed mb-4">
+              From day one, we've been guided by three core beliefs:
+            </p>
+            <ul className="list-disc list-inside space-y-2 mb-4 pl-4">
+              <li className="text-lg leading-relaxed">
+                <span className="font-semibold">Empowerment Through Technology.</span> We use AI not to replace human skill, but to enhance it. Our tool is designed to give you the confidence and control to navigate your job search effectively.
+              </li>
+              <li className="text-lg leading-relaxed">
+                <span className="font-semibold">Accessibility for All.</span> Expert career advice shouldn't be locked behind a paywall. We are committed to keeping our core tool free forever to level the playing field for every job seeker.
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-2xl font-semibold text-foreground mb-3">Our Commitment to You</h3>
+            <p className="text-lg leading-relaxed">
+              Today, CareerSuite.ai is more than just software. It's a commitment to helping you put your best foot forward. We are constantly improving our AI to provide the most relevant insights, so you can spend less time guessing and more time preparing for the interviews you deserve.
+            </p>
+            <p className="text-lg leading-relaxed mt-4">
+              We're here to help you launch.
+            </p>
+          </div>
         </div>
       </div>
 
