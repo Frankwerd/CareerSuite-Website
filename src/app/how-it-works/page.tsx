@@ -13,9 +13,8 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 
 // --- TSX Component for the "How It Works" Page ---
 
-// CHANGED: Removed the named `export` and changed to a standard function declaration.
-// The default export at the bottom will handle the Next.js page requirement.
-function HowItWorksPage() {
+// CHANGED: Reverted to a const arrow function, which is more standard for React components and avoids parser issues.
+const HowItWorksPage = () => {
   return (
     <div className="container mx-auto px-4 py-12">
         <header className="hero-section text-center py-12 md:py-16">
@@ -35,7 +34,6 @@ function HowItWorksPage() {
               <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
               Download for Chrome (Free)
             </button>
-            {/* CHANGED: Using NEXT_PUBLIC_ prefix for client-side environment variable */}
             <p className="version-info text-xs text-muted-foreground mt-2">Version {process.env.NEXT_PUBLIC_APP_VERSION || '0.11.1'}</p>
           </div>
         </header>
@@ -89,7 +87,6 @@ function HowItWorksPage() {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                    {/* CHANGED: Added `shadow-lg` class directly here */}
                     <div className="mockup-window shadow-lg">
                         <div className="mockup-header">My Resume Profile</div>
                         <div className="mockup-content">
@@ -112,7 +109,6 @@ function HowItWorksPage() {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                    {/* CHANGED: Added `shadow-lg` class directly here */}
                     <div className="mockup-window panel-mockup shadow-lg">
                         <div className="mockup-header">Resume Tailoring</div>
                         <div className="mockup-content">
@@ -137,7 +133,6 @@ function HowItWorksPage() {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                    {/* CHANGED: Added `shadow-lg` class directly here */}
                     <div className="mockup-window shadow-lg">
                         <div className="mockup-header">Application Form</div>
                         <div className="mockup-content autofill-mock">
@@ -166,18 +161,14 @@ function HowItWorksPage() {
         </footer>
 
         <style jsx>{`
-          /* Comments explaining removed global styles are good, leaving them. */
-
           .cta-button {
             border: none;
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
           }
-
           .w-6 { width: 1.5rem; }
           .h-6 { height: 1.5rem; }
           .mr-2 { margin-right: 0.5rem; }
-
           .workflow-steps {
             display: flex;
             justify-content: center;
@@ -185,7 +176,6 @@ function HowItWorksPage() {
             gap: 20px;
             flex-wrap: wrap;
           }
-
           .step {
             flex: 1;
             max-width: 220px;
@@ -194,7 +184,6 @@ function HowItWorksPage() {
           .step p {
             color: hsl(var(--muted-foreground));
           }
-
           .step-icon {
             background-color: hsl(var(--accent));
             color: hsl(var(--accent-foreground));
@@ -212,18 +201,15 @@ function HowItWorksPage() {
             margin-bottom: 10px;
             color: hsl(var(--foreground));
           }
-
           .arrow {
             font-size: 2.5rem;
             color: hsl(var(--accent));
             font-weight: bold;
           }
-
           @media (max-width: 900px) {
               .workflow-steps { flex-direction: column; }
               .arrow { transform: rotate(90deg); margin: 0; }
           }
-
           .feature {
               display: flex;
               gap: 40px;
@@ -269,12 +255,10 @@ function HowItWorksPage() {
                   display: inline-block;
               }
           }
-
           .mockup-window {
               background-color: hsl(var(--muted));
               border: 1px solid hsl(var(--border));
               border-radius: 0.5rem;
-              /* CHANGED: Removed the invalid box-shadow rule. This is now handled by the `shadow-lg` class in the JSX. */
               width: 100%;
               max-width: 450px;
           }
@@ -335,7 +319,7 @@ function HowItWorksPage() {
         `}</style>
     </div>
   );
-}
+};
 
-// It's good practice to export the component as default for Next.js pages
+// This is the required export for a Next.js page.
 export default HowItWorksPage;
