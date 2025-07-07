@@ -16,7 +16,8 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 
 const HowItWorksPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12 relative"> {/* Added relative positioning */}
+    <div className="container mx-auto px-4 py-12"> {/* Removed relative positioning */}
+      <div className="relative"> {/* Added new wrapper with relative positioning */}
         <AnimatedGridPattern
             numSquares={50}
             maxOpacity={0.1}
@@ -174,6 +175,7 @@ const HowItWorksPage = () => {
                 </div>
             </div>
         </section>
+      </div> {/* Close the new relative wrapper */}
 
         {/* Footer CTA Section */}
         <footer className="text-center py-12 md:py-16 mt-8 md:mt-12 border-t border-border">
