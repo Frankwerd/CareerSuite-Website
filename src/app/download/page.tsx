@@ -13,7 +13,7 @@ export default function DownloadPage() {
       <DownloadCloud className="h-24 w-24 text-primary mx-auto mb-6" />
       <h1 className="text-4xl font-bold text-foreground mb-4">Download CareerSuite.ai <span className="text-xl text-primary">FREE</span></h1>
       <p className="text-xl text-muted-foreground mb-8 max-w-lg mx-auto">
-        Get the CareerSuite.ai Chrome extension to analyze your resume against job descriptions instantly and privately.
+        Get the CareerSuite.ai Chrome extension to analyze your resume against job descriptions instantly, with transparent data handling.
       </p>
 
       <Button
@@ -47,7 +47,7 @@ export default function DownloadPage() {
           </li>
           <li className="flex items-start">
             <ShieldCheck className="h-6 w-6 text-blue-500 mr-3 mt-1 flex-shrink-0" />
-            <span><strong>Completely Private:</strong> All analysis happens in your browser. Your resume and data are never uploaded or stored.</span>
+             <span><strong>Transparent Data Use:</strong> Core analysis of your resume and job description is performed by sending text to Google's Gemini API. You own your input and the AI's output. Settings are local. See our <a href="/privacy" className="underline text-primary">Privacy Policy</a>.</span>
           </li>
           <li className="flex items-start">
             <CheckCircle className="h-6 w-6 text-green-500 mr-3 mt-1 flex-shrink-0" />

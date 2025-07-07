@@ -40,7 +40,7 @@ const HeroSection = () => {
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
           Instantly analyze your resume against any job description. Get expert feedback to beat the ATS,
           land more interviews, and secure your dream job. <br />
-          <strong className="text-foreground">Free, private, and no account needed.</strong>
+          <strong className="text-foreground">Free, transparent data use, and no account needed for core resume analysis.</strong>
         </p>
         <div className="space-x-4">
           <Button
@@ -97,13 +97,13 @@ const FeaturesSection = () => {
           </MagicCard>
           <MagicCard className="cursor-pointer">
             <ShieldCheck className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-foreground mb-2">Privacy First & Secure</h3>
-            <p className="text-muted-foreground text-sm">Your resume and personal data are never uploaded or stored. All analysis happens directly in your browser.</p>
+            <h3 className="text-xl font-semibold text-foreground mb-2">Transparent Data Handling</h3>
+            <p className="text-muted-foreground text-sm">Your resume and job description text are sent to Google's Gemini API for analysis. You own your inputs and the AI's outputs. Settings are stored locally. See our <Link href="/privacy" className="underline">Privacy Policy</Link> for details.</p>
           </MagicCard>
           <MagicCard className="cursor-pointer">
             <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Instant & Frictionless</h3>
-            <p className="text-muted-foreground text-sm">Get immediate insights without the need to create an account or go through lengthy sign-up processes.</p>
+            <p className="text-muted-foreground text-sm">Get immediate insights for core resume analysis without needing an account or lengthy sign-up.</p>
           </MagicCard>
         </div>
       </div>
@@ -139,8 +139,8 @@ const PricingSection = () => {
             <ul className="space-y-3 text-muted-foreground my-6 text-md text-left list-none">
               <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> AI-Powered Resume vs. Job Description Analysis</li>
               <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Actionable Improvement Suggestions</li>
-              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> In-Browser Processing (Total Privacy)</li>
-              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> No Account or Sign-Up Needed</li>
+              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Advanced AI Analysis with Data Transparency (via Google Cloud)</li>
+              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> No Account Needed for Core Analysis</li>
             </ul>
             <Button
               size="lg"
@@ -182,7 +182,7 @@ const TestimonialsSection = () => {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
-            <p className="text-muted-foreground mb-4 flex-grow">"CareerSuite.ai was a game-changer! I finally understood why my applications weren't getting noticed. The AI feedback helped me tailor my resume perfectly, and I started getting calls almost immediately. Plus, knowing it's private is a huge relief."</p>
+            <p className="text-muted-foreground mb-4 flex-grow">"CareerSuite.ai was a game-changer! I finally understood why my applications weren't getting noticed. The AI feedback helped me tailor my resume perfectly, and I started getting calls almost immediately. Plus, the transparency about data processing and owning my results is a huge relief."</p>
             <div className="flex items-center mt-auto">
               <div>
                 <p className="font-semibold text-foreground">Jessica R.</p>
@@ -224,7 +224,7 @@ const CallToActionSection = () => {
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Launch Your Career?</h2>
         <p className="text-lg md:text-xl opacity-90 mb-10 max-w-xl mx-auto">
-          Stop guessing and start getting interviews. CareerSuite.ai gives you the AI-powered edge, for free and with total privacy.
+          Stop guessing and start getting interviews. CareerSuite.ai gives you the AI-powered edge, for free and with transparent data processing.
         </p>
         <Button
           size="lg"
