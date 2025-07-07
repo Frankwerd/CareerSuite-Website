@@ -16,15 +16,16 @@ const HeroSection = () => {
       ref={ref}
       className={cn("relative py-20 md:py-32 bg-background text-foreground overflow-hidden scroll-fade-in", { 'is-visible': isVisible })}
     >
-      {/* Container for the animation, ensuring it sizes correctly */}
+      {/*
+      //  Temporarily disabled for debugging
       <div
         id="hero-animation-container"
-        // FIXED: Added `pointer-events-none` to make this background layer "click-through", allowing buttons below to be clicked.
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <ConnectingLinesAnimation />
       </div>
-      {/* Original content container, now needs a higher z-index to be on top */}
+      */}
+
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="mb-12">
           <Image
