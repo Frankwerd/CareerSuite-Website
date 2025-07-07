@@ -1,4 +1,3 @@
-// src/app/page.tsx
 'use client';
 
 import { Button } from '@/components/ui/button';
@@ -20,25 +19,24 @@ const HeroSection = () => {
       {/* Container for the animation, ensuring it sizes correctly */}
       <div
         id="hero-animation-container"
-        className="absolute inset-0 z-0" // Full coverage, behind content
+        // FIXED: Added `pointer-events-none` to make this background layer "click-through", allowing buttons below to be clicked.
+        className="absolute inset-0 z-0 pointer-events-none"
       >
-        <ConnectingLinesAnimation /> {/* Restored component usage */}
+        <ConnectingLinesAnimation />
       </div>
       {/* Original content container, now needs a higher z-index to be on top */}
-      <div className="relative z-10 container mx-auto px-4 text-center"> {/* Added relative and z-10 */}
-        <div className="mb-12"> {/* Adjusted margin for banner */}
+      <div className="relative z-10 container mx-auto px-4 text-center">
+        <div className="mb-12">
           <Image
-            id="hero-banner-image" // Added ID for banner collision detection
-            src="/banner_light.png" // Path to your banner in the public folder - UPDATED
-            alt="CareerSuite.ai Banner - Enhance Your Resume with AI" // More descriptive alt text
-            width={1000} // Example width, adjust to your banner's aspect ratio or desired display
-            height={300} // Example height, adjust
-            className="mx-auto rounded-lg shadow-xl max-w-4xl w-full h-auto" // Adjusted max-width and ensured full width up to max
+            id="hero-banner-image"
+            src="/banner_light.png"
+            alt="CareerSuite.ai Banner - Enhance Your Resume with AI"
+            width={1000}
+            height={300}
+            className="mx-auto rounded-lg shadow-xl max-w-4xl w-full h-auto"
             priority
           />
         </div>
-        {/* Optional: Consider adding the Pencil Rocket logo here if available as an SVG component or Image */}
-        {/* <div className="mb-8"> <PencilRocketLogo className="h-24 w-24 mx-auto text-primary" /> </div> */}
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
           Launch Your Career with an <br className="hidden md:inline" /><span className="text-primary">AI-Powered Resume</span>
         </h1>
@@ -50,16 +48,16 @@ const HeroSection = () => {
         <div className="space-x-4">
           <Button
             size="lg"
-            variant="download" // Apply download variant
-            onClick={() => window.location.href = '/download'} // Or trigger analysis if possible directly
+            variant="download"
+            onClick={() => window.location.href = '/download'}
           >
             Analyze Your Resume FREE <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
             size="lg"
             variant="outline"
-            applyShinyEffect // Add the shiny effect to this button
-            className="border-accent text-accent hover:bg-accent/10" // Using Lapis Lazuli for "Learn More"
+            applyShinyEffect
+            className="border-accent text-accent hover:bg-accent/10"
             onClick={() => {
               const featuresSection = document.getElementById('features');
               if (featuresSection) featuresSection.scrollIntoView({ behavior: 'smooth' });
@@ -146,13 +144,11 @@ const PricingSection = () => {
             </ul>
             <Button
               size="lg"
-            variant="download" // Apply download variant
-            className="w-full mt-4 text-lg py-3 px-6" // Removed redundant bg/text/hover classes
+              variant="download"
+              className="w-full mt-4 text-lg py-3 px-6"
               onClick={() => {
-                const downloadPage = document.getElementById('download-page-link'); // Assuming you'll add an ID to your download link in Navbar or create a direct link here
+                const downloadPage = document.getElementById('download-page-link');
                 if (downloadPage) {
-                  // Smooth scroll if it's a section, or navigate if it's a page.
-                  // For now, direct to /download page as an example
                   window.location.href = '/download';
                 } else {
                   window.location.href = '/download'; // Fallback
@@ -189,7 +185,6 @@ const TestimonialsSection = () => {
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"CareerSuite.ai was a game-changer! I finally understood why my applications weren't getting noticed. The AI feedback helped me tailor my resume perfectly, and I started getting calls almost immediately. Plus, knowing it's private is a huge relief."</p>
             <div className="flex items-center mt-auto">
-              {/* <Image src="/path-to-avatar-jessica.jpg" alt="Jessica R." width={40} height={40} className="rounded-full mr-3" /> */}
               <div>
                 <p className="font-semibold text-foreground">Jessica R.</p>
                 <p className="text-xs text-muted-foreground">Marketing Specialist</p>
@@ -200,7 +195,6 @@ const TestimonialsSection = () => {
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"I was skeptical about AI resume tools, but CareerSuite.ai is different. It's instant, free, and I don't need an account. The suggestions were spot-on for beating the ATS. Highly recommend it to anyone feeling stuck in their job search!"</p>
             <div className="flex items-center mt-auto">
-              {/* <Image src="/path-to-avatar-david.jpg" alt="David L." width={40} height={40} className="rounded-full mr-3" /> */}
               <div>
                 <p className="font-semibold text-foreground">David L.</p>
                 <p className="text-xs text-muted-foreground">Software Engineer</p>
@@ -211,7 +205,6 @@ const TestimonialsSection = () => {
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"As someone switching careers, tailoring my resume felt overwhelming. CareerSuite.ai made it so much easier by showing me exactly what to focus on for each job. And it's FREE! This tool gave me the confidence boost I needed."</p>
             <div className="flex items-center mt-auto">
-              {/* <Image src="/path-to-avatar-sarah.jpg" alt="Sarah K." width={40} height={40} className="rounded-full mr-3" /> */}
               <div>
                 <p className="font-semibold text-foreground">Sarah K.</p>
                 <p className="text-xs text-muted-foreground">Aspiring Product Manager</p>
@@ -238,17 +231,8 @@ const CallToActionSection = () => {
         </p>
         <Button
           size="lg"
-        variant="download" // Apply download variant
-        // className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 border-primary-foreground hover:border-primary-foreground/90 text-lg py-3 px-6"
-        // Overriding specific styles from "outline" to match "download" might be tricky if they conflict.
-        // For "download" buttons, we want the primary orange style.
-        // The "download" variant in button.tsx already defines bg-primary, text-primary-foreground, and hover states.
-        // So, we only need to set variant="download".
-        // If this button was previously `variant="outline"` and styled to look inverted (e.g. white with orange text),
-        // then applying `variant="download"` will make it orange with white text.
-        // The provided class `bg-primary-foreground text-primary ...` would make it a light button with dark text.
-        // To ensure it uses the "download" variant's orange style, we remove those conflicting classes.
-        className="text-lg py-3 px-6" // Keep size-related classes if needed, remove color/bg classes
+          variant="download"
+          className="text-lg py-3 px-6"
           onClick={() => window.location.href = '/download'}
         >
           Download CareerSuite.ai FREE
