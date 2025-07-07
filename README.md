@@ -4,7 +4,7 @@
 
 **Stop guessing, start interviewing!** CareerSuite.ai is a free, privacy-first Chrome extension that instantly analyzes your resume against any job description, giving you the expert feedback needed to beat Applicant Tracking Systems (ATS), land more interviews, and secure your dream job.
 
-![CareerSuite.ai Banner](public/banner_light1.png)
+![CareerSuite.ai Banner](public/banner_light.png)
 *(Note: This image path `public/banner_light1.png` should work if the image exists there and this README is in the project root. You might want to update this to a direct link or a screenshot specific to the extension if preferred.)*
 
 ## Why CareerSuite.ai? 🤔
