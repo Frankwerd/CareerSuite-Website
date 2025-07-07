@@ -25,7 +25,7 @@ CareerSuite.ai streamlines your job application workflow in four simple steps:
 4.  **Autofill & Apply:** Use your newly tailored content to intelligently fill out application forms in seconds.
 
 ➡️ **Ready to supercharge your job search?**
-The live website for CareerSuite.ai (where the extension would be promoted/linked) can be found at: [https://francisjbutti.vercel.app/](https://francisjbutti.vercel.app/)
+The live website for CareerSuite.ai (where the extension would be promoted/linked) can be found at: [CareerSuite.Ai](https://careersuiteai.vercel.app/)
 *(A direct link to the Chrome Web Store page should be added here when the extension is published.)*
 
 ## Our Mission 🌟
