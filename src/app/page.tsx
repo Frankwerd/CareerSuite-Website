@@ -16,16 +16,15 @@ const HeroSection = () => {
       ref={ref}
       className={cn("relative py-20 md:py-32 bg-background text-foreground overflow-hidden scroll-fade-in", { 'is-visible': isVisible })}
     >
-      {/*
-      //  Temporarily disabled for debugging
+      {/* The background animation is not the issue, so it is restored. The pointer-events-none is still good practice. */}
       <div
         id="hero-animation-container"
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <ConnectingLinesAnimation />
       </div>
-      */}
-
+      
+      {/* Content Layer */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="mb-12">
           <Image
@@ -57,7 +56,8 @@ const HeroSection = () => {
           <Button
             size="lg"
             variant="outline"
-            applyShinyEffect
+            // FIXED: Removed `applyShinyEffect` to prevent the overlay from blocking clicks.
+            // applyShinyEffect 
             className="border-accent text-accent hover:bg-accent/10"
             onClick={() => {
               const featuresSection = document.getElementById('features');
