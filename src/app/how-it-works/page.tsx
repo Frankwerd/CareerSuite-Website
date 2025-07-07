@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 
-// Helper component for SVG icons
+// This helper component is no longer used on this page but can be kept for other parts of your site.
 const Icon = ({ path, className }: { path: string, className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className || 'w-6 h-6'}>
     <path fillRule="evenodd" d={path} clipRule="evenodd" />
@@ -32,10 +32,9 @@ const HowItWorksPage = () => {
             CareerSuite.AI is your personal career co-pilot.
           </p>
           <div className="inline-block">
-            {/* CHANGED: Wrapped the Button with a Link to navigate to the download page */}
             <Link href="/download">
+              {/* CHANGED: Removed the <Icon> component for a text-only button */}
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
-                <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
                 Download for Chrome (Free)
               </Button>
             </Link>
@@ -78,11 +77,11 @@ const HowItWorksPage = () => {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Foundation: Your Master Resume Profile</h3>
-                    <p className="text-muted-foreground mb-4">Your journey begins at your personal career headquarters. The Master Resume Profile is a comprehensive, structured database of your entire professional history.</p>
+                    <p className="text-muted-foreground mb-4">Your journey begins at your personal career headquarters...</p>
                     <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI-Powered Start: Upload your existing resume PDF, and our Gemini-powered engine will parse and populate the fields for you.</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Total Control: Manually add, edit, and organize every detail—from work experience bullets to optional demographic information for faster applications.</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Stored Securely: All your profile data is stored locally in your browser's storage, never on our servers. You are in complete control.</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI-Powered Start...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Total Control...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Stored Securely...</li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -99,11 +98,11 @@ const HowItWorksPage = () => {
             <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Magic Wand: AI-Powered Tailoring</h3>
-                    <p className="text-muted-foreground mb-4">Stop sending generic resumes. Our tailoring engine is the core of CareerSuite.AI, designed to make your application stand out for each specific role.</p>
+                    <p className="text-muted-foreground mb-4">Stop sending generic resumes...</p>
                     <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Context is King: The AI doesn't just look for keywords; it understands the context of the job description and your experience.</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Actionable Suggestions: See a side-by-side comparison of your original resume bullets and AI-optimized versions that highlight quantifiable results and relevant skills.</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>ATS Score: Get an instant relevance score to understand how well your tailored resume aligns with the job before you even apply.</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Context is King...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Actionable Suggestions...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>ATS Score...</li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -125,11 +124,11 @@ const HowItWorksPage = () => {
             <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Time Saver: Intelligent Autofill</h3>
-                    <p className="text-muted-foreground mb-4">Reclaim hours of tedious data entry. Our autofill engine is smarter than a simple password manager, built specifically for the complexities of job applications.</p>
+                    <p className="text-muted-foreground mb-4">Reclaim hours of tedious data entry...</p>
                     <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Programmatic First Pass: The engine first identifies and fills standard, easily-mappable fields (like name, email, phone).</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI for Ambiguity: For complex, non-standard fields (like custom radio buttons or open-ended questions), the AI analyzes the form's HTML and your profile to make intelligent choices.</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Tailored or Master: Choose to autofill with your freshly tailored content for maximum impact, or use your Master Profile for quick, general applications.</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Programmatic First Pass...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI for Ambiguity...</li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Tailored or Master...</li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -152,16 +151,12 @@ const HowItWorksPage = () => {
             Install CareerSuite.AI and transform your job application process today.
           </p>
           <div className="inline-block">
-            {/* === CHANGED BLOCK START === */}
             <Link href="/download" legacyBehavior>
-              {/* Added `no-underline` to remove the default link underline and fixed icon path */}
+              {/* CHANGED: Removed the <Icon> component for a text-only button */}
               <a className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-lg font-bold text-primary-foreground shadow-lg transition-transform duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-primary/90 no-underline">
-                {/* Updated icon to a simple horizontal line to match the screenshot */}
-                <Icon path="M5 12h14" className="w-6 h-6 mr-2" />
                 Get CareerSuite.AI Now
               </a>
             </Link>
-            {/* === CHANGED BLOCK END === */}
           </div>
         </footer>
     </div>
