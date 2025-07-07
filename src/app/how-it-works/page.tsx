@@ -105,9 +105,9 @@ const HowItWorksPage = () => {
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Foundation: Your Master Resume Profile</h3>
                     <p className="text-muted-foreground mb-4">Your journey begins at your personal career headquarters. The Master Resume Profile is a comprehensive, structured database of your entire professional history.</p>
                     <ul className="list-none space-y-2 text-muted-foreground text-left inline-block">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>AI-Powered Start: Upload your existing resume PDF, and our Gemini-powered engine will parse and populate the fields for you.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>AI-Powered Start: Upload your existing resume PDF, and our Gemini-powered engine (via Google Cloud) will parse and populate the fields for you.</span></li>
                         <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Total Control: Manually add, edit, and organize every detail—from work experience bullets to optional demographic information.</span></li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Stored Securely: All your profile data is stored locally in your browser's storage, never on our servers. You are in complete control.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Stored Securely & Transparently: Your Master Resume Profile data and settings are stored locally in your browser. Text from your resume and job descriptions for specific AI analysis is processed via Google's Gemini API. You own your inputs and outputs. See our <Link href="/privacy" className="underline">Privacy Policy</Link>.</span></li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
