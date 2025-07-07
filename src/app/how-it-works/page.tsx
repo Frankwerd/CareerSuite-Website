@@ -20,7 +20,7 @@ const HowItWorksPage = () => {
       <div className="relative"> {/* Added new wrapper with relative positioning */}
         <AnimatedGridPattern
             numSquares={50}
-            maxOpacity={0.1}
+            maxOpacity={0.05}
             duration={1.5}
             repeatDelay={0.25}
             className={cn(
@@ -31,7 +31,7 @@ const HowItWorksPage = () => {
           />
           <AnimatedGridPattern
             numSquares={50}
-            maxOpacity={0.1}
+            maxOpacity={0.05}
             duration={1.5}
             repeatDelay={0.25}
             className={cn(
