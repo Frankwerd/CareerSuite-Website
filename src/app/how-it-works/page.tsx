@@ -17,10 +17,10 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 const HowItWorksPage = () => {
   return (
     <div className="container mx-auto px-4 py-12"> {/* Removed relative positioning */}
-      <div className="relative"> {/* Added new wrapper with relative positioning */}
+      <div className="relative overflow-hidden"> {/* Added overflow-hidden */}
         <AnimatedGridPattern
             numSquares={50}
-            maxOpacity={0.05}
+            maxOpacity={0.02}
             duration={1.5}
             repeatDelay={0.25}
             className={cn(
@@ -31,7 +31,7 @@ const HowItWorksPage = () => {
           />
           <AnimatedGridPattern
             numSquares={50}
-            maxOpacity={0.05}
+            maxOpacity={0.02}
             duration={1.5}
             repeatDelay={0.25}
             className={cn(
