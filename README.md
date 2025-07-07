@@ -68,4 +68,4 @@ Interested in exploring the website code or contributing?
     ```
     Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
 
-This website is continuously deployed on [Vercel](https://careersuiteai.vercel.app/). You can access the live version here: https://careersuiteai.vercel.app/
+This website is continuously deployed on [Vercel](https://vercel.com/). You can access the live version here: https://careersuiteai.vercel.app/
