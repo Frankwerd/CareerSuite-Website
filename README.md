@@ -1,68 +1,62 @@
 ![image](assets/readme-photo2.png)
 
-# Francis J. LiButti's Dynamic AI Portfolio 🤖✨
+# CareerSuite.ai 🚀✨ - Your AI-Powered Career Co-Pilot
 
-**Why just read a resume when you can *converse* with my experience?** Traditional portfolios are static.
-That's why I've leveraged an innovative template to build my dynamic AI portfolio.
+**Stop guessing, start interviewing!** CareerSuite.ai is a free, privacy-first Chrome extension that instantly analyzes your resume against any job description, giving you the expert feedback needed to beat Applicant Tracking Systems (ATS), land more interviews, and secure your dream job.
 
-This isn't just a website; it's a direct channel to my strategic thinking, data analysis skills, and passion for AI innovation.
-Instead of endless scrolling, my AI persona adapts to *your* curiosity. Just ask a question — and get instant, tailored insights into my projects and expertise.
+![CareerSuite.ai Banner](public/banner_light1.png)
+*(Note: This image path `public/banner_light1.png` should work if the image exists there and this README is in the project root. You might want to update this to a direct link or a screenshot specific to the extension if preferred.)*
 
-## 👇 What can you ask?
+## Why CareerSuite.ai? 🤔
 
-- 🧠 **Tech Recruiter?** Ask about my data-driven impact & AI project results (like CareerSuite.AI!).
-- 💻 **Potential Client/Collaborator?** Dive into how I streamline operations & secure high-value outcomes.
-- 💡 **Fellow Innovator?** Explore my journey in full-spectrum problem-solving, from AgTech validation (NSF I-Corps) to robotic leadership (HAV Project).
+Job hunting is tough. Many talented individuals get overlooked because their resumes aren't perfectly tailored. CareerSuite.ai was built to change that. We provide:
+
+*   🎯 **Targeted Resume Analysis:** Instantly see how your resume stacks up against a specific job description.
+*   ✍️ **Actionable AI Feedback:** Get clear, expert-level suggestions to enhance your resume's content, keywords, and structure.
+*   🛡️ **Privacy First & Secure:** Your resume and personal data are **never uploaded or stored**. All analysis happens directly in your browser.
+*   ⚡ **Instant & Frictionless:** Get immediate insights with no account creation or sign-up required. It's completely free!
+
+## How It Works 🛠️
+
+CareerSuite.ai streamlines your job application workflow in four simple steps:
+
+1.  **Build Your Profile:** Create your Master Resume Profile within the extension by uploading a PDF or filling it out manually. This is stored locally in your browser.
+2.  **Analyze Any Job:** Open the CareerSuite.ai panel on any job board (LinkedIn, Indeed, etc.) to instantly get an AI-powered analysis of the job requirements.
+3.  **Tailor with AI:** Our AI compares your profile to the job, suggesting optimized bullet points, skills, and keywords to make your resume stand out.
+4.  **Autofill & Apply:** Use your newly tailored content to intelligently fill out application forms in seconds.
+
+➡️ **Ready to supercharge your job search?**
+The live website for CareerSuite.ai (where the extension would be promoted/linked) can be found at: [https://francisjbutti.vercel.app/](https://francisjbutti.vercel.app/)
+*(A direct link to the Chrome Web Store page should be added here when the extension is published.)*
+
+## Our Mission 🌟
+
+At CareerSuite.ai, our mission is to empower job seekers by providing instant, expert-level feedback on how to tailor their resume for any job—for free, and with complete privacy. We believe everyone deserves a fair chance to land their dream job.
 
 ---
 
-This isn't just a portfolio; it’s a **dynamic conversation, shaped by your specific interests**.
+## Tech Stack 💻
 
-➡️ **Try it now:** https://francisjbutti.vercel.app/
-*What will you ask?*
+CareerSuite.ai (and its promotional website) is built with modern technologies:
 
----
+*   **Framework:** Next.js (React)
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS
+*   **AI Integration:** Vercel AI SDK, OpenAI (or other models for analysis)
+*   **Deployment:** Vercel (for the website)
+*   **Extension Platform:** Chrome Extension (Manifest V3)
 
-## 🙏 Acknowledging the Innovation
+## Running Locally (Website) 🌐
 
-This interactive experience is built upon the ingenious AI portfolio template originally developed by **Raphaël Giraud** ([https://toukoum.fr](https://toukoum.fr)). His vision of an AI-powered, conversational portfolio perfectly aligned with my goal of showcasing my unique blend of strategic, data, and AI capabilities in an engaging new way. A huge thank you to Raphaël for pioneering this innovative approach!
-
-#### 🔖 Tags
-
-`#AIPortfolio` `#DataAnalytics` `#StrategicProjectManagement` `#AIInnovation` `#TechLeadership` `#ScalableSolutions` `#DigitalTransformation`
-
----
-
-## Project Structure
-
-The project follows a standard Next.js application structure:
-
-*   `src/app/`: Contains the main pages of the application.
-    *   `src/app/about/`: About page.
-    *   `src/app/contact/`: Contact page.
-    *   `src/app/download/`: Page for resume download.
-    *   `src/app/how-it-works/`: Explains the AI interaction.
-*   `src/components/`: Reusable UI components.
-    *   `src/components/layout/`: Components like Navbar and Footer.
-    *   `src/components/magicui/`: Specialized UI components for visual effects.
-    *   `src/components/ui/`: General UI elements like buttons, cards, etc.
-*   `src/hooks/`: Custom React hooks for shared logic.
-*   `src/lib/`: Utility functions and helper scripts.
-*   `public/`: Static assets like images and resume PDF.
-*   `assets/`: Contains images specifically used in the README.
-
-## Getting Started
-
-To get a local copy up and running, follow these simple steps:
+Interested in exploring the website code or contributing?
 
 1.  **Clone the repository:**
-    Replace `your-username/your-repository-name` with the actual repository path.
     ```bash
-    git clone https://github.com/your-username/your-repository-name.git
+    git clone https://github.com/your-username/your-repository-name.git # Replace with actual repo URL
     cd your-repository-name
     ```
 2.  **Install dependencies:**
-    This project uses `pnpm` as the package manager.
+    This project uses `pnpm`.
     ```bash
     pnpm install
     ```
@@ -70,33 +64,6 @@ To get a local copy up and running, follow these simple steps:
     ```bash
     pnpm dev
     ```
-    Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    Open [http://localhost:3000](http://localhost:3000) with your browser to see the website.
 
-## Key Features
-
-This AI-powered portfolio offers a unique and interactive way to explore Francis J. LiButti's skills and experience:
-
-*   **Conversational AI Interface:** Engage in a dynamic dialogue with an AI persona that provides tailored information based on your questions.
-*   **Dynamic Content Delivery:** The AI adapts its responses to highlight relevant projects and expertise.
-*   **Responsive Design:** Fully responsive and accessible across various devices and screen sizes.
-*   **Interactive UI Elements:** Utilizes modern UI components and animations for an engaging user experience.
-*   **Detailed Project Showcase:** Offers insights into key projects, methodologies, and outcomes.
-*   **Easy Navigation:** Clear and intuitive navigation to different sections of the portfolio including About, Contact, and Resume Download.
-
-## Technologies Used
-
-This project is built with a modern tech stack:
-
-*   **Framework:** Next.js (v15)
-*   **Language:** TypeScript
-*   **UI Library:** React (v19)
-*   **Styling:** Tailwind CSS (v4)
-*   **AI SDK:** Vercel AI SDK, OpenAI
-*   **UI Components:** Shadcn/UI, MagicUI
-*   **Animations:** Framer Motion
-*   **Linting & Formatting:** ESLint, Prettier
-*   **Package Manager:** pnpm
-
-## Deployment
-
-This portfolio is continuously deployed on [Vercel]([https://vercel.com/](https://careersuiteai.vercel.app/)). You can access the live version here: https://francisjbutti.vercel.app/
+This website is continuously deployed on [Vercel](https://careersuiteai.vercel.app/). You can access the live version here: https://careersuiteai.vercel.app/
