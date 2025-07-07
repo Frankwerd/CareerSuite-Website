@@ -1,13 +1,13 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-// Consolidated lucide-react imports
 import { ArrowRight, CheckCircle, DownloadCloud, Zap, ShieldCheck, Edit3, Target } from 'lucide-react';
-import Image from 'next/image'; // Import Next.js Image component
+import Image from 'next/image';
+import Link from 'next/link'; // <<--- 1. IMPORT LINK COMPONENT
 import { MagicCard } from '@/components/magicui/magic-card';
-import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimation'; // Import the animation
-import useScrollFadeIn from '@/hooks/useScrollFadeIn'; // Import the custom hook
-import { cn } from '@/lib/utils'; // Import cn utility
+import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimation';
+import useScrollFadeIn from '@/hooks/useScrollFadeIn';
+import { cn } from '@/lib/utils';
 
 const HeroSection = () => {
   const [ref, isVisible] = useScrollFadeIn<HTMLElement>();
@@ -16,15 +16,12 @@ const HeroSection = () => {
       ref={ref}
       className={cn("relative py-20 md:py-32 bg-background text-foreground overflow-hidden scroll-fade-in", { 'is-visible': isVisible })}
     >
-      {/* The background animation is not the issue, so it is restored. The pointer-events-none is still good practice. */}
       <div
         id="hero-animation-container"
         className="absolute inset-0 z-0 pointer-events-none"
       >
         <ConnectingLinesAnimation />
       </div>
-      
-      {/* Content Layer */}
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="mb-12">
           <Image
@@ -53,19 +50,21 @@ const HeroSection = () => {
           >
             Analyze Your Resume FREE <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            // FIXED: Removed `applyShinyEffect` to prevent the overlay from blocking clicks.
-            // applyShinyEffect 
-            className="border-accent text-accent hover:bg-accent/10"
-            onClick={() => {
-              const featuresSection = document.getElementById('features');
-              if (featuresSection) featuresSection.scrollIntoView({ behavior: 'smooth' });
-            }}
-          >
-            Learn How It Works
-          </Button>
+          
+          {/* === CHANGED BLOCK START === */}
+          <Link href="/how-it-works"> {/* 2. WRAP BUTTON WITH LINK */}
+            <Button
+              size="lg"
+              variant="outline"
+              applyShinyEffect // 3. RE-ENABLE SHINY EFFECT
+              className="border-accent text-accent hover:bg-accent/10"
+              // 4. REMOVED the old onClick for scrolling
+            >
+              Learn How It Works
+            </Button>
+          </Link>
+          {/* === CHANGED BLOCK END === */}
+
         </div>
       </div>
     </section>
@@ -182,7 +181,6 @@ const TestimonialsSection = () => {
           <p className="text-muted-foreground mt-2 max-w-xl mx-auto">Hear what tech-savvy job seekers like "Jessica" are saying about CareerSuite.ai.</p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Testimonial 1 */}
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"CareerSuite.ai was a game-changer! I finally understood why my applications weren't getting noticed. The AI feedback helped me tailor my resume perfectly, and I started getting calls almost immediately. Plus, knowing it's private is a huge relief."</p>
             <div className="flex items-center mt-auto">
@@ -192,7 +190,6 @@ const TestimonialsSection = () => {
               </div>
             </div>
           </div>
-          {/* Testimonial 2 */}
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"I was skeptical about AI resume tools, but CareerSuite.ai is different. It's instant, free, and I don't need an account. The suggestions were spot-on for beating the ATS. Highly recommend it to anyone feeling stuck in their job search!"</p>
             <div className="flex items-center mt-auto">
@@ -202,7 +199,6 @@ const TestimonialsSection = () => {
               </div>
             </div>
           </div>
-          {/* Testimonial 3 */}
           <div className="bg-background p-6 rounded-lg shadow-md flex flex-col">
             <p className="text-muted-foreground mb-4 flex-grow">"As someone switching careers, tailoring my resume felt overwhelming. CareerSuite.ai made it so much easier by showing me exactly what to focus on for each job. And it's FREE! This tool gave me the confidence boost I needed."</p>
             <div className="flex items-center mt-auto">
