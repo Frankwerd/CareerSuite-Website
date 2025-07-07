@@ -200,7 +200,7 @@ export const HowItWorksPage = () => {
           </div>
         </footer>
   
-    </div> {/* Closes the main container div */}
+    </div> 
   );
 };
 
