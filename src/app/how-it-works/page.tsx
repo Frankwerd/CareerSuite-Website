@@ -199,227 +199,227 @@ export const HowItWorksPage = () => {
             </Link>
           </div>
         </footer>
-    </div> {/* Closes the main container div */}
-      <style jsx>{`
-        /* Removed :root, body, .how-it-works-container, .hero-section global styles. */
-        /* Many properties from .hero-section (text-align, padding) are now directly on <header> and <footer> using Tailwind. */
-        /* Typography for h1, .subtitle in .hero-section is now directly on the elements using Tailwind. */
+        <style jsx>{`
+          /* Removed :root, body, .how-it-works-container, .hero-section global styles. */
+          /* Many properties from .hero-section (text-align, padding) are now directly on <header> and <footer> using Tailwind. */
+          /* Typography for h1, .subtitle in .hero-section is now directly on the elements using Tailwind. */
 
-        /* .cta-container is replaced by inline-block on its div or direct Tailwind on button if only one child. */
+          /* .cta-container is replaced by inline-block on its div or direct Tailwind on button if only one child. */
 
-        .cta-button {
-          /* Basic structure and interaction - colors/padding/font are now primarily Tailwind */
-          /* background-color: hsl(var(--primary)); /* Example, if still needed */
-          /* color: hsl(var(--primary-foreground)); /* Example, if still needed */
-          border: none; /* Kept from original */
-          /* border-radius: 8px; /* from Tailwind rounded-lg */
-          /* padding: 16px 32px; /* from Tailwind py-3 px-6 (adjust if needed) */
-          /* font-size: 1.1rem; /* Tailwind text-base or text-lg */
-          /* font-weight: bold; /* Tailwind font-bold */
-          cursor: pointer; /* Kept */
-          transition: transform 0.2s ease, box-shadow 0.2s ease; /* Kept */
-          /* display: inline-flex; /* Tailwind inline-flex */
-          /* align-items: center; /* Tailwind items-center */
-          /* justify-content: center; /* Tailwind justify-center */
-          /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
-        }
+          .cta-button {
+            /* Basic structure and interaction - colors/padding/font are now primarily Tailwind */
+            /* background-color: hsl(var(--primary)); /* Example, if still needed */
+            /* color: hsl(var(--primary-foreground)); /* Example, if still needed */
+            border: none; /* Kept from original */
+            /* border-radius: 8px; /* from Tailwind rounded-lg */
+            /* padding: 16px 32px; /* from Tailwind py-3 px-6 (adjust if needed) */
+            /* font-size: 1.1rem; /* Tailwind text-base or text-lg */
+            /* font-weight: bold; /* Tailwind font-bold */
+            cursor: pointer; /* Kept */
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Kept */
+            /* display: inline-flex; /* Tailwind inline-flex */
+            /* align-items: center; /* Tailwind items-center */
+            /* justify-content: center; /* Tailwind justify-center */
+            /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
+          }
 
-        /* .cta-button:hover { /* Tailwind hover:-translate-y-0.5 handles transform, shadow can be hover:shadow-xl */
-          /* transform: translateY(-2px); */
-          /* box-shadow: 0 6px 16px rgba(0,0,0,0.15); */
-        /* } */
+          /* .cta-button:hover { /* Tailwind hover:-translate-y-0.5 handles transform, shadow can be hover:shadow-xl */
+            /* transform: translateY(-2px); */
+            /* box-shadow: 0 6px 16px rgba(0,0,0,0.15); */
+          /* } */
 
-        /* .version-info styling is now direct Tailwind on the <p> tag. */
+          /* .version-info styling is now direct Tailwind on the <p> tag. */
 
-        /* .w-6, .h-6, .mr-2 are utility classes, can be kept or fully replaced by Tailwind. Keeping for now if used by Icon. */
-        .w-6 { width: 1.5rem; }
-        .h-6 { height: 1.5rem; }
-        .mr-2 { margin-right: 0.5rem; }
+          /* .w-6, .h-6, .mr-2 are utility classes, can be kept or fully replaced by Tailwind. Keeping for now if used by Icon. */
+          .w-6 { width: 1.5rem; }
+          .h-6 { height: 1.5rem; }
+          .mr-2 { margin-right: 0.5rem; }
 
-        /* .workflow-diagram-section properties (text-align, padding, bg, radius, margin) are now on its <section> tag via Tailwind. */
-        /* .workflow-diagram-section h2 uses Tailwind. */
+          /* .workflow-diagram-section properties (text-align, padding, bg, radius, margin) are now on its <section> tag via Tailwind. */
+          /* .workflow-diagram-section h2 uses Tailwind. */
 
-        .workflow-steps {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          gap: 20px; /* Or Tailwind gap-5 */
-          flex-wrap: wrap;
-        }
-
-        .step {
-          flex: 1;
-          max-width: 220px; /* Consider Tailwind max-w-xs */
-          padding: 20px; /* Consider Tailwind p-5 */
-          /* Ensure text color for <p> inside step is appropriate, e.g., text-muted-foreground */
-        }
-        .step p {
-          color: hsl(var(--muted-foreground));
-        }
-
-        .step-icon {
-          background-color: hsl(var(--accent)); /* Using theme accent color */
-          color: hsl(var(--accent-foreground)); /* Corresponding foreground */
-          width: 64px;
-          height: 64px;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto 20px auto; /* Tailwind: mx-auto mb-5 */
-        }
-
-        .step-icon svg {
-          width: 32px;
-          height: 32px;
-        }
-
-        .step h3 {
-          /* color: var(--header-color); /* Now text-foreground (or text-primary if desired) via Tailwind on h3 */
-          font-size: 1.2rem; /* Tailwind text-lg */
-          margin-bottom: 10px; /* Tailwind mb-2 or mb-3 */
-          color: hsl(var(--foreground)); /* Explicitly setting for cascade if needed */
-        }
-
-        .arrow {
-          font-size: 2.5rem; /* Tailwind text-4xl */
-          color: hsl(var(--accent)); /* Using theme accent */
-          font-weight: bold;
-        }
-
-        @media (max-width: 900px) {
-            .workflow-steps { flex-direction: column; }
-            .arrow { transform: rotate(90deg); margin: 0; }
-        }
-
-        /* .feature-deep-dive padding is handled by Tailwind. */
-
-        .feature {
+          .workflow-steps {
             display: flex;
-            gap: 40px; /* Tailwind gap-10 */
+            justify-content: center;
             align-items: center;
-            margin-bottom: 80px; /* Tailwind mb-20 */
-        }
+            gap: 20px; /* Or Tailwind gap-5 */
+            flex-wrap: wrap;
+          }
 
-        .feature.reverse {
-            flex-direction: row-reverse;
-        }
-
-        .feature-text {
+          .step {
             flex: 1;
-        }
-        /* .feature-text h3 uses Tailwind. */
-        .feature-text p {
-          margin-bottom: 1rem; /* Tailwind mb-4 */
-          color: hsl(var(--muted-foreground));
-        }
-        .feature-text ul {
-          list-style: none;
-          padding-left: 0;
-          color: hsl(var(--muted-foreground));
-        }
-        .feature-text li {
-            position: relative;
-            padding-left: 30px;
-            margin-bottom: 10px;
-        }
-        .feature-text li::before {
-            content: '✔';
-            position: absolute;
-            left: 0;
-            color: hsl(var(--primary)); /* Theme primary color */
-            font-weight: bold;
-        }
+            max-width: 220px; /* Consider Tailwind max-w-xs */
+            padding: 20px; /* Consider Tailwind p-5 */
+            /* Ensure text color for <p> inside step is appropriate, e.g., text-muted-foreground */
+          }
+          .step p {
+            color: hsl(var(--muted-foreground));
+          }
 
-        .feature-visual {
-            flex: 1;
+          .step-icon {
+            background-color: hsl(var(--accent)); /* Using theme accent color */
+            color: hsl(var(--accent-foreground)); /* Corresponding foreground */
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-        }
+            margin: 0 auto 20px auto; /* Tailwind: mx-auto mb-5 */
+          }
 
-        @media (max-width: 768px) {
-            .feature, .feature.reverse {
-                flex-direction: column;
-                text-align: center;
-            }
-            .feature-text ul {
-                text-align: left;
-                display: inline-block;
-            }
-        }
+          .step-icon svg {
+            width: 32px;
+            height: 32px;
+          }
 
-        .mockup-window {
-            background-color: hsl(var(--muted));
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.5rem; /* Tailwind rounded-lg */
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); /* Replicate Tailwind shadow, e.g., shadow-lg */
-            width: 100%;
-            max-width: 450px;
-        }
+          .step h3 {
+            /* color: var(--header-color); /* Now text-foreground (or text-primary if desired) via Tailwind on h3 */
+            font-size: 1.2rem; /* Tailwind text-lg */
+            margin-bottom: 10px; /* Tailwind mb-2 or mb-3 */
+            color: hsl(var(--foreground)); /* Explicitly setting for cascade if needed */
+          }
 
-        .mockup-header {
-            background-color: hsl(var(--border));
-            padding: 0.5rem 0.75rem; /* Tailwind p-2 px-3 */
+          .arrow {
+            font-size: 2.5rem; /* Tailwind text-4xl */
+            color: hsl(var(--accent)); /* Using theme accent */
             font-weight: bold;
-            border-bottom: 1px solid hsl(var(--border));
-            color: hsl(var(--foreground));
-        }
+          }
 
-        .mockup-content {
-            padding: 1.25rem; /* Tailwind p-5 */
-            min-height: 200px;
-            color: hsl(var(--foreground));
-        }
+          @media (max-width: 900px) {
+              .workflow-steps { flex-direction: column; }
+              .arrow { transform: rotate(90deg); margin: 0; }
+          }
 
-        .form-group { margin-bottom: 0.9375rem; text-align: left; } /* 15px */
-        .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3125rem; color: hsl(var(--foreground)); } /* 5px */
-        .input-mock, .textarea-mock {
-            background-color: hsl(var(--background));
-            border: 1px solid hsl(var(--border));
-            padding: 0.625rem; /* Tailwind p-2.5 (10px) */
-            border-radius: 0.375rem; /* Tailwind rounded-md */
-            width: 100%;
-            box-sizing: border-box;
-            color: hsl(var(--foreground));
-        }
-        .textarea-mock { min-height: 80px; }
+          /* .feature-deep-dive padding is handled by Tailwind. */
 
-        .panel-mockup {
-          transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
-          transition: transform 0.3s ease;
-        }
-        .panel-mockup:hover { transform: perspective(1000px) rotateY(0) rotateX(0); }
+          .feature {
+              display: flex;
+              gap: 40px; /* Tailwind gap-10 */
+              align-items: center;
+              margin-bottom: 80px; /* Tailwind mb-20 */
+          }
 
-        .comparison-mock {
-            text-align: left;
-            border: 1px solid hsl(var(--border));
-            border-radius: 0.375rem; /* Tailwind rounded-md */
-            background: hsl(var(--card));
-        }
-        .original-mock, .suggestion-mock { padding: 0.625rem; } /* 10px */
-        .suggestion-mock {
-          background-color: hsl(var(--primary) / 0.05); /* Lighter primary shade */
-          border-top: 1px solid hsl(var(--border));
-          color: hsl(var(--primary-foreground)); /* If primary is dark, text should be light */
-        }
-         /* Ensure text inside suggestion-mock is legible, might need different color if primary is light */
-        .suggestion-mock p, .suggestion-mock strong {
-            color: hsl(var(--primary)); /* Or a darker shade if background is too light */
-        }
+          .feature.reverse {
+              flex-direction: row-reverse;
+          }
+
+          .feature-text {
+              flex: 1;
+          }
+          /* .feature-text h3 uses Tailwind. */
+          .feature-text p {
+            margin-bottom: 1rem; /* Tailwind mb-4 */
+            color: hsl(var(--muted-foreground));
+          }
+          .feature-text ul {
+            list-style: none;
+            padding-left: 0;
+            color: hsl(var(--muted-foreground));
+          }
+          .feature-text li {
+              position: relative;
+              padding-left: 30px;
+              margin-bottom: 10px;
+          }
+          .feature-text li::before {
+              content: '✔';
+              position: absolute;
+              left: 0;
+              color: hsl(var(--primary)); /* Theme primary color */
+              font-weight: bold;
+          }
+
+          .feature-visual {
+              flex: 1;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          }
+
+          @media (max-width: 768px) {
+              .feature, .feature.reverse {
+                  flex-direction: column;
+                  text-align: center;
+              }
+              .feature-text ul {
+                  text-align: left;
+                  display: inline-block;
+              }
+          }
+
+          .mockup-window {
+              background-color: hsl(var(--muted));
+              border: 1px solid hsl(var(--border));
+              border-radius: 0.5rem; /* Tailwind rounded-lg */
+              box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); /* Replicate Tailwind shadow, e.g., shadow-lg */
+              width: 100%;
+              max-width: 450px;
+          }
+
+          .mockup-header {
+              background-color: hsl(var(--border));
+              padding: 0.5rem 0.75rem; /* Tailwind p-2 px-3 */
+              font-weight: bold;
+              border-bottom: 1px solid hsl(var(--border));
+              color: hsl(var(--foreground));
+          }
+
+          .mockup-content {
+              padding: 1.25rem; /* Tailwind p-5 */
+              min-height: 200px;
+              color: hsl(var(--foreground));
+          }
+
+          .form-group { margin-bottom: 0.9375rem; text-align: left; } /* 15px */
+          .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3125rem; color: hsl(var(--foreground)); } /* 5px */
+          .input-mock, .textarea-mock {
+              background-color: hsl(var(--background));
+              border: 1px solid hsl(var(--border));
+              padding: 0.625rem; /* Tailwind p-2.5 (10px) */
+              border-radius: 0.375rem; /* Tailwind rounded-md */
+              width: 100%;
+              box-sizing: border-box;
+              color: hsl(var(--foreground));
+          }
+          .textarea-mock { min-height: 80px; }
+
+          .panel-mockup {
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: transform 0.3s ease;
+          }
+          .panel-mockup:hover { transform: perspective(1000px) rotateY(0) rotateX(0); }
+
+          .comparison-mock {
+              text-align: left;
+              border: 1px solid hsl(var(--border));
+              border-radius: 0.375rem; /* Tailwind rounded-md */
+              background: hsl(var(--card));
+          }
+          .original-mock, .suggestion-mock { padding: 0.625rem; } /* 10px */
+          .suggestion-mock {
+            background-color: hsl(var(--primary) / 0.05); /* Lighter primary shade */
+            border-top: 1px solid hsl(var(--border));
+            color: hsl(var(--primary-foreground)); /* If primary is dark, text should be light */
+          }
+           /* Ensure text inside suggestion-mock is legible, might need different color if primary is light */
+          .suggestion-mock p, .suggestion-mock strong {
+              color: hsl(var(--primary)); /* Or a darker shade if background is too light */
+          }
 
 
-        .autofill-mock .filled {
-            border: 2px solid hsl(var(--accent));
-            box-shadow: 0 0 5px hsl(var(--accent) / 0.5); /* Softer shadow */
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
-      `}</style>
+          .autofill-mock .filled {
+              border: 2px solid hsl(var(--accent));
+              box-shadow: 0 0 5px hsl(var(--accent) / 0.5); /* Softer shadow */
+              animation: pulse 1.5s infinite;
+          }
+          @keyframes pulse {
+              0% { opacity: 1; }
+              50% { opacity: 0.7; }
+              100% { opacity: 1; }
+          }
+        `}</style>
+    </div> {/* Closes the main container div */}
   );
 };
 
