@@ -107,7 +107,7 @@ export default function ContactPage() {
                 <Mail className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Email</h3>
-                  <a href="mailto:support@careersuite.ai" className="hover:text-primary">support@careersuite.ai</a><br />
+                  <a href="mailto:libutti123@gmail.com" className="hover:text-primary">libutti123@gmail.com</a><br />
                   {/* <a href="mailto:sales@careersuite.ai" className="hover:text-primary">sales@careersuite.ai</a> */}
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 <MapPin className="h-6 w-6 text-primary mr-3 mt-1 flex-shrink-0" />
                 <div>
                   <h3 className="font-semibold text-foreground">Office Address</h3>
-                  <p>Proudly built by a remote team.</p>
+                  <p>Proudly built by Francis John LiButti.</p>
                   {/* <p>123 SaaS Street, Tech City, TX 75001, USA</p> */}
                 </div>
               </div>
