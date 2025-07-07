@@ -19,7 +19,7 @@ const HowItWorksPage = () => {
     <div className="container mx-auto px-4 py-12"> {/* Removed relative positioning */}
       <div className="relative overflow-hidden"> {/* Added overflow-hidden */}
         <AnimatedGridPattern
-            numSquares={50}
+            numSquares={85}
             maxOpacity={0.02}
             duration={1.5}
             repeatDelay={0.25}
@@ -30,7 +30,7 @@ const HowItWorksPage = () => {
             )}
           />
           <AnimatedGridPattern
-            numSquares={50}
+            numSquares={85}
             maxOpacity={0.02}
             duration={1.5}
             repeatDelay={0.25}
