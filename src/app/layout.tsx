@@ -114,11 +114,23 @@ export default function RootLayout({
             repeatDelay={0.25} // Faster repeat
             className={cn(
               "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]", // Adjusted mask
-              "inset-0 h-full w-full skew-y-0", // Simpler positioning for full page
-              "z-[-1]", // Ensure it's in the background
+              "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]",
+              "inset-x-0 inset-y-[-30%] h-[200%] skew-y-12", // Original top styling
+              "z-[-1]",
             )}
           />
-          <div className="relative z-0 flex flex-col min-h-screen"> {/* Added relative z-0 here */}
+          <AnimatedGridPattern
+            numSquares={50}
+            maxOpacity={0.1}
+            duration={1.5}
+            repeatDelay={0.25}
+            className={cn(
+              "[mask-image:radial-gradient(ellipse_at_center,white_10%,transparent_70%)]",
+              "inset-x-0 inset-y-[70%] h-[200%] skew-y-[-12deg]", // Bottom styling: adjusted inset-y and skew-y
+              "z-[-1]",
+            )}
+          />
+          <div className="relative z-0 flex flex-col min-h-screen">
             <Navbar />
             <main className="flex-grow">
               {children}

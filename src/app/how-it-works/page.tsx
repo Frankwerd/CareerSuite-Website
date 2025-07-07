@@ -4,8 +4,6 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
-import { InteractiveGridPattern } from "@/components/magicui/interactive-grid-pattern";
-import { cn } from "@/lib/utils"; // cn might be needed for styling the pattern or its container
 
 // Helper component for SVG icons
 const Icon = ({ path, className }: { path: string, className?: string }) => (
@@ -16,7 +14,7 @@ const Icon = ({ path, className }: { path: string, className?: string }) => (
 
 const HowItWorksPage = () => {
   return (
-    <div className="container mx-auto px-4 py-12"> {/* Removed relative class, it's handled by layout now */}
+    <div className="container mx-auto px-4 py-12">
         {/* Header Section */}
         <header className="text-center py-12 md:py-16">
           <div className="inline-block mb-6">
@@ -154,16 +152,7 @@ const HowItWorksPage = () => {
         </section>
 
         {/* Footer CTA Section */}
-        <footer className="relative overflow-hidden text-center py-12 md:py-16 mt-8 md:mt-12 border-t border-border">
-          <InteractiveGridPattern
-            width={30}
-            height={30}
-            squares={[40,10]} // Corrected: 40 horizontal, 10 vertical
-            className={cn(
-              "absolute inset-0 h-full w-full fill-gray-400/10 stroke-gray-400/10 -z-10",
-              "[mask-image:radial-gradient(ellipse_at_center,white_20%,transparent_90%)]"
-            )}
-          />
+        <footer className="text-center py-12 md:py-16 mt-8 md:mt-12 border-t border-border">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ready to Land Your Dream Job?</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8">
             Install CareerSuite.AI and transform your job application process today.
