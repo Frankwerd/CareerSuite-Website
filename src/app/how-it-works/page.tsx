@@ -1,51 +1,45 @@
 "use client"; // Required for styled-jsx and client-side interactivity
 
 import React from 'react';
+import Link from 'next/link';
 
-// Helper component for SVG icons. In a real app, you might use a library like 'react-icons'.
+// Helper component for SVG icons.
 const Icon = ({ path, className }: { path: string, className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className || 'w-6 h-6'}>
     <path fillRule="evenodd" d={path} clipRule="evenodd" />
   </svg>
 );
 
-import Link from 'next/link'; // Added for navigation
 
 // --- TSX Component for the "How It Works" Page ---
 
-export const HowItWorksPage = () => {
-  // Apply a container similar to about/page.tsx for consistent padding and max-width
-  // The min-h-screen or similar height adjustments will be handled by the RootLayout's main tag.
+// CHANGED: Removed the named `export` and changed to a standard function declaration.
+// The default export at the bottom will handle the Next.js page requirement.
+function HowItWorksPage() {
   return (
-    <div className="container mx-auto px-4 py-12"> {/* Added container from about page */}
-      {/* Removed the outer <div className="how-it-works-container"> as container mx-auto handles this */}
-        <header className="hero-section text-center py-12 md:py-16"> {/* Simplified padding, text-center from Tailwind */}
-          <div className="logo-container inline-block mb-6"> {/* Adjusted logo margin and display */}
-            {/* A simple representation of your logo - Consider making this a reusable component if used elsewhere */}
+    <div className="container mx-auto px-4 py-12">
+        <header className="hero-section text-center py-12 md:py-16">
+          <div className="logo-container inline-block mb-6">
             <svg width="64" height="64" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M379.33,132.67a10.64,10.64,0,0,0-10.66,0L288,158.55V106.67a10.67,10.67,0,0,0-21.34,0v51.88L186,184.43a10.66,10.66,0,0,0-10.66,18.47l77.42,44.7,4,2.33,36.52,21.08,42.74,24.67a10.66,10.66,0,0,0,14.63-8.45V141.12A10.66,10.66,0,0,0,379.33,132.67Z" fill="#F26419"/>
               <path d="M336.8,202.93,256,155.8,175.2,202.93a10.67,10.67,0,0,0-5.33,9.24V347.16a10.67,10.67,0,0,0,5.33,9.24L256,403.52l80.8-47.12a10.67,10.67,0,0,0,5.33-9.24V212.17A10.67,10.67,0,0,0,336.8,202.93ZM256,245.33a32,32,0,1,1,32-32A32,32,0,0,1,256,245.33Z" fill="#33658A"/>
             </svg>
           </div>
-          {/* Using Tailwind classes for typography, consistent with site theme */}
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">Supercharge Your Job Application Workflow</h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
             From analyzing a job post to submitting a perfectly tailored application in minutes.
             CareerSuite.AI is your personal career co-pilot.
           </p>
-          {/* This Download button can be replaced with the standard site Button component if available and desired */}
-          {/* For now, keeping custom styling but ensuring it uses theme variables if possible */}
-          <div className="cta-container inline-block"> {/* Ensure cta-container is styled or use Tailwind for layout */}
-            <button className="cta-button bg-primary hover:bg-primary/90 text-primary-foreground"> {/* Assuming cta-button provides base styling, added theme colors */}
+          <div className="cta-container inline-block">
+            <button className="cta-button bg-primary hover:bg-primary/90 text-primary-foreground">
               <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
               Download for Chrome (Free)
             </button>
-            {/* version-info can be styled with Tailwind: e.g., text-xs text-muted-foreground mt-2 */}
-            <p className="version-info text-xs text-muted-foreground mt-2">Version {process.env.APP_VERSION || '0.11.1'}</p>
+            {/* CHANGED: Using NEXT_PUBLIC_ prefix for client-side environment variable */}
+            <p className="version-info text-xs text-muted-foreground mt-2">Version {process.env.NEXT_PUBLIC_APP_VERSION || '0.11.1'}</p>
           </div>
         </header>
 
-        {/* Adapted to use Tailwind for background, padding, margin, rounded corners */}
         <section className="workflow-diagram-section text-center py-12 md:py-16 my-8 md:my-12 bg-card text-card-foreground rounded-lg shadow-lg">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-10">The 4-Step Workflow to Your Next Job</h2>
           <div className="workflow-steps">
@@ -83,14 +77,11 @@ export const HowItWorksPage = () => {
           </div>
         </section>
 
-        {/* Adapted to use Tailwind for padding */}
         <section className="feature-deep-dive py-12 md:py-16">
-            <div className="feature"> {/* Feature class styling will be maintained from styled-jsx for now */}
+            <div className="feature">
                 <div className="feature-text">
-                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Foundation: Your Master Resume Profile</h3> {/* Tailwind typography */}
-                    <p>
-                        Your journey begins at your personal career headquarters. The Master Resume Profile is a comprehensive, structured database of your entire professional history.
-                    </p>
+                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Foundation: Your Master Resume Profile</h3>
+                    <p>Your journey begins at your personal career headquarters. The Master Resume Profile is a comprehensive, structured database of your entire professional history.</p>
                     <ul>
                         <li><strong>AI-Powered Start:</strong> Upload your existing resume PDF, and our Gemini-powered engine will parse and populate the fields for you.</li>
                         <li><strong>Total Control:</strong> Manually add, edit, and organize every detail—from work experience bullets to optional demographic information for faster applications.</li>
@@ -98,33 +89,22 @@ export const HowItWorksPage = () => {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                    {/* Simplified mockup of the resume profile page */}
-                    <div className="mockup-window">
+                    {/* CHANGED: Added `shadow-lg` class directly here */}
+                    <div className="mockup-window shadow-lg">
                         <div className="mockup-header">My Resume Profile</div>
                         <div className="mockup-content">
-                            <div className="form-group">
-                                <label>First Name</label>
-                                <div className="input-mock">Jane</div>
-                            </div>
-                            <div className="form-group">
-                                <label>Last Name</label>
-                                <div className="input-mock">Doe</div>
-                            </div>
-                            <div className="form-group">
-                                <label>Professional Summary</label>
-                                <div className="textarea-mock">Results-driven Senior...</div>
-                            </div>
+                            <div className="form-group"><label>First Name</label><div className="input-mock">Jane</div></div>
+                            <div className="form-group"><label>Last Name</label><div className="input-mock">Doe</div></div>
+                            <div className="form-group"><label>Professional Summary</label><div className="textarea-mock">Results-driven Senior...</div></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="feature reverse"> {/* Feature class styling will be maintained from styled-jsx for now */}
+            <div className="feature reverse">
                 <div className="feature-text">
-                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Magic Wand: AI-Powered Tailoring</h3> {/* Tailwind typography */}
-                    <p>
-                        Stop sending generic resumes. Our tailoring engine is the core of CareerSuite.AI, designed to make your application stand out for each specific role.
-                    </p>
+                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Magic Wand: AI-Powered Tailoring</h3>
+                    <p>Stop sending generic resumes. Our tailoring engine is the core of CareerSuite.AI, designed to make your application stand out for each specific role.</p>
                     <ul>
                         <li><strong>Context is King:</strong> The AI doesn't just look for keywords; it understands the context of the job description and your experience.</li>
                         <li><strong>Actionable Suggestions:</strong> See a side-by-side comparison of your original resume bullets and AI-optimized versions that highlight quantifiable results and relevant skills.</li>
@@ -132,8 +112,8 @@ export const HowItWorksPage = () => {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                     {/* Simplified mockup of the tailoring UI */}
-                    <div className="mockup-window panel-mockup">
+                    {/* CHANGED: Added `shadow-lg` class directly here */}
+                    <div className="mockup-window panel-mockup shadow-lg">
                         <div className="mockup-header">Resume Tailoring</div>
                         <div className="mockup-content">
                             <h4>Experience: Senior Developer</h4>
@@ -146,12 +126,10 @@ export const HowItWorksPage = () => {
                 </div>
             </div>
 
-            <div className="feature"> {/* Feature class styling will be maintained from styled-jsx for now */}
+            <div className="feature">
                 <div className="feature-text">
-                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Time Saver: Intelligent Autofill</h3> {/* Tailwind typography */}
-                    <p>
-                        Reclaim hours of tedious data entry. Our autofill engine is smarter than a simple password manager, built specifically for the complexities of job applications.
-                    </p>
+                    <h3 className="text-3xl font-semibold text-foreground mb-4">The Time Saver: Intelligent Autofill</h3>
+                    <p>Reclaim hours of tedious data entry. Our autofill engine is smarter than a simple password manager, built specifically for the complexities of job applications.</p>
                     <ul>
                         <li><strong>Programmatic First Pass:</strong> The engine first identifies and fills standard, easily-mappable fields (like name, email, phone).</li>
                         <li><strong>AI for Ambiguity:</strong> For complex, non-standard fields (like custom radio buttons or open-ended questions), the AI analyzes the form's HTML and your profile to make intelligent choices.</li>
@@ -159,39 +137,26 @@ export const HowItWorksPage = () => {
                     </ul>
                 </div>
                 <div className="feature-visual">
-                     {/* Simplified mockup of the autofill process */}
-                    <div className="mockup-window">
+                    {/* CHANGED: Added `shadow-lg` class directly here */}
+                    <div className="mockup-window shadow-lg">
                         <div className="mockup-header">Application Form</div>
                         <div className="mockup-content autofill-mock">
-                            <div className="form-group">
-                                <label>Full Name</label>
-                                <div className="input-mock filled">Jane Doe</div>
-                            </div>
-                            <div className="form-group">
-                                <label>Professional Summary</label>
-                                <div className="textarea-mock filled">Architected and launched...</div>
-                            </div>
-                            <div className="form-group">
-                                <label>Years of React Experience?</label>
-                                <div className="input-mock filled">5</div>
-                            </div>
+                            <div className="form-group"><label>Full Name</label><div className="input-mock filled">Jane Doe</div></div>
+                            <div className="form-group"><label>Professional Summary</label><div className="textarea-mock filled">Architected and launched...</div></div>
+                            <div className="form-group"><label>Years of React Experience?</label><div className="input-mock filled">5</div></div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </section>
 
-        {/* Footer section adapted to use Tailwind classes, similar to header */}
-        <footer className="text-center py-12 md:py-16 mt-8 md:mt-12 border-t border-border"> {/* Removed hero-section class, added Tailwind classes */}
+        <footer className="text-center py-12 md:py-16 mt-8 md:mt-12 border-t border-border">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">Ready to Land Your Dream Job?</h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8">
             Install CareerSuite.AI and transform your job application process today.
           </p>
-          <div className="inline-block"> {/* Replaced cta-container with inline-block */}
-            {/* Using Link component for navigation, styled as a button */}
+          <div className="inline-block">
             <Link href="/download" legacyBehavior passHref>
-              {/* Applied Tailwind classes for button styling directly, cta-button class can be simplified or removed if all styling is covered */}
               <a className="cta-button bg-primary hover:bg-primary/90 text-primary-foreground font-bold py-3 px-6 rounded-lg shadow-lg inline-flex items-center transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
                 <Icon path="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" className="w-6 h-6 mr-2" />
                 Get CareerSuite.AI Now
@@ -199,90 +164,58 @@ export const HowItWorksPage = () => {
             </Link>
           </div>
         </footer>
-        <style jsx>{`
-          /* Removed :root, body, .how-it-works-container, .hero-section global styles. */
-          /* Many properties from .hero-section (text-align, padding) are now directly on <header> and <footer> using Tailwind. */
-          /* Typography for h1, .subtitle in .hero-section is now directly on the elements using Tailwind. */
 
-          /* .cta-container is replaced by inline-block on its div or direct Tailwind on button if only one child. */
+        <style jsx>{`
+          /* Comments explaining removed global styles are good, leaving them. */
 
           .cta-button {
-            /* Basic structure and interaction - colors/padding/font are now primarily Tailwind */
-            /* background-color: hsl(var(--primary)); /* Example, if still needed */
-            /* color: hsl(var(--primary-foreground)); /* Example, if still needed */
-            border: none; /* Kept from original */
-            /* border-radius: 8px; /* from Tailwind rounded-lg */
-            /* padding: 16px 32px; /* from Tailwind py-3 px-6 (adjust if needed) */
-            /* font-size: 1.1rem; /* Tailwind text-base or text-lg */
-            /* font-weight: bold; /* Tailwind font-bold */
-            cursor: pointer; /* Kept */
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Kept */
-            /* display: inline-flex; /* Tailwind inline-flex */
-            /* align-items: center; /* Tailwind items-center */
-            /* justify-content: center; /* Tailwind justify-center */
-            /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
           }
 
-          /* .cta-button:hover { /* Tailwind hover:-translate-y-0.5 handles transform, shadow can be hover:shadow-xl */
-            /* transform: translateY(-2px); */
-            /* box-shadow: 0 6px 16px rgba(0,0,0,0.15); */
-          /* } */
-
-          /* .version-info styling is now direct Tailwind on the <p> tag. */
-
-          /* .w-6, .h-6, .mr-2 are utility classes, can be kept or fully replaced by Tailwind. Keeping for now if used by Icon. */
           .w-6 { width: 1.5rem; }
           .h-6 { height: 1.5rem; }
           .mr-2 { margin-right: 0.5rem; }
-
-          /* .workflow-diagram-section properties (text-align, padding, bg, radius, margin) are now on its <section> tag via Tailwind. */
-          /* .workflow-diagram-section h2 uses Tailwind. */
 
           .workflow-steps {
             display: flex;
             justify-content: center;
             align-items: center;
-            gap: 20px; /* Or Tailwind gap-5 */
+            gap: 20px;
             flex-wrap: wrap;
           }
 
           .step {
             flex: 1;
-            max-width: 220px; /* Consider Tailwind max-w-xs */
-            padding: 20px; /* Consider Tailwind p-5 */
-            /* Ensure text color for <p> inside step is appropriate, e.g., text-muted-foreground */
+            max-width: 220px;
+            padding: 20px;
           }
           .step p {
             color: hsl(var(--muted-foreground));
           }
 
           .step-icon {
-            background-color: hsl(var(--accent)); /* Using theme accent color */
-            color: hsl(var(--accent-foreground)); /* Corresponding foreground */
+            background-color: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
             width: 64px;
             height: 64px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 20px auto; /* Tailwind: mx-auto mb-5 */
+            margin: 0 auto 20px auto;
           }
-
-          .step-icon svg {
-            width: 32px;
-            height: 32px;
-          }
-
+          .step-icon svg { width: 32px; height: 32px; }
           .step h3 {
-            /* color: var(--header-color); /* Now text-foreground (or text-primary if desired) via Tailwind on h3 */
-            font-size: 1.2rem; /* Tailwind text-lg */
-            margin-bottom: 10px; /* Tailwind mb-2 or mb-3 */
-            color: hsl(var(--foreground)); /* Explicitly setting for cascade if needed */
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: hsl(var(--foreground));
           }
 
           .arrow {
-            font-size: 2.5rem; /* Tailwind text-4xl */
-            color: hsl(var(--accent)); /* Using theme accent */
+            font-size: 2.5rem;
+            color: hsl(var(--accent));
             font-weight: bold;
           }
 
@@ -291,25 +224,16 @@ export const HowItWorksPage = () => {
               .arrow { transform: rotate(90deg); margin: 0; }
           }
 
-          /* .feature-deep-dive padding is handled by Tailwind. */
-
           .feature {
               display: flex;
-              gap: 40px; /* Tailwind gap-10 */
+              gap: 40px;
               align-items: center;
-              margin-bottom: 80px; /* Tailwind mb-20 */
+              margin-bottom: 80px;
           }
-
-          .feature.reverse {
-              flex-direction: row-reverse;
-          }
-
-          .feature-text {
-              flex: 1;
-          }
-          /* .feature-text h3 uses Tailwind. */
+          .feature.reverse { flex-direction: row-reverse; }
+          .feature-text { flex: 1; }
           .feature-text p {
-            margin-bottom: 1rem; /* Tailwind mb-4 */
+            margin-bottom: 1rem;
             color: hsl(var(--muted-foreground));
           }
           .feature-text ul {
@@ -326,17 +250,15 @@ export const HowItWorksPage = () => {
               content: '✔';
               position: absolute;
               left: 0;
-              color: hsl(var(--primary)); /* Theme primary color */
+              color: hsl(var(--primary));
               font-weight: bold;
           }
-
           .feature-visual {
               flex: 1;
               display: flex;
               align-items: center;
               justify-content: center;
           }
-
           @media (max-width: 768px) {
               .feature, .feature.reverse {
                   flex-direction: column;
@@ -351,66 +273,58 @@ export const HowItWorksPage = () => {
           .mockup-window {
               background-color: hsl(var(--muted));
               border: 1px solid hsl(var(--border));
-              border-radius: 0.5rem; /* Tailwind rounded-lg */
-              box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); /* Replicate Tailwind shadow, e.g., shadow-lg */
+              border-radius: 0.5rem;
+              /* CHANGED: Removed the invalid box-shadow rule. This is now handled by the `shadow-lg` class in the JSX. */
               width: 100%;
               max-width: 450px;
           }
-
           .mockup-header {
               background-color: hsl(var(--border));
-              padding: 0.5rem 0.75rem; /* Tailwind p-2 px-3 */
+              padding: 0.5rem 0.75rem;
               font-weight: bold;
               border-bottom: 1px solid hsl(var(--border));
               color: hsl(var(--foreground));
           }
-
           .mockup-content {
-              padding: 1.25rem; /* Tailwind p-5 */
+              padding: 1.25rem;
               min-height: 200px;
               color: hsl(var(--foreground));
           }
-
-          .form-group { margin-bottom: 0.9375rem; text-align: left; } /* 15px */
-          .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3125rem; color: hsl(var(--foreground)); } /* 5px */
+          .form-group { margin-bottom: 0.9375rem; text-align: left; }
+          .form-group label { display: block; font-weight: 600; font-size: 0.9rem; margin-bottom: 0.3125rem; color: hsl(var(--foreground)); }
           .input-mock, .textarea-mock {
               background-color: hsl(var(--background));
               border: 1px solid hsl(var(--border));
-              padding: 0.625rem; /* Tailwind p-2.5 (10px) */
-              border-radius: 0.375rem; /* Tailwind rounded-md */
+              padding: 0.625rem;
+              border-radius: 0.375rem;
               width: 100%;
               box-sizing: border-box;
               color: hsl(var(--foreground));
           }
           .textarea-mock { min-height: 80px; }
-
           .panel-mockup {
             transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
             transition: transform 0.3s ease;
           }
           .panel-mockup:hover { transform: perspective(1000px) rotateY(0) rotateX(0); }
-
           .comparison-mock {
               text-align: left;
               border: 1px solid hsl(var(--border));
-              border-radius: 0.375rem; /* Tailwind rounded-md */
+              border-radius: 0.375rem;
               background: hsl(var(--card));
           }
-          .original-mock, .suggestion-mock { padding: 0.625rem; } /* 10px */
+          .original-mock, .suggestion-mock { padding: 0.625rem; }
           .suggestion-mock {
-            background-color: hsl(var(--primary) / 0.05); /* Lighter primary shade */
+            background-color: hsl(var(--primary) / 0.05);
             border-top: 1px solid hsl(var(--border));
-            color: hsl(var(--primary-foreground)); /* If primary is dark, text should be light */
+            color: hsl(var(--primary-foreground));
           }
-           /* Ensure text inside suggestion-mock is legible, might need different color if primary is light */
           .suggestion-mock p, .suggestion-mock strong {
-              color: hsl(var(--primary)); /* Or a darker shade if background is too light */
+              color: hsl(var(--primary));
           }
-
-
           .autofill-mock .filled {
               border: 2px solid hsl(var(--accent));
-              box-shadow: 0 0 5px hsl(var(--accent) / 0.5); /* Softer shadow */
+              box-shadow: 0 0 5px hsl(var(--accent) / 0.5);
               animation: pulse 1.5s infinite;
           }
           @keyframes pulse {
@@ -419,9 +333,9 @@ export const HowItWorksPage = () => {
               100% { opacity: 1; }
           }
         `}</style>
-    </div> {/* Closes the main container div */}
+    </div>
   );
-};
+}
 
 // It's good practice to export the component as default for Next.js pages
 export default HowItWorksPage;
