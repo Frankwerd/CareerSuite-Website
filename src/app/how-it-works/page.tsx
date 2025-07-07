@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Button } from "@/components/ui/button";
 
-// This helper component is no longer used on this page but can be kept for other parts of your site.
+// Helper component for SVG icons
 const Icon = ({ path, className }: { path: string, className?: string }) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className || 'w-6 h-6'}>
     <path fillRule="evenodd" d={path} clipRule="evenodd" />
@@ -33,7 +33,6 @@ const HowItWorksPage = () => {
           </p>
           <div className="inline-block">
             <Link href="/download">
-              {/* CHANGED: Removed the <Icon> component for a text-only button */}
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground transition-transform duration-200 ease-in-out hover:-translate-y-0.5">
                 Download for Chrome (Free)
               </Button>
@@ -73,15 +72,17 @@ const HowItWorksPage = () => {
         </section>
 
         {/* Feature Deep Dive Section */}
-        <section className="py-12 md:py-16 space-y-16">
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <section className="py-12 md:py-16 space-y-24">
+            {/* Feature 1 */}
+            {/* CHANGED: Replaced `items-center` with `md:items-start` for top alignment on desktop */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Foundation: Your Master Resume Profile</h3>
-                    <p className="text-muted-foreground mb-4">Your journey begins at your personal career headquarters...</p>
-                    <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI-Powered Start...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Total Control...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Stored Securely...</li>
+                    <p className="text-muted-foreground mb-4">Your journey begins at your personal career headquarters. The Master Resume Profile is a comprehensive, structured database of your entire professional history.</p>
+                    <ul className="list-none space-y-2 text-muted-foreground text-left inline-block">
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>AI-Powered Start: Upload your existing resume PDF, and our Gemini-powered engine will parse and populate the fields for you.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Total Control: Manually add, edit, and organize every detail—from work experience bullets to optional demographic information.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Stored Securely: All your profile data is stored locally in your browser's storage, never on our servers. You are in complete control.</span></li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -95,14 +96,17 @@ const HowItWorksPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-12">
+
+            {/* Feature 2 (Reversed Layout) */}
+            {/* CHANGED: Replaced `items-center` with `md:items-start` for top alignment on desktop */}
+            <div className="flex flex-col md:flex-row-reverse items-center md:items-start gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Magic Wand: AI-Powered Tailoring</h3>
-                    <p className="text-muted-foreground mb-4">Stop sending generic resumes...</p>
-                    <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Context is King...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Actionable Suggestions...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>ATS Score...</li>
+                    <p className="text-muted-foreground mb-4">Stop sending generic resumes. Our tailoring engine is the core of CareerSuite.AI, designed to make your application stand out for each specific role.</p>
+                    <ul className="list-none space-y-2 text-muted-foreground text-left inline-block">
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Context is King: The AI doesn't just look for keywords; it understands the context of the job description and your experience.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Actionable Suggestions: See a side-by-side comparison of your original resume bullets and AI-optimized versions that highlight results.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>ATS Score: Get an instant relevance score to understand how well your tailored resume aligns with the job before you even apply.</span></li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -110,7 +114,7 @@ const HowItWorksPage = () => {
                         <div className="bg-border p-2 px-3 font-semibold text-foreground">Resume Tailoring</div>
                         <div className="p-4 space-y-3 text-sm">
                             <h4 className="font-semibold text-foreground">Experience: Senior Developer</h4>
-                            <div className="border border-border rounded bg-card p-2 space-y-1">
+                            <div className="border border-border rounded bg-card p-2 space-y-1 text-left">
                                 <div><strong>Original:</strong><p className="text-muted-foreground">- Wrote code for the new user dashboard.</p></div>
                                 <div className="bg-primary/5 border-t border-border p-2 rounded mt-1">
                                   <strong className="text-primary">Suggestion (92%):</strong>
@@ -121,14 +125,17 @@ const HowItWorksPage = () => {
                     </div>
                 </div>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+
+            {/* Feature 3 */}
+            {/* CHANGED: Replaced `items-center` with `md:items-start` for top alignment on desktop */}
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-12">
                 <div className="md:w-1/2 text-center md:text-left">
                     <h3 className="text-3xl font-semibold text-foreground mb-4">The Time Saver: Intelligent Autofill</h3>
-                    <p className="text-muted-foreground mb-4">Reclaim hours of tedious data entry...</p>
-                    <ul className="list-none space-y-2 text-muted-foreground">
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Programmatic First Pass...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>AI for Ambiguity...</li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2">✔</span>Tailored or Master...</li>
+                    <p className="text-muted-foreground mb-4">Reclaim hours of tedious data entry. Our autofill engine is smarter than a simple password manager, built specifically for the complexities of job applications.</p>
+                    <ul className="list-none space-y-2 text-muted-foreground text-left inline-block">
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Programmatic First Pass: The engine first identifies and fills standard, easily-mappable fields (like name, email, phone).</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>AI for Ambiguity: For complex, non-standard fields, the AI analyzes the form's HTML and your profile to make intelligent choices.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Tailored or Master: Choose to autofill with your freshly tailored content for maximum impact, or use your Master Profile for general applications.</span></li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
@@ -152,7 +159,6 @@ const HowItWorksPage = () => {
           </p>
           <div className="inline-block">
             <Link href="/download" legacyBehavior>
-              {/* CHANGED: Removed the <Icon> component for a text-only button */}
               <a className="inline-flex h-12 items-center justify-center rounded-lg bg-primary px-6 py-3 text-lg font-bold text-primary-foreground shadow-lg transition-transform duration-200 ease-in-out hover:-translate-y-0.5 hover:bg-primary/90 no-underline">
                 Get CareerSuite.AI Now
               </a>
