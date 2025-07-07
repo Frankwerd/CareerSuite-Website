@@ -40,7 +40,7 @@ const HeroSection = () => {
         <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-2xl mx-auto">
           Instantly analyze your resume against any job description. Get expert feedback to beat the ATS,
           land more interviews, and secure your dream job. <br />
-          <strong className="text-foreground">Free, transparent data use, and no account needed.</strong>
+          <strong className="text-foreground">Free, transparent data use, and no account needed for core resume analysis.</strong>
         </p>
         <div className="space-x-4">
           <Button
@@ -103,7 +103,7 @@ const FeaturesSection = () => {
           <MagicCard className="cursor-pointer">
             <Zap className="h-12 w-12 text-primary mx-auto mb-4" />
             <h3 className="text-xl font-semibold text-foreground mb-2">Instant & Frictionless</h3>
-            <p className="text-muted-foreground text-sm">Get immediate insights without the need to create an account or go through lengthy sign-up processes.</p>
+            <p className="text-muted-foreground text-sm">Get immediate insights for core resume analysis without needing an account or lengthy sign-up.</p>
           </MagicCard>
         </div>
       </div>
@@ -140,7 +140,7 @@ const PricingSection = () => {
               <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> AI-Powered Resume vs. Job Description Analysis</li>
               <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Actionable Improvement Suggestions</li>
               <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> Advanced AI Analysis with Data Transparency (via Google Cloud)</li>
-              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> No Account or Sign-Up Needed</li>
+              <li className="flex items-center"><CheckCircle className="h-6 w-6 text-green-500 mr-3 flex-shrink-0" /> No Account Needed for Core Analysis</li>
             </ul>
             <Button
               size="lg"

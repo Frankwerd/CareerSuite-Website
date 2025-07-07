@@ -107,7 +107,7 @@ const HowItWorksPage = () => {
                     <ul className="list-none space-y-2 text-muted-foreground text-left inline-block">
                         <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>AI-Powered Start: Upload your existing resume PDF, and our Gemini-powered engine (via Google Cloud) will parse and populate the fields for you.</span></li>
                         <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Total Control: Manually add, edit, and organize every detail—from work experience bullets to optional demographic information.</span></li>
-                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Stored Securely & Transparently: Your Master Resume Profile data and settings are stored locally in your browser. Text from your resume and job descriptions for specific AI analysis is processed via Google's Gemini API. You own your inputs and outputs. See our <Link href="/privacy" className="underline">Privacy Policy</Link>.</span></li>
+                        <li className="flex items-start"><span className="text-primary font-bold mr-2 mt-1">✔</span><span>Stored Securely & Transparently: Your Master Resume Profile is always stored locally in your browser. When you perform an AI analysis, relevant text from your resume and the job description is securely sent to Google's Gemini API for processing. You own your inputs and outputs. See our <Link href="/privacy" className="underline">Privacy Policy</Link>.</span></li>
                     </ul>
                 </div>
                 <div className="md:w-1/2">
