@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
     <div className="container mx-auto px-4 py-12 min-h-[calc(100vh-10rem)]"> {/* Adjust min-h as needed */}
       <h1 className="text-3xl font-bold text-foreground mb-6">Terms of Service for CareerSuite.ai</h1>
       <div className="prose dark:prose-invert max-w-none">
-        {/* The JS will automatically fill in today's date */}
+        {/* The JS will automatically fill in the current date */}
         <p><em>Last Updated: {new Date().toLocaleDateString()}</em></p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">1. Agreement to Terms</h2>
@@ -34,7 +34,7 @@ export default function TermsOfServicePage() {
         <h2 className="text-2xl font-semibold mt-6 mb-3">3. Changes to Terms or Services</h2>
         <p>
           We may modify the Terms at any time, in our sole discretion. If we do so, we’ll let you know
-          by posting the modified Terms on this page or through other communications. It’s important that you review the Terms whenever we modify them because if you continue
+          by posting the modified Terms on this page or through other communications. It’s important that you review the Terms whenever we modify them. If you continue
           to use the Service after we have posted modified Terms, you are indicating to us that you agree to be
           bound by the modified Terms. We may also change or discontinue all or any part of the Service, at any time and without notice, at our sole discretion.
         </p>
@@ -63,18 +63,21 @@ export default function TermsOfServicePage() {
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">6. User Content and Intellectual Property</h2>
-        <p>
-          <strong>Your Content:</strong> You retain all ownership rights to the content you provide to the Service, including your resume and job description data ("Input Content").
-        </p>
-        <p>
-          <strong>Our Service:</strong> We and our licensors exclusively own all right, title, and interest in and to the Service, including all associated intellectual property rights. You may not use our name, logo (including the "Pencil Rocket"), or other proprietary information without our express written consent.
-        </p>
-        <p>
-          <strong>License to Process Your Content:</strong> By using the Service, you grant us (and our third-party AI provider, Google) a limited, non-exclusive, worldwide, royalty-free license to use, process, and transmit your Input Content for the sole purpose of providing the Service's features to you. This license is necessary for the AI to analyze your data and generate tailored outputs.
-        </p>
-        <p>
-          <strong>Ownership of AI Output:</strong> You own the rights to the specific tailored resume, cover letter, or other text generated for you by the Service ("Output Content"). You are free to use this Output Content for your personal and professional purposes.
-        </p>
+        {/* This section is now a bulleted list for better readability */}
+        <ul>
+            <li>
+                <strong>Your Content:</strong> You retain all ownership rights to the content you provide to the Service, including your resume and job description data ("Input Content").
+            </li>
+            <li>
+                <strong>Our Service:</strong> We and our licensors exclusively own all right, title, and interest in and to the Service, including all associated intellectual property rights. You may not use our name, logo (including the "Pencil Rocket"), or other proprietary information without our express written consent.
+            </li>
+            <li>
+                <strong>License to Process Your Content:</strong> By using the Service, you grant us (and our third-party AI provider, Google) a limited, non-exclusive, worldwide, royalty-free license to use, process, and transmit your Input Content for the sole purpose of providing the Service's features to you. This license is necessary for the AI to analyze your data and generate tailored outputs.
+            </li>
+            <li>
+                <strong>Ownership of AI Output:</strong> You own the rights to the specific tailored resume, cover letter, or other text generated for you by the Service ("Output Content"). You are free to use this Output Content for your personal and professional purposes.
+            </li>
+        </ul>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">7. Third-Party Services</h2>
         <p>
