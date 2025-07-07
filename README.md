@@ -37,13 +37,16 @@ At CareerSuite.ai, our mission is to empower job seekers by providing instant, e
 ## Tech Stack 💻
 
 CareerSuite.ai (and its promotional website) is built with modern technologies:
-
-*   **Framework:** Next.js (React)
-*   **Language:** TypeScript
-*   **Styling:** Tailwind CSS
-*   **AI Integration:** Vercel AI SDK, OpenAI (or other models for analysis)
-*   **Deployment:** Vercel (for the website)
-*   **Extension Platform:** Chrome Extension (Manifest V3)
+<!-- Badges -->
+<p align="center">
+  <img src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" alt="Next.js"/>
+  <img src="https://img.shields.io/badge/react-%2320232A.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="React"/>
+  <img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"/>
+  <img src="https://img.shields.io/badge/tailwind%20css-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS"/>
+  <img src="https://img.shields.io/badge/Vercel%20AI%20SDK-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel AI SDK"/>
+  <img src="https://img.shields.io/badge/OpenAI-412991?style=for-the-badge&logo=openai&logoColor=white" alt="OpenAI"/>
+  <img src="https://img.shields.io/badge/Chrome%20Extension-Manifest%20V3-1A73E8?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Chrome Extension"/>
+</p>
 
 ## Running Locally (Website) 🌐
 
