@@ -199,44 +199,7 @@ export const HowItWorksPage = () => {
             </Link>
           </div>
         </footer>
-        <style jsx>{`
-          /* Removed :root, body, .how-it-works-container, .hero-section global styles. */
-          /* Many properties from .hero-section (text-align, padding) are now directly on <header> and <footer> using Tailwind. */
-          /* Typography for h1, .subtitle in .hero-section is now directly on the elements using Tailwind. */
-
-          /* .cta-container is replaced by inline-block on its div or direct Tailwind on button if only one child. */
-
-          .cta-button {
-            /* Basic structure and interaction - colors/padding/font are now primarily Tailwind */
-            /* background-color: hsl(var(--primary)); /* Example, if still needed */
-            /* color: hsl(var(--primary-foreground)); /* Example, if still needed */
-            border: none; /* Kept from original */
-            /* border-radius: 8px; /* from Tailwind rounded-lg */
-            /* padding: 16px 32px; /* from Tailwind py-3 px-6 (adjust if needed) */
-            /* font-size: 1.1rem; /* Tailwind text-base or text-lg */
-            /* font-weight: bold; /* Tailwind font-bold */
-            cursor: pointer; /* Kept */
-            transition: transform 0.2s ease, box-shadow 0.2s ease; /* Kept */
-            /* display: inline-flex; /* Tailwind inline-flex */
-            /* align-items: center; /* Tailwind items-center */
-            /* justify-content: center; /* Tailwind justify-center */
-            /* box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* Tailwind shadow-lg */
-          }
-
-          /* .cta-button:hover { /* Tailwind hover:-translate-y-0.5 handles transform, shadow can be hover:shadow-xl */
-            /* transform: translateY(-2px); */
-            /* box-shadow: 0 6px 16px rgba(0,0,0,0.15); */
-          /* } */
-
-          /* .version-info styling is now direct Tailwind on the <p> tag. */
-
-          /* .w-6, .h-6, .mr-2 are utility classes, can be kept or fully replaced by Tailwind. Keeping for now if used by Icon. */
-          .w-6 { width: 1.5rem; }
-          .h-6 { height: 1.5rem; }
-          .mr-2 { margin-right: 0.5rem; }
-
-          /* .workflow-diagram-section properties (text-align, padding, bg, radius, margin) are now on its <section> tag via Tailwind. */
-          /* .workflow-diagram-section h2 uses Tailwind. */
+        <style jsx>{
 
           .workflow-steps {
             display: flex;
