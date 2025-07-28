@@ -62,7 +62,7 @@ const HowItWorksPage = () => {
                 Download for Chrome (Free)
               </Button>
             </Link>
-            <p className="text-xs text-muted-foreground mt-2">Version {process.env.NEXT_PUBLIC_APP_VERSION || '0.11.1'}</p>
+            <p className="text-xs text-muted-foreground mt-2">Version {process.env.NEXT_PUBLIC_APP_VERSION || '1.3.1'}</p>
           </div>
         </header>
 
