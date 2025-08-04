@@ -21,14 +21,10 @@ export default function DownloadPage() {
         variant="download" // Apply download variant
         className="text-lg px-8 py-6" // Removed redundant bg/text/hover classes
         onClick={() => window.open(extensionLink, '_blank')}
-        disabled={extensionLink === "https://chrome.google.com/webstore/your-extension-id"} // Disable if link is placeholder
       >
         <ChromeIcon className="mr-3 h-6 w-6" />
         Add to Chrome for FREE
       </Button>
-      {extensionLink === "https://chrome.google.com/webstore/your-extension-id" && (
-        <p className="text-sm text-red-500 mt-2">(Download link coming soon!)</p>
-      )}
 
       <div className="mt-12 text-left max-w-lg mx-auto space-y-6">
         <h2 className="text-2xl font-semibold text-foreground mb-6 text-center">Why CareerSuite.ai?</h2>
