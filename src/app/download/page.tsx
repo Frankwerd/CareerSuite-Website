@@ -6,7 +6,7 @@ import { DownloadCloud, ChromeIcon, CheckCircle, ShieldCheck } from 'lucide-reac
 
 export default function DownloadPage() {
   // IMPORTANT: Replace with your actual Chrome Web Store extension link
-  const extensionLink = "https://chrome.google.com/webstore/your-extension-id"; // Placeholder - UPDATE THIS
+  const extensionLink = "https://chromewebstore.google.com/detail/careersuiteai/aoeffnegpkjeleckamfblhgcmhnmioaa"; // Placeholder - UPDATE THIS
 
   return (
     <div className="container mx-auto px-4 py-12 text-center min-h-[calc(100vh-10rem)]">
