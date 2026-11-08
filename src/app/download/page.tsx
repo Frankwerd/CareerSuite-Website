@@ -3,6 +3,7 @@
 
 import { Button } from '@/components/ui/button';
 import { DownloadCloud, ChromeIcon, CheckCircle, ShieldCheck } from 'lucide-react'; // Added ShieldCheck for privacy
+import { InactiveProjectModal } from '@/components/InactiveProjectModal';
 
 export default function DownloadPage() {
   // IMPORTANT: Replace with your actual Chrome Web Store extension link
@@ -10,6 +11,7 @@ export default function DownloadPage() {
 
   return (
     <div className="container mx-auto px-4 py-12 text-center min-h-[calc(100vh-10rem)]">
+      <InactiveProjectModal />
       <DownloadCloud className="h-24 w-24 text-primary mx-auto mb-6" />
       <h1 className="text-4xl font-bold text-foreground mb-4">Download CareerSuite.ai <span className="text-xl text-primary">FREE</span></h1>
       <p className="text-xl text-muted-foreground mb-8 max-w-lg mx-auto">
