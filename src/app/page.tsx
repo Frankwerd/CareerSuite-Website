@@ -8,6 +8,7 @@ import { MagicCard } from '@/components/magicui/magic-card';
 import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimation';
 import useScrollFadeIn from '@/hooks/useScrollFadeIn';
 import { cn } from '@/lib/utils';
+import { InactiveProjectModal } from '@/components/InactiveProjectModal';
 
 const HeroSection = () => {
   const [ref, isVisible] = useScrollFadeIn<HTMLElement>();
@@ -244,6 +245,7 @@ const CallToActionSection = () => {
 export default function HomePage() {
   return (
     <>
+      <InactiveProjectModal />
       <HeroSection />
       <FeaturesSection />
       <PricingSection />
