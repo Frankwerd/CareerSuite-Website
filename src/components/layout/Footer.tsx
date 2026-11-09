@@ -28,6 +28,20 @@ const Footer = () => {
               <li><Link href="/privacy" className="hover:text-primary">Privacy Policy</Link></li>
               <li><Link href="/tos" className="hover:text-primary">Terms of Service</Link></li>
             </ul>
+            {/* MAINTAINER NOTE: GitHub Repository link placeholder in footer */}
+            <h4 className="font-semibold text-foreground mt-4 mb-2">Source Code</h4>
+            <ul className="space-y-1 text-sm">
+              <li>
+                <a
+                  href="https://github.com/Frankwerd/CareerSuite-Website"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary"
+                >
+                  GitHub Repository
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-4 text-center text-sm">

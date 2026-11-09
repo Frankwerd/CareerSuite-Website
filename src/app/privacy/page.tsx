@@ -11,7 +11,31 @@ export default function PrivacyPolicyPage() {
       <h1 className="text-3xl font-bold text-foreground mb-6">Privacy Policy for CareerSuite.ai</h1>
       <div className="prose dark:prose-invert max-w-none">
         
-        <p><em>Last Updated: July 7, 2025</em></p>
+        <p><em>Last Updated: {new Date().toLocaleDateString()}</em></p>
+
+        <div className="my-6 rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 not-prose">
+          <h2 className="text-lg font-bold text-amber-600 dark:text-amber-400 mb-2">
+            Important Notice: Project Discontinuation & Deprecation
+          </h2>
+          <p className="text-sm text-foreground mb-3">
+            CareerSuite.ai has been officially discontinued and will not be moving forward. As always, CareerSuite.ai never collected, stored, or possessed any central server database of user resumes, passwords, or personal data.
+          </p>
+          <p className="text-xs text-muted-foreground mb-3">
+            If you previously used our browser extension or Google Apps Script, any data entered was stored locally on your own device browser storage or directly in your personal Google account. You may clear your browser data or uninstall the extension at any time.
+          </p>
+          {/* MAINTAINER NOTE: GitHub Repository Section */}
+          <div className="pt-2 border-t border-amber-500/20 text-sm">
+            <span className="font-semibold text-foreground">Project Source Code: </span>
+            <a
+              href="https://github.com/Frankwerd/CareerSuite-Website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline font-medium hover:text-primary/80"
+            >
+              https://github.com/Frankwerd/CareerSuite-Website
+            </a>
+          </div>
+        </div>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">Our Commitment to Your Privacy & Data Sovereignty</h2>
         <p>

@@ -14,15 +14,36 @@ export default function TermsOfServicePage() {
         {/* The JS will automatically fill in the current date */}
         <p><em>Last Updated: {new Date().toLocaleDateString()}</em></p>
 
+        <div className="my-6 rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 not-prose">
+          <h2 className="text-lg font-bold text-amber-600 dark:text-amber-400 mb-2">
+            Important Notice: Project Discontinuation & Sunset
+          </h2>
+          <p className="text-sm text-foreground mb-3">
+            CareerSuite.ai is officially discontinued and is no longer available as an active service. Development and active maintenance have ended, and we do not plan on moving forward with this project. Any remaining source code and materials are provided strictly on an "AS-IS" archival basis without warranty or ongoing service level agreements.
+          </p>
+          {/* MAINTAINER NOTE: GitHub Repository Section */}
+          <div className="pt-2 border-t border-amber-500/20 text-sm">
+            <span className="font-semibold text-foreground">Project Source Code: </span>
+            <a
+              href="https://github.com/Frankwerd/CareerSuite-Website"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline font-medium hover:text-primary/80"
+            >
+              https://github.com/Frankwerd/CareerSuite-Website
+            </a>
+          </div>
+        </div>
+
         <h2 className="text-2xl font-semibold mt-6 mb-3">1. Agreement to Terms</h2>
         <p>
           By accessing or using the CareerSuite.ai browser extension (the "Service"), you agree to be bound by these Terms of Service ("Terms").
           If you disagree with any part of the terms, then you may not access the Service.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">2. Description of Service</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">2. Description of Service & Discontinuation</h2>
         <p>
-          CareerSuite.ai is a software tool that provides an interface to third-party Artificial Intelligence services (specifically, Google's Gemini API) to analyze job descriptions and user-provided resume data. The Service is designed to provide actionable feedback, tailored content suggestions, cover letter drafts, and autofill capabilities to assist in the job application process.
+          CareerSuite.ai was designed as a software tool that provides an interface to third-party Artificial Intelligence services (specifically, Google's Gemini API) to analyze job descriptions and user-provided resume data. <strong>Please be advised that the Service has been discontinued and is no longer actively maintained or supported.</strong>
         </p>
         <p>
           The core AI processing of your resume and job description content requires that this data be sent to Google's servers to generate a response. We do not store this content on our own servers. For more details, please see our <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>.
@@ -84,10 +105,9 @@ export default function TermsOfServicePage() {
           The Service's core AI functionality is dependent on the Google Gemini API. Your use of the Service constitutes your agreement to be bound by Google's applicable terms, which may include the <a href="https://developers.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google APIs Terms of Service</a> and <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">Google's Privacy Policy</a>. Features requiring Google Sign-In are also subject to the terms of your Google Account.
         </p>
 
-        <h2 className="text-2xl font-semibold mt-6 mb-3">8. Termination</h2>
+        <h2 className="text-2xl font-semibold mt-6 mb-3">8. Termination & Sunset of Service</h2>
         <p>
-          We may terminate or suspend your access to the Service, at our sole discretion,
-          at any time and without notice to you, for any reason, including if you violate these Terms.
+          We have discontinued active operation and support of the Service. We reserve the right to completely sunset, take offline, or terminate any remaining functionality, assets, or web properties at any time without further notice.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">9. Disclaimers</h2>
