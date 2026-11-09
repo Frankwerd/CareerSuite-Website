@@ -2,29 +2,58 @@
 'use client'; // Add this directive
 
 import { Button } from '@/components/ui/button';
-import { DownloadCloud, ChromeIcon, CheckCircle, ShieldCheck } from 'lucide-react'; // Added ShieldCheck for privacy
+import { DownloadCloud, CheckCircle, ShieldCheck, AlertTriangle, Github, ExternalLink } from 'lucide-react';
 
 export default function DownloadPage() {
-  // IMPORTANT: Replace with your actual Chrome Web Store extension link
-  const extensionLink = "https://chromewebstore.google.com/detail/careersuiteai/aoeffnegpkjeleckamfblhgcmhnmioaa"; // Placeholder - UPDATE THIS
+  // IMPORTANT: Replace with your actual GitHub code link
+  const githubLink = "https://github.com/Frankwerd/CareerSuite-Website";
 
   return (
     <div className="container mx-auto px-4 py-12 text-center min-h-[calc(100vh-10rem)]">
-      <DownloadCloud className="h-24 w-24 text-primary mx-auto mb-6" />
-      <h1 className="text-4xl font-bold text-foreground mb-4">Download CareerSuite.ai <span className="text-xl text-primary">FREE</span></h1>
+      {/* Notice Banner */}
+      <div className="mb-8 max-w-2xl mx-auto rounded-lg border border-amber-500/40 bg-amber-500/10 p-4 text-left">
+        <div className="flex items-start gap-3">
+          <AlertTriangle className="h-6 w-6 text-amber-500 shrink-0 mt-0.5" />
+          <div>
+            <h2 className="font-semibold text-foreground text-base">Project Discontinued</h2>
+            <p className="text-sm text-muted-foreground mt-1">
+              CareerSuite.ai is no longer available and is no longer being actively maintained or developed.
+            </p>
+            {/* MAINTAINER NOTE: Section to link GitHub code */}
+            <div className="mt-3">
+              <a
+                href={githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+              >
+                <Github className="h-4 w-4" />
+                Access Source Code on GitHub
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <DownloadCloud className="h-24 w-24 text-muted-foreground/60 mx-auto mb-6" />
+      <h1 className="text-4xl font-bold text-foreground mb-4">CareerSuite.ai <span className="text-xl text-muted-foreground">(Archived)</span></h1>
       <p className="text-xl text-muted-foreground mb-8 max-w-lg mx-auto">
-        Get the CareerSuite.ai Chrome extension to analyze your resume against job descriptions instantly, with transparent data handling.
+        This project is no longer available. You can view or fork the source code repository on GitHub.
       </p>
 
-      <Button
-        size="lg"
-        variant="download" // Apply download variant
-        className="text-lg px-8 py-6" // Removed redundant bg/text/hover classes
-        onClick={() => window.open(extensionLink, '_blank')}
-      >
-        <ChromeIcon className="mr-3 h-6 w-6" />
-        Add to Chrome for FREE
-      </Button>
+      <div className="flex flex-wrap justify-center gap-4">
+        {/* MAINTAINER NOTE: GitHub Repository Button */}
+        <Button
+          size="lg"
+          variant="outline"
+          className="text-lg px-8 py-6 gap-2"
+          onClick={() => window.open(githubLink, '_blank')}
+        >
+          <Github className="h-5 w-5" />
+          View GitHub Repository
+        </Button>
+      </div>
 
       <div className="mt-12 text-left max-w-lg mx-auto space-y-6">
         <h2 className="text-2xl font-semibold text-foreground mb-6 text-center">Why CareerSuite.ai?</h2>

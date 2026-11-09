@@ -8,6 +8,30 @@ import { MagicCard } from '@/components/magicui/magic-card';
 import ConnectingLinesAnimation from '@/components/magicui/ConnectingLinesAnimation';
 import useScrollFadeIn from '@/hooks/useScrollFadeIn';
 import { cn } from '@/lib/utils';
+import DiscontinuedNoticeModal from '@/components/DiscontinuedNoticeModal';
+import { AlertTriangle, Github, ExternalLink } from 'lucide-react';
+
+const DiscontinuedBanner = () => {
+  return (
+    <div className="bg-amber-500/15 border-b border-amber-500/30 px-4 py-3 text-center">
+      <div className="container mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 text-sm text-foreground">
+        <span className="inline-flex items-center gap-1.5 font-semibold text-amber-600 dark:text-amber-400">
+          <AlertTriangle className="h-4 w-4" /> Notice:
+        </span>
+        <span>This project is no longer available and is no longer being actively developed.</span>
+        {/* Placeholder section for maintainer's GitHub link */}
+        <a
+          href="https://github.com/Frankwerd/CareerSuite-Website"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1 font-semibold text-primary underline ml-1 hover:text-primary/80"
+        >
+          <Github className="h-3.5 w-3.5" /> View on GitHub <ExternalLink className="h-3 w-3" />
+        </a>
+      </div>
+    </div>
+  );
+};
 
 const HeroSection = () => {
   const [ref, isVisible] = useScrollFadeIn<HTMLElement>();
@@ -244,6 +268,8 @@ const CallToActionSection = () => {
 export default function HomePage() {
   return (
     <>
+      <DiscontinuedNoticeModal />
+      <DiscontinuedBanner />
       <HeroSection />
       <FeaturesSection />
       <PricingSection />
